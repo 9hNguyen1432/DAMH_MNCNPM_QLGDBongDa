@@ -1,6 +1,6 @@
 class HomePageController{
     index(req,res){
-        res.render('home')
+        res.render('login')
     }
 }
 
