@@ -1,3 +1,75 @@
-<div class="alert alert-primary" role="alert">
-  <h1>HEADER</h1>
+<style>
+  .navbar{
+    max-width: 800px;
+    
+  }
+  .logo{
+    height: 70px;
+    width: 100px;
+  }
+
+  div
+  {
+    background-color: #121120;
+    
+  }
+
+  .nav a
+  {
+    color: white;
+    background-color: #8268E9 !important;
+    text-transform: uppercase;
+    margin: 5px 5px;
+  }
+
+
+
+  #sign-in,
+  #sign-up
+  {
+    height: 30px;
+    text-decoration: none;
+    color: white;
+    margin: 0 15px;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100px;
+    text-align: center;
+  }
+  .line
+  {
+    border-right: 3px solid white;
+    height: 30px;
+  }
+  #sign-up
+  {
+    color: black;
+  }
+
+</style>
+
+
+
+<div class="d-flex justify-content-between">
+  <div class="logo h-60">
+    <img src="/public/imgs/logo.png" alt="">
+  </div>
+
+  <div class="navbar">
+    <nav class="nav nav-pills flex-column flex-sm-row justify-content-between">
+      <a class="flex-sm-fill text-sm-center nav-link" aria-current="page" href="#">Lịch thi đấu</a>
+      <a class="flex-sm-fill text-sm-center nav-link" href="#">Bảng xếp hạng</a>
+      <a class="flex-sm-fill text-sm-center nav-link" href="#">Bảng kết quả</a>
+      <a class="flex-sm-fill text-sm-center nav-link" href="#">Các đội bóng</a>
+      <a class="flex-sm-fill text-sm-center nav-link" href="#">Bình chọn</a>
+    </nav>
+  </div>
+
+  <div class="navbar sign d-flex">
+      <a id="sign-in" class="bg-danger" aria-current="page" href="#">Đăng nhập</a>
+      <div class="line"></div>
+      <a id="sign-up" class="bg-light" href="#">Đăng ký</a>
+  </div>
+
 </div>
+
