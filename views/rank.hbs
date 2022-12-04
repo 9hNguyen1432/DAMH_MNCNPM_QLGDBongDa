@@ -1,0 +1,44 @@
+    <table class="table table-striped">
+        <thead>
+            <tr class="bg-primary">
+            <th scope="col-1">ID</th>
+            <th scope="col-1">First</th>
+            <th scope="col-1">Last</th>
+            <th scope="col-3">Email</th>
+            <th scope="col-3">Avatar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr v-for = "person in store.persons" @click = "$emit('select',person.id)">
+                <th scope="row">{{person.id}}</th>
+                <td>{{person.first}}</td>
+                <td>{{person.last}}</td>
+                <td>{{person.email}}</td>
+                <td>
+                    <img :src="person.avatar" :alt="person.id">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination" @click = "load">
+            <li class="btn page-item p-0 m-0" @click = "loadPage(0)">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li class="btn page-item p-0 m-0" @click = "loadPage(1)"><a  class="page-link" href="#">1</a></li>
+            <li class="btn page-item p-0 m-0" @click = "loadPage(2)" ><a class="page-link" href="#">2</a></li>
+            <li class="btn page-item p-0 m-0" @click = "loadPage(3)" ><a class="page-link" href="#">3</a></li>
+            <li class="btn page-item p-0 m-0" @click = "loadPage(4)" ><a class="page-link" href="#">4</a></li>
+            <li class="btn page-item p-0 m-0" @click = "loadPage(5)"><a  class="page-link" href="#">5</a></li>
+            <li class="btn page-item p-0 m-0" @click = "loadPage(6)"><a  class="page-link" href="#">6</a></li>
+            <li class="btn page-item p-0 m-0" @click = "loadPage(7)">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>

@@ -1,5 +1,21 @@
+
 html{
     height: 100%;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.logo{
+  height: 50px;
+  width: 50px;
+  background-color: brown;
+}
+
+.logo img{
+  overflow: hidden;
 }
 
 body {
