@@ -1,0 +1,85 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.logo{
+  height: 50px;
+  width: 50px;
+  background-color: brown;
+}
+
+.logo img{
+  overflow: hidden;
+}
+
+
+body {
+    background: #007bff;
+    background: linear-gradient(to bottom, #372554, #042134);
+  }
+  
+  .btn-login {
+    font-size: 0.9rem;
+    letter-spacing: 0.05rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .btn-google {
+    color: white !important;
+    background-color: #ea4335;
+  }
+  
+  .btn-facebook {
+    color: white !important;
+    background-color: #3b5998;
+  }
+
+  .navbar{
+    max-width: 800px;
+    
+  }
+  .logo{
+    height: 70px;
+    width: 100px;
+  }
+
+.header{
+  background-color: rgb(10, 9, 38);
+}
+
+  .nav a
+  {
+    color: white;
+    background-color: #8268E9 !important;
+    text-transform: uppercase;
+    margin: 5px 5px;
+  }
+
+
+
+  #sign-in,
+  #sign-up
+  {
+    height: 30px;
+    text-decoration: none;
+    color: white;
+    margin: 0 15px;
+    padding: 5px;
+    border-radius: 10px;
+    width: 100px;
+    text-align: center;
+  }
+  .line
+  {
+    border-right: 3px solid white;
+    height: 30px;
+  }
+  #sign-up
+  {
+    color: black;
+  }
+
+  img{
+    max-height: 100%;
+  }
