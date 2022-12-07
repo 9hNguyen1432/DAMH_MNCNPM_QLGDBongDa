@@ -1,8 +1,11 @@
 const express = require("express");
 const handlebars = require("express-handlebars");
-const homeRouter = require('./routers/app.r.js');
 const path = require('path')
 
+
+// Router
+const appRoute = require('./routers/app.r.js');
+// End Router
 
 const app = express();
 const port = 3000;
@@ -16,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 require("./config/hbs")(app);
 
 // ROUTE
-app.use('/', homeRouter)
+appRoute(app)
 // END ROUTE
 
 

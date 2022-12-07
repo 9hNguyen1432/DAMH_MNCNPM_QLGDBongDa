@@ -1,6 +1,6 @@
 class HomePageController{
     index(req,res){
-        res.render('rank')
+        res.render('giaodienchinh')
     }
 }
 
