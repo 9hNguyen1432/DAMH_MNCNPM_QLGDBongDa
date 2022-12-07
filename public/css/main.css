@@ -73,7 +73,7 @@ body {
   margin: 0;
   padding: 0;
 }
-.nav a
+.nav .acustom
 {
   color: white;
   background-color: #8268E9;
@@ -88,16 +88,6 @@ body {
   cursor: pointer;
   color: yellowgreen;
 }
-
-  .nav .acustom 
-  {
-    color: white;
-    background-color: #8268E9 !important;
-    text-transform: uppercase;
-    margin: 5px 5px;
-  }
-
-
 
 
   .line
@@ -141,5 +131,9 @@ body {
     background-color: whitesmoke !important;
     color: black !important;
     margin-left: 10px !important;
+  }
+
+  .p-100{
+    padding-top: 100px;
   }
 
