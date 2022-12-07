@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="row">
+
+        <h5 class="headerBody center-horizontal">LỊCH THI ĐẤU</h5>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-19 col-lg-8 mx-auto">
+
+            <div class="card border-0 shadow rounded-3 mb-5">
+                <div class="row">
+                    <div class="col-sm-5 my-auto mx-auto">
+                        <div class="row mx-auto">
+                            <img class="rounded"
+                                src="https://www.thesportsdb.com/images/media/league/poster/4l48le1583781288.jpg"
+                                alt="">
+                        </div>
+                    </div>
+                    <div class="col-sm-7 border-start">
+                        <div class="card-body p-4 p-sm-5">
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
+                                        aria-selected="true">21/11</button>
+                                    {{!-- aria-selected="true">{{day1}}</button> --}}
+                                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-profile" type="button" role="tab"
+                                        aria-controls="nav-profile" aria-selected="false">22/11</button>
+                                    {{!-- aria-selected="false">{{day2}}</button> --}}
+                                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+                                        data-bs-target="#nav-contact" type="button" role="tab"
+                                        aria-controls="nav-contact" aria-selected="false">23/11</button>
+                                    {{!-- aria-selected="false">{{day3}}</button> --}}
+
+                                </div>
+                            </nav>
+                            <div class="tab-content" id="nav-tabContent">
+                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                    aria-labelledby="nav-home-tab">{{>renderDSTranDau}}
+                                    {{>renderDSTranDau}}{{>renderDSTranDau}}{{>renderDSTranDau}}
+                                </div>
+                                <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                    aria-labelledby="nav-profile-tab">
+                                    {{>renderDSTranDau}}</div>
+                                <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                    aria-labelledby="nav-contact-tab">
+                                    {{>renderDSTranDau}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

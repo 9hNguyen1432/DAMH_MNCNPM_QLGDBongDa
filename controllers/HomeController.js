@@ -1,6 +1,7 @@
 class HomePageController{
     index(req,res){
-        res.render('registerUser')
+        res.render("dangkygiaidau")
+
     }
 }
 

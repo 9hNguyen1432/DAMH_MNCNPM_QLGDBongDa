@@ -39,7 +39,7 @@ body {
     background-color: #3b5998;
   }
 
-  .navbar{
+  .navbarcustom{
     max-width: 800px;
     
   }
@@ -52,7 +52,7 @@ body {
   background-color: rgb(10, 9, 38);
 }
 
-  .nav a
+  .nav .acustom 
   {
     color: white;
     background-color: #8268E9 !important;
@@ -87,3 +87,22 @@ body {
   img{
     max-height: 100%;
   }
+
+  .headerBody{
+    font-size: 30px;
+    color: white;
+    background-color: rgb(36, 106, 203);
+    width: 350px;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 15px;
+    display: block;
+}
+.center-horizontal
+    {
+        margin: auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
+        
+    }
