@@ -15,6 +15,9 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 require("./config/hbs")(app);
 
+// ROUTE
 app.use('/', homeRouter)
+// END ROUTE
+
 
 app.listen (port, () => console.log(`Example app listening at http://localhost:${port}`));
