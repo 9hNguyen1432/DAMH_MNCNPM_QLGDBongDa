@@ -1,0 +1,31 @@
+{
+  "name": "damh_mncnpm_qlgdbongda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --inspect index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heoquaycutekhung/DAMH_MNCNPM_QLGDBongDa.git"
+  },
+  "keywords": [
+    "quanlybongda",
+    "fithcmus",
+    "mncnpm"
+  ],
+  "author": "Chinh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heoquaycutekhung/DAMH_MNCNPM_QLGDBongDa/issues"
+  },
+  "homepage": "https://github.com/heoquaycutekhung/DAMH_MNCNPM_QLGDBongDa#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "nodemon": "^2.0.20"
+  }
+}
