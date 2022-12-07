@@ -22,6 +22,12 @@ body {
     background: #007bff;
     background: linear-gradient(to right, #372554, #042134);
   }
+
+.background-dark
+{
+  background: #007bff;
+  background: linear-gradient(to right, #372554, #042134);
+}
   
   .btn-login {
     font-size: 0.9rem;
@@ -41,7 +47,7 @@ body {
 
   .navbarcustom{
     max-width: 800px;
-    
+    background-color:  rgb(10, 9, 38);;
   }
   .logo{
     height: 70px;
@@ -50,6 +56,37 @@ body {
 
 .header{
   background-color: rgb(10, 9, 38);
+}
+.navbar li
+{
+  background-color: #8268E9;
+  border-radius: 10px;
+  margin: 0 4px;
+
+}
+
+.navbar li a
+{
+  color: white;
+}
+.nav{
+  margin: 0;
+  padding: 0;
+}
+.nav a
+{
+  color: white;
+  background-color: #8268E9;
+  text-transform: uppercase;
+  margin: 2px 2px;
+  border-radius: 5px;
+  padding: 8px 4px;
+  font-size: 18px;
+}
+
+.nav a:hover{
+  cursor: pointer;
+  color: yellowgreen;
 }
 
   .nav .acustom 
@@ -62,26 +99,11 @@ body {
 
 
 
-  #sign-in,
-  #sign-up
-  {
-    height: 30px;
-    text-decoration: none;
-    color: white;
-    margin: 0 15px;
-    padding: 5px;
-    border-radius: 10px;
-    width: 100px;
-    text-align: center;
-  }
+
   .line
   {
     border-right: 3px solid white;
     height: 30px;
-  }
-  #sign-up
-  {
-    color: black;
   }
 
   img{
@@ -106,3 +128,18 @@ body {
         margin-bottom: 50px;
         
     }
+
+  .sign a{
+    font-size: 12px;
+  }
+  .sign-in{
+    background-color: #ea4335 !important;
+    margin-right: 10px !important;
+  }
+
+  .sign-up{
+    background-color: whitesmoke !important;
+    color: black !important;
+    margin-left: 10px !important;
+  }
+
