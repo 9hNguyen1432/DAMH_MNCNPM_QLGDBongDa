@@ -5,6 +5,10 @@ const routes = require('./routers');
 const path = require('path')
 const session = require('express-session');
 
+// Router
+//const appRoute = require('./routers/app.r.js');
+// End Router
+
 const app = express();
 const port = 3000;
 

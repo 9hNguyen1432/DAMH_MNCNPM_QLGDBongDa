@@ -1,40 +1,60 @@
 
-<div class="d-flex justify-content-between header">
+<div class="d-flex justify-content-between header position-fixed" style="width:
+  100%;">
   <div class="logo h-60">
     <a href="/">
     <img src="/imgs/logo.png" alt="" >
     </a>
   </div>
 
-  <div class="navbar">
-    <nav class="nav nav-pills flex-column flex-sm-row justify-content-between">
-      <a class="flex-sm-fill text-sm-center nav-link" aria-current="page" href="#">Lịch thi đấu</a>
-      <a class="flex-sm-fill text-sm-center nav-link" href="#">Bảng xếp hạng</a>
-      <a class="flex-sm-fill text-sm-center nav-link" href="#">Bảng kết quả</a>
-      <a class="flex-sm-fill text-sm-center nav-link" href="#">Các đội bóng</a>
-      <a class="flex-sm-fill text-sm-center nav-link" href="#">Bình chọn</a>
-    </nav>
-  </div>
+  <nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid navbar">
+      <div class="collapse navbar-collapse navbar" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active acustom" aria-current="page" href="/">LỊCH THI ĐẤU</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active acustom" aria-current="page" href="/rank">BẢNG XẾP
+              HẠNG</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active acustom" aria-current="page" href="/result">CÁC KẾT QUẢ
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active acustom" aria-current="page" href="/listclubs">CÁC ĐỘI BÓNG</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active acustom" aria-current="page" href="#">BÌNH CHỌN
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active acustom" aria-current="page" href="/searchFootballPlayer">CẦU THỦ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
 {{#if fullname}}
 <div class="navbar navbar-expand-lg">
-    <img 
-      style="border-radius: 50%; width:40px; height:40px; border: 1px solid white"
-      src="https://th.bing.com/th/id/OIP.lsaqXiF1qoA0lNGxssv4dQHaFy?pid=ImgDet&rs=1"
-      alt="">
+  <img style="border-radius: 50%; width:40px; height:40px; border: 1px solid white"
+    src="https://th.bing.com/th/id/OIP.lsaqXiF1qoA0lNGxssv4dQHaFy?pid=ImgDet&rs=1" alt="">
 
-    <div style="color: white; margin:0 15px" class="nameUser">{{fullname}}</div>
-  </div>
+  <div style="color: white; margin:0 15px" class="nameUser">{{fullname}}</div>
+</div>
 {{else}}
-  <div class="navbar sign d-flex">
-      <a id="sign-in" class="bg-danger" aria-current="page" href="/auth/login" >Đăng nhập</a>
-      <div class="line"></div>
-      <a id="sign-up" class="bg-light" href="/auth/register">Đăng ký</a>
+<div class="navbar sign d-flex">
+  <div class="container-fluid nav">
+    <a id="sign-in" class="navbar-brand sign-in acustom" aria-current="page" href="/auth/login">Đăng nhập</a>
+    <div class="line"></div>
+    <a id="sign-up" class="navbar-brand sign-up acustom" href="/auth/register">Đăng ký</a>
   </div>
+</div>
 
 {{/if}}
 
-
-
 </div>
+
 

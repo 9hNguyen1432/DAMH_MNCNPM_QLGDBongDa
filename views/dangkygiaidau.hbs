@@ -1,28 +1,108 @@
 <div class="container">
   <div class="row">
-    <div class="col-3"></div>
-    <form class="col-6">
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control input-layout" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
-      </div>
-      <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-      </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <div class="col-5  mx-auto ">
+      <h5 class="text-center rounded-3 py-3 mt-3 text-light" style="background-color: rgb(36, 106, 203); display: block;
+">ĐĂNG KÍ THAM GIA GIẢI ĐẤU</h5>
+    </div>
+
   </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-19 col-lg-10 mx-auto">
+      <div class="card border-0 shadow rounded-3 my-5">
+        <div class="card-body p-4 p-sm-5">
+          <form class="row g-3">
+            <div class="col-12 form-floating mb-3">
+              <input type="text" class="form-control" id="inputCLB" placeholder="Tên câu lạc bộ">
+              <label for="inputCLB" class="form-label">Tên câu lạc bộ</label>
+              <div class="invalid-feedback">
+                Please provide a valid zip.
+              </div>
+            </div>
+            <div class="mb-3">
 
+              <label for="fileLG" class="form-label">Logo</label>
+              <input class="form-control  form-floating" type="file" id="fileLG">
+            </div>
+
+
+            <div class="col-12 form-floating mb-3">
+              <input type="text" class="form-control" id="inputFullName" placeholder="Họ và tên">
+              <label for="inputFullName" class="form-label">Họ và tên</label>
+            </div>
+
+            <fieldset class="row mb-3">
+              <legend class="col-form-label">Danh sách cầu thủ:</legend>
+              <div class="col-md-3 mb-2 my-auto">
+                <label for="btntaimau" class="form-label">Tải mẫu</label>
+                <button type="button" class="form-control btn btn-primary" id="btntaimau">Tải mẫu (.csv)</button>
+              </div>
+              <div class="col-md-5 mb-2 my-auto  mx-auto">
+                <label for="fileDS" class="form-label">Tải danh sách lên</label>
+                <input class="form-control  form-floating" type="file" id="fileDS">
+              </div>
+
+
+              <div class="col-md-3 mb-2  my-auto">
+                <button type="button" class="form-control btn btn-primary" id="btnpreview">Xem trước</button>
+              </div>
+            </fieldset>
+
+            {{!-- xu lý hiện cầu thủ nếu prevew --}}
+            <div class="card mt-2">
+              <div class="card-header">
+                <div class="row">
+                  <div class="col-sm-2 my-auto">
+                    <div class=" row">
+                      <p>Hình Ảnh</p>
+                    </div>
+                  </div>
+                  <div class="col-sm-2  border-end my-auto">
+                    CMND/CCCD
+                  </div>
+                  <div class="col-sm-3  border-start my-auto">
+                    Họ tên
+                  </div>
+                  <div class="col-sm-2 border-start border-end my-auto">
+                    Ngày sinh
+                  </div>
+                  <div class="col-sm-3  mx-auto my-auto">
+                    Quê quán
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="card-body mt-1">
+                <div class="row">
+                  <div class="col-sm-2 my-auto">
+                    <div class=" row">
+                      <img src="https://upload.wikimedia.org/wikipedia/vi/4/43/Binh_Dinh_FC_logo.svg" alt="">
+                    </div>
+                  </div>
+                  <div class="col-sm-2  border-end my-auto">
+                    <p>20120320</p>
+                  </div>
+                  <div class="col-sm-3  border-start my-auto">
+                    <p>Nguyễn Hữu Chính</p>
+                  </div>
+                  <div class="col-sm-2 border-start border-end my-auto">
+                    <p>14/03/2002</p>
+                  </div>
+                  <div class="col-sm-3  mx-auto my-auto">
+                    <p>Thế Thạnh 2 - Ân Thạnh - Hoài Ân - Bình Định</p>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="d-grid">
+              <button name="login" value="login" class="btn btn-primary btn-login text-uppercase fw-bold"
+                type="submit">ĐĂNG KÝ</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<style>
-  .input-layout{
-
-  }
-
-</style>
