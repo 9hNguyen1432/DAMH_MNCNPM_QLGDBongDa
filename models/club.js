@@ -3,9 +3,10 @@ const database = firebase.database();
 
 class Club
 {
-    constructor(id,name, stadium,coach,captain)
+    constructor(id,logo,name, stadium,coach,captain)
     {
         this.id =id;
+        this.logo = logo;
         this.name=name
         this.stadium=stadium
         this.coach = coach;
@@ -13,6 +14,7 @@ class Club
     }
 
     async addClub(club){
+        await this.setID();
         return await database.ref("clubs").child(club.id).set(club);
     }
 
@@ -32,11 +34,22 @@ class Club
            club = childSnapshot.val();
       }
       });
-  });
-  return club;
-  }
+    });
+    return club;
+    }
+    async getAllClub(){
+        var club = [];
+        await database.ref('clubs').once('value', (snapshot) => {
+        var temp = snapshot.forEach((childSnapshot) => {
+             club.push(childSnapshot.val());
+        });
+    });
+        return club;
+    }
     
 }
+
+module.exports = new Club
 
 
 // async function getData(){

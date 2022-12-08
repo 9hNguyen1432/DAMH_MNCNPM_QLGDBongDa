@@ -1,7 +1,8 @@
 
 class HomePageController{
     index(req,res){
-        res.render('home')
+        var user = req.session.user
+        res.render('home',{user});
     }
 }
 

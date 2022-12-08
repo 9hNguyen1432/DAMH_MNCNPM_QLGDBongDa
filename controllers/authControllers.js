@@ -5,10 +5,13 @@ class authControllers{
     ShowPagelogin(req, res){
         res.render('login');
     }
+
+    ShowPageRegister(req,res){
+        res.render('registerUser')
+    }
     async logIn(req, res, next){
         const {username , password} = req.body;
         var rememberPasswordCheck = req.body.checkstatus
-
         // if(rememberPasswordCheck!=null){
         //     console.log('ajhsjads')
         // }else{
@@ -47,7 +50,7 @@ class authControllers{
                 else{
                     errors.push("Đăng nhập thất bại.")
                 }
-              return  res.render('login',{layout:'main_logined.hbs',data:{username,password}});
+              return  res.render('login',{username,password});
 
             }else{
                 
@@ -55,8 +58,6 @@ class authControllers{
 
                 req.session.regenerate(function (err) {
                     if (err) next(err)
-                
-                    // store user information in session, typically a user id
                     req.session.user = {
                         ...user,
                     };
@@ -68,6 +69,41 @@ class authControllers{
                 })
             }
            
+        }
+    }
+    async register(req, res, next){
+        const {email,password,repass, fullname, birthday,gender,role} =req.body;
+        let errors =[];
+        if(!email||!password||!fullname||!birthday||!gender||!role||!repass){
+            errors.push("Vui lòng điền đầy đủ thông tin.")
+        if(password.length<6)
+            errors.push("Mật khẩu không được bé hơn 6 kí tự.")
+        }
+        if(password!=repass){
+            errors.push("Mật khẩu không trùng khớp.")
+        }
+        if(errors.length>0){
+            return res.render('registerUser',{email,password,repass, fullname, birthday,gender,role,errors})
+        }
+        else{
+            var rs  = await account.createACcount(email,password);
+            var result = rs[0];
+            var uID = rs[1];
+            if(!result){
+                if(uID =='auth/email-already-in-use'){
+                    errors.push("Email đã được đăng kí.")
+                }else if(uID =='auth/invalid-email'){
+                    errors.push("Email không đúng định dạng.")
+                }else{
+                    errors.push("Đăng kí không thành công.")
+                }
+                return res.render('registerUser',{email,password,repass, fullname, birthday,gender,role,errors})
+            }else{
+                const user =new User.constructor(uID,email,fullname,birthday,gender,role);
+                console.log(user)
+                await User.addUser(user);
+                return res.redirect('/auth/login');
+            }
         }
     }
 }

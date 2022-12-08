@@ -11,7 +11,7 @@ const Account =
         return temp = await firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
             user = userCredential.user;
-            var id = user.uID;
+            var id = user.uid;
             return [true,id]
         })
         .catch((error) => {
@@ -24,13 +24,13 @@ const Account =
         return temp = await firebase.auth().createUserWithEmailAndPassword(email, password)
             .then((userCredential) => {
               var user = userCredential.user;
-              console.log(user.getId());
+              var id = user.uid;
+                return [true,id]
               
             })
             .catch((error) => {
               var errorCode = error.code;
-              var errorMessage = error.message;
-              // ..
+              return [false,errorCode]
             });
     }
 
