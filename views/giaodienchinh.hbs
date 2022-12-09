@@ -15,7 +15,7 @@
                 padding: 10px; border-radius: 15px; margin-top: 30px"
                 class="text-center">
                 <div class="text-center" style="color: rgb(255, 255,
-                        255);">{{this.time}}</div>
+                    255);">{{this.time}}</div>
                 <div class="text-center" style="color: red;">{{this.timeRunning}}</div>
                 <div class="text-center d-flex justify-content-between"
                     style="color: white;">
@@ -28,24 +28,6 @@
                     <div>{{this.goal_2}}</div>
                 </div>
             </div>
-
-
-            {{!-- <div style="width: 300px; margin: auto; background-color:
-                #222035;
-                padding: 10px; border-radius: 15px; margin-top: 30px"
-                class="text-center">
-                <div class="text-center" style="color: red;">69:69</div>
-                <div class="text-center d-flex justify-content-between"
-                    style="color: white;">
-                    <div>Việt theo</div>
-                    <div>1</div>
-                </div>
-                <div class="text-center d-flex justify-content-between"
-                    style="color: white;">
-                    <div>Thanh Hóa </div>
-                    <div>10</div>
-                </div>
-            </div> --}}
             {{/each}}
         </div>
     </div>
@@ -61,54 +43,35 @@
         </div>
 
         <div style="margin: auto; width: 800px">
-            {{#each tomorow}}
-            <div class="d-flex justify-content-between">
-                <div style=" margin-top: 30px">
-                    <div class="text-center" style="color: rgb(255, 255,
-                        255);">16h00 PM</div>
+
+            <div class="d-flex justify-content-between row row-cols-2">
+                {{#each match2}}
+                <div class="justify-content-center d-flex" style=" margin-top:
+                    30px;">
+
                     <div style="width: 300px; background-color: #222035;
-                        padding: 10px; border-radius: 15px; padding-top:
-                        30px"
+                        padding: 10px; border-radius: 15px;"
                         class="text-center">
+                        <div class="text-center" style="color: rgb(255, 255,
+                            255);">{{this.time}}</div>
                         <div class="text-center d-flex
                             justify-content-between"
-                            style="color: white;">
-                            <div>Hoàng Anh Gia Lai</div>
-                            <div>N/A </div>
+                            style="color: white; padding-top:
+                            15px">
+                            <div>{{this.club_1}}</div>
+                            <div>{{this.goal_1}} </div>
                         </div>
                         <div class="text-center d-flex
                             justify-content-between"
                             style="color: white;">
-                            <div>Hà Nội</div>
-                            <div>N/A</div>
+                            <div>{{this.club_2}}</div>
+                            <div>{{this.goal_2}}</div>
                         </div>
                     </div>
                 </div>
 
-
-                <div style=" margin-top: 30px">
-                    <div class="text-center" style="color: rgb(253, 253,
-                        253);">16h00 PM</div>
-                    <div style="width: 300px; background-color: #222035;
-                        padding: 10px; border-radius: 15px; padding-top:
-                        30px"
-                        class="text-center">
-                        <div class="text-center d-flex
-                            justify-content-between"
-                            style="color: white;">
-                            <div>Hoàng Anh Gia Lai</div>
-                            <div>N/A </div>
-                        </div>
-                        <div class="text-center d-flex
-                            justify-content-between"
-                            style="color: white;">
-                            <div>Hà Nội</div>
-                            <div>N/A</div>
-                        </div>
-                    </div>
-                </div>
+                {{/each}}
             </div>
-            {{/each}}
 
         </div>
     </div>

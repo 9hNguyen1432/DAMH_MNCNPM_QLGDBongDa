@@ -20,32 +20,54 @@
                         <div class="card-body p-4 p-sm-5">
                             <nav>
                                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    {{#if today}}
                                     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
-                                        aria-selected="true">21/11</button>
+                                        aria-selected="true">{{today}}</button>
+                                    {{/if}}
                                     {{!-- aria-selected="true">{{day1}}</button> --}}
+                                    {{#if nextday}}
                                     <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-profile" type="button" role="tab"
-                                        aria-controls="nav-profile" aria-selected="false">22/11</button>
+                                        aria-controls="nav-profile" aria-selected="false">{{nextday}}</button>
+                                    {{/if}}
                                     {{!-- aria-selected="false">{{day2}}</button> --}}
+                                    {{#if nextNextDay}}
                                     <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-contact" type="button" role="tab"
-                                        aria-controls="nav-contact" aria-selected="false">23/11</button>
+                                        aria-controls="nav-contact" aria-selected="false">{{nextNextDay}}</button>
+                                    {{/if}}
                                     {{!-- aria-selected="false">{{day3}}</button> --}}
 
                                 </div>
                             </nav>
                             <div class="tab-content" id="nav-tabContent">
+                                {{#if today}}
                                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                    aria-labelledby="nav-home-tab">{{>renderDSTranDau}}
-                                    {{>renderDSTranDau}}{{>renderDSTranDau}}{{>renderDSTranDau}}
+                                    aria-labelledby="nav-home-tab">
+                                    {{#each match1}}
+                                        {{>renderDSTranDau this}}
+                                    {{/each}}
                                 </div>
+                                {{/if}}
+
+                                {{#if nextday}}
                                 <div class="tab-pane fade" id="nav-profile" role="tabpanel"
                                     aria-labelledby="nav-profile-tab">
-                                    {{>renderDSTranDau}}</div>
+                                    {{#each match2}}
+                                        {{>renderDSTranDau this}}
+                                    {{/each}}
+                                    </div>
+                                {{/if}}
+
+                                {{#if nextNextDay}}
                                 <div class="tab-pane fade" id="nav-contact" role="tabpanel"
                                     aria-labelledby="nav-contact-tab">
-                                    {{>renderDSTranDau}}</div>
+                                    {{#each match2}}
+                                        {{>renderDSTranDau this}}
+                                    {{/each}}
+                                </div>
+                                {{/if}}
                             </div>
                         </div>
                     </div>

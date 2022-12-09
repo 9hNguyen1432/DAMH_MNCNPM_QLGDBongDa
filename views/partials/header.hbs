@@ -11,25 +11,31 @@
       <div class="collapse navbar-collapse navbar" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active acustom" aria-current="page" href="/">LỊCH THI ĐẤU</a>
+            <a class="nav-link active acustom" aria-current="page" href="/">LỊCH
+              THI ĐẤU</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active acustom" aria-current="page" href="/rank">BẢNG XẾP
+            <a class="nav-link active acustom" aria-current="page" href="/rank">BẢNG
+              XẾP
               HẠNG</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active acustom" aria-current="page" href="/result">CÁC KẾT QUẢ
+            <a class="nav-link active acustom" aria-current="page"
+              href="/result">CÁC KẾT QUẢ
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active acustom" aria-current="page" href="/listclubs">CÁC ĐỘI BÓNG</a>
+            <a class="nav-link active acustom" aria-current="page"
+              href="/listclubs">CÁC ĐỘI BÓNG</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active acustom" aria-current="page" href="#">BÌNH CHỌN
+            <a class="nav-link active acustom" aria-current="page" href="#">BÌNH
+              CHỌN
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active acustom" aria-current="page" href="/searchFootballPlayer">CẦU THỦ</a>
+            <a class="nav-link active acustom" aria-current="page"
+              href="/searchFootballPlayer">CẦU THỦ</a>
           </li>
         </ul>
       </div>
@@ -37,18 +43,35 @@
   </nav>
 
   {{#if fullname}}
-  <div class="navbar navbar-expand-lg">
-    <img style="border-radius: 50%; width:40px; height:40px; border: 1px solid white"
-      src="https://th.bing.com/th/id/OIP.lsaqXiF1qoA0lNGxssv4dQHaFy?pid=ImgDet&rs=1" alt="">
-
-    <div style="color: white; margin:0 15px" class="nameUser">{{fullname}}</div>
+  <div class="navbar navbar-expand-lg" style="margin-right: 35px;">
+    <div class="dropdown">
+      <a href="#" class="d-flex align-items-center text-white
+        text-decoration-none dropdown-toggle" id="dropdownUser1"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://github.com/mdo.png" alt="hugenerd" width="30"
+          height="30" class="rounded-circle">
+        <span class="d-none d-sm-inline mx-1">{{fullname}}</span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow"
+        aria-labelledby="dropdownUser1">
+        <li><a class="dropdown-item" href="#">New project...</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li><a class="dropdown-item" href="#">Sign out</a></li>
+      </ul>
+    </div>
   </div>
   {{else}}
   <div class="navbar sign d-flex">
     <div class="container-fluid nav">
-      <a id="sign-in" class="navbar-brand sign-in acustom" aria-current="page" href="/auth/login">Đăng nhập</a>
+      <a id="sign-in" class="navbar-brand sign-in acustom" aria-current="page"
+        href="/auth/login">Đăng nhập</a>
       <div class="line"></div>
-      <a id="sign-up" class="navbar-brand sign-up acustom" href="/auth/register">Đăng ký</a>
+      <a id="sign-up" class="navbar-brand sign-up acustom"
+        href="/auth/register">Đăng ký</a>
     </div>
   </div>
 

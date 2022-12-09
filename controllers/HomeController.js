@@ -3,7 +3,6 @@ const Match = require('../models/Match')
 
 class HomePageController{
     async index(req,res){
-
         const date = await Match.getDateNotFinish();
         const today = date[0];
         const nextday = date[1];
