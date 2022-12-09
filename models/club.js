@@ -3,7 +3,7 @@ const database = firebase.database();
 
 class Club
 {
-    constructor(id,logo,name, stadium,coach,captain)
+    constructor(id,logo,name, stadium,coach,captain,score,description)
     {
         this.id =id;
         this.logo = logo;
@@ -11,6 +11,8 @@ class Club
         this.stadium=stadium
         this.coach = coach;
         this.captain = captain;
+        this.score = score;
+        this.description = description;
     }
 
     async addClub(club){
@@ -49,7 +51,6 @@ class Club
     
 }
 
-module.exports = new Club
 
 
 // async function getData(){

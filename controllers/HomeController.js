@@ -1,10 +1,18 @@
+const Match = require('../models/Match')
+
 
 class HomePageController{
-    index(req,res){
-        var user = req.session.user
-       // res.render('home',{user});
+    async index(req,res){
 
-        res.render('giaodienchinh')
+        const date = await Match.getDateNotFinish();
+        const today = date[0];
+        const nextday = date[1];
+        await Match.updateMatchIsRunning()
+
+        const match1 = await Match.getMatchByDate(today)
+        const match2 = await Match.getMatchByDate(nextday)
+        var user = req.session.user
+        res.render('giaodienchinh',{user,today,match1,nextday,match2})
 
     }
 }
