@@ -4,6 +4,7 @@ const searchPlayerRouter = require('./searchPlayerRouter.r')
 const rankRouter = require('./rankRouter.r')
 const listclubsRouter = require('./listclubsRouter.r')
 const resultRouter = require('./resultRouter.r')
+const manageRouter = require('./manageRouter.r')
 
 
 function route(app){
@@ -12,6 +13,7 @@ function route(app){
     app.use('/rank', rankRouter)
     app.use('/listclubs', listclubsRouter)
     app.use('/result', resultRouter)
+    app.use('/manage', manageRouter)
     app.use('/', homeRouter);
 
 }

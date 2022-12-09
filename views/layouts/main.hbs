@@ -20,7 +20,20 @@
 
 <body>
     {{>header user}}
+    {{#if author}}
+    <div class="container-fluid">
+        <div class="row flex-nowrap">
+            {{>sidebar}}
+            <div class="col mx-auto">
+                {{{body}}}
+            </div>
+        </div>
+    </div>
+    {{else}}
     {{{body}}}
+    {{/if}}
+
+
 </body>
 
 

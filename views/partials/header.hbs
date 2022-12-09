@@ -1,9 +1,8 @@
-
 <div class="d-flex justify-content-between header position-fixed" style="width:
-  100%;">
+  100%; z-index: 10">
   <div class="logo h-60">
     <a href="/">
-    <img src="/imgs/logo.png" alt="" >
+      <img src="/imgs/logo.png" alt="">
     </a>
   </div>
 
@@ -37,24 +36,22 @@
     </div>
   </nav>
 
-{{#if fullname}}
-<div class="navbar navbar-expand-lg">
-  <img style="border-radius: 50%; width:40px; height:40px; border: 1px solid white"
-    src="https://th.bing.com/th/id/OIP.lsaqXiF1qoA0lNGxssv4dQHaFy?pid=ImgDet&rs=1" alt="">
+  {{#if fullname}}
+  <div class="navbar navbar-expand-lg">
+    <img style="border-radius: 50%; width:40px; height:40px; border: 1px solid white"
+      src="https://th.bing.com/th/id/OIP.lsaqXiF1qoA0lNGxssv4dQHaFy?pid=ImgDet&rs=1" alt="">
 
-  <div style="color: white; margin:0 15px" class="nameUser">{{fullname}}</div>
-</div>
-{{else}}
-<div class="navbar sign d-flex">
-  <div class="container-fluid nav">
-    <a id="sign-in" class="navbar-brand sign-in acustom" aria-current="page" href="/auth/login">Đăng nhập</a>
-    <div class="line"></div>
-    <a id="sign-up" class="navbar-brand sign-up acustom" href="/auth/register">Đăng ký</a>
+    <div style="color: white; margin:0 15px" class="nameUser">{{fullname}}</div>
   </div>
+  {{else}}
+  <div class="navbar sign d-flex">
+    <div class="container-fluid nav">
+      <a id="sign-in" class="navbar-brand sign-in acustom" aria-current="page" href="/auth/login">Đăng nhập</a>
+      <div class="line"></div>
+      <a id="sign-up" class="navbar-brand sign-up acustom" href="/auth/register">Đăng ký</a>
+    </div>
+  </div>
+
+  {{/if}}
+
 </div>
-
-{{/if}}
-
-</div>
-
-
