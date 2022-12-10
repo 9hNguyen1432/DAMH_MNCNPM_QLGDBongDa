@@ -1,5 +1,6 @@
 const firebase = require('../config/database/config.js');
 const database = firebase.database();
+const storageRef = firebase.storage().ref();
 
 class Club
 {
@@ -48,7 +49,25 @@ class Club
     });
         return club;
     }
-    
+    async uploadLogo(uri){
+      var urlImage;
+      var ref = storageRef.child(Date.gettime().toString() + '.png')
+        await ref.put(uri).then((snapshot)=>
+        {
+          var temp = ref.getDownloadURL().then((url)=>{
+              urlImage += url.toString();
+          }).catch((error)=>{
+
+          })
+        })
+
+      return urlImage;
+    }
+    async setLogo(uri){
+      const urlImage = await this.uploadLogo(uri);
+      this.logo = urlImage;
+      return await this.addClub(this);
+    }
 }
 
 
