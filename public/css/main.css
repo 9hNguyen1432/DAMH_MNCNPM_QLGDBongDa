@@ -57,7 +57,7 @@ body {
 .header{
   background-color: rgb(10, 9, 38);
 }
-.navbar li
+.navbar .nav-item
 {
   background-color: #8268E9;
   border-radius: 10px;

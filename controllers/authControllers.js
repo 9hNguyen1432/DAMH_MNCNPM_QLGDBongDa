@@ -11,12 +11,8 @@ class authControllers{
     }
     async logIn(req, res, next){
         const {username , password} = req.body;
-        var rememberPasswordCheck = req.body.checkstatus
-        // if(rememberPasswordCheck!=null){
-        //     console.log('ajhsjads')
-        // }else{
-        //     console.log('asfdvahsdjhasdga')
-        // }
+        //var rememberPasswordCheck = req.body.checkstatus
+
         
         let errors =[]
 
@@ -99,12 +95,17 @@ class authControllers{
                 }
                 return res.render('registerUser',{email,password,repass, fullname, birthday,gender,role,errors})
             }else{
-                const user =new User.constructor(uID,email,fullname,birthday,gender,role);
+                const user =new User.constructor(uID,email,fullname,birthday,gender,role,fasle);
                 console.log(user)
                 await User.addUser(user);
                 return res.redirect('/auth/login');
             }
         }
+    }
+
+    logout(req, res, next){
+        req.session.destroy();
+        res.redirect('/auth/login');
     }
 }
 

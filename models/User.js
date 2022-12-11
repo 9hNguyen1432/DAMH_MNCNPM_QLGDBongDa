@@ -1,7 +1,7 @@
 const firebase = require('../config/database/config.js');
 const database = firebase.database();
 class User{
-    constructor(id,email, fullname, birthdate, gender, role)
+    constructor(id,email, fullname, birthdate, gender, role,author)
     {
         this.id =id;
         this.email=email
@@ -9,6 +9,7 @@ class User{
         this.birthdate=birthdate
         this.gender=gender
         this.role=role
+        this.author = author;
        
     }
 

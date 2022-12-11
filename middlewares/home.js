@@ -1,9 +1,17 @@
-function isAuthenticated (req, res, next) {
+function isAdmin (req, res, next) {
     if (req.session.user){
-       return res.render('home',{layout:'main_logined.hbs'})
-
+      if(req.session.user.author)  
+        return res.redirect('/manage');
     }
-    return next();
+    return next()
 }
 
-module.exports = isAuthenticated
+function notAdmin(req, res, next){
+  if (req.session.user){
+    if(req.session.user.author)  
+      return next()
+  }
+  return res.redirect('/auth/login')
+}
+
+module.exports = {isAdmin,notAdmin}
