@@ -57,8 +57,9 @@ class Club
         return club;
     }
     async uploadLogo(uri){
+      var d = new Date
       var urlImage;
-      var ref = storageRef.child(Date.gettime().toString() + '.png')
+      var ref = storageRef.child(d.getTime().toString() + '.png')
         await ref.put(uri).then((snapshot)=>
         {
           var temp = ref.getDownloadURL().then((url)=>{

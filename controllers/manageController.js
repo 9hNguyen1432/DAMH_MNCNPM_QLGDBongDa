@@ -1,4 +1,6 @@
 const Match = require('../models/Match')
+const Club = require('../models/Club')
+
 
 class manageController{
 
@@ -20,6 +22,14 @@ class manageController{
     renderRClub(req, res){
         var obj = {author: true}
         res.render('dangkygiaidau',obj)
+    }
+
+    async registerClub(req, res)
+    {
+       
+        const file = req.file;
+        const url = await Club.uploadLogo(file)
+        console.log(url)
     }
     renderCreateLeauge(req, res){
         var obj = {author: true}

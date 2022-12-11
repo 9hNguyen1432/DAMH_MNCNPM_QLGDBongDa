@@ -1,6 +1,6 @@
 class resultController{
     index(req,res){
-        res.render('danhsachtrandau')
+        res.render('ketquacactrandau')
     }
 }
 

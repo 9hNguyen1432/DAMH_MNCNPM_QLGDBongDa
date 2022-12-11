@@ -19,6 +19,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 require("./config/hbs")(app);
 
+
+
 const oneDay = 1000 * 60 * 60 * 24;
 app.set('trust proxy', 1) // trust first proxy
 app.use(session({
@@ -27,6 +29,7 @@ app.use(session({
     saveUninitialized: true,
     cookie: { maxAge: oneDay  }
 }))
+
 
 routes(app)
 
