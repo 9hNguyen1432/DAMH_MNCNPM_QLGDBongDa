@@ -1,8 +1,8 @@
-const firebase = require('../config/database/config.js');
-const database = firebase.database();
-const storageRef = firebase.storage().ref();
+// const firebase = require('../config/database/config.js');
+// const database = firebase.database();
+// const storageRef = firebase.storage().ref();
 
-class Club
+export class Club
 {
     constructor(id,logo,name, stadium,coach,captain,score,numberMatch,win,draw,lost,description)
     {
@@ -77,8 +77,4 @@ class Club
     }
 }
 
-
-
-
-
-module.exports = new Club
+//module.exports = new Club

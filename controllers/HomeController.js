@@ -1,6 +1,5 @@
 const Match = require('../models/Match')
 
-
 class HomePageController{
     async index(req,res){
 

@@ -11,9 +11,7 @@ class authControllers{
     }
     async logIn(req, res, next){
         const {username , password} = req.body;
-        //var rememberPasswordCheck = req.body.checkstatus
 
-        
         let errors =[]
 
         if(!username || !password){

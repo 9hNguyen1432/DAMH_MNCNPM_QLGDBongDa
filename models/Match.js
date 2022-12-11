@@ -1,8 +1,8 @@
-const firebase = require('../config/database/config.js');
-const database = firebase.database();
-const Club = require('./club')
+// const firebase = require('../config/database/config.js');
+// const database = firebase.database();
+// const Club = require('./club')
 
-class Match { 
+export class Match { 
     constructor(id, date, time, club_1, club_2, referee, stadium, status, goal_1, goal_2, timeRunning,rs) {
         this.id = id;
         this.date = date;
@@ -16,8 +16,6 @@ class Match {
         this.goal_2 = goal_2;
         this.timeRunning = timeRunning;
         this.rs = rs ;
-
-
     }
 
     //dựa vào tên club => Lấy club => Tạo match => Add Match
@@ -223,11 +221,9 @@ class Match {
          await database.ref("clubs").child(club1.id).set(club1);
          await database.ref("clubs").child(club2.id).set(club2);
          return match;
-         
-
     }
     
 
 }
 
-module.exports = new Match;
+//module.exports = new Match;
