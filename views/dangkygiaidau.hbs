@@ -21,13 +21,18 @@
             <div class="mb-3">
 
               <label for="fileLG" class="form-label">Logo</label>
-              <input class="form-control  form-floating" type="file" id="fileLG" >
+              <input class="form-control  form-floating" type="file" id="fileLG" accept =".png,.jpg,.jpeg" file={{logo}}>
             </div>
 
 
             <div class="col-12 form-floating mb-3">
               <input type="text" class="form-control" id="inputFullName" placeholder="Sân nhà">
               <label for="inputFullName" class="form-label">Sân nhà</label>
+            </div>
+
+            <div class="col-12 form-floating mb-3">
+              <input type="text" class="form-control" id="inputCoach" placeholder="Huấn luyện viên">
+              <label for="inputCoach" class="form-label">Huấn luyện viên</label>
             </div>
 
             <fieldset class="row mb-3">

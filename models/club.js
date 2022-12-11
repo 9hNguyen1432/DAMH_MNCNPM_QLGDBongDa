@@ -4,7 +4,7 @@ const storageRef = firebase.storage().ref();
 
 class Club
 {
-    constructor(id,logo,name, stadium,coach,captain,score,description)
+    constructor(id,logo,name, stadium,coach,captain,score,numberMatch,win,draw,lost,description)
     {
         this.id =id;
         this.logo = logo;
@@ -13,7 +13,14 @@ class Club
         this.coach = coach;
         this.captain = captain;
         this.score = score;
+
+        this.numberMatch = numberMatch ;
+        this.win = win;
+        this.draw = draw;
+        this.lost = lost;
         this.description = description;
+
+        //Khởi tạo club ban đầu với score = 1; win = 0; draw = 1; lost = 0
     }
 
     async addClub(club){
@@ -72,16 +79,6 @@ class Club
 
 
 
-// async function getData(){
-//     // var club = new Club()
-//     // club = await club.getClubByName("HAGL");
-//     // console.log(club);
 
-//     var club = new Club(" ","HAGL","Pleiku","Trinh"," ");
-//     await club.setID();
-//     club.addClub(club)
-
-//  }
-// getData()
 
 module.exports = new Club
