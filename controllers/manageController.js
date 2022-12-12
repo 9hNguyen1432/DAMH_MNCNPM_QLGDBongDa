@@ -50,7 +50,6 @@ class manageController{
 
         }
 
-
         res.render('dangkygiaidau')
     }
 }

@@ -1,6 +1,13 @@
+const Match = require('../models/Match');
+
 class scheduleController{
 
-    index(req,res){
+    async index(req,res){
+        
+        const Date = await Match.getDateNotFinish();
+
+        
+
         res.render('danhsachtrandau')
     }
     

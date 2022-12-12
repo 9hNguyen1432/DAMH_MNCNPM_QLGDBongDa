@@ -20,23 +20,11 @@
                         <div class="card-body p-4 p-sm-5">
                             <nav>
                                 <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                    {{#if today}}
+                                    {{#each Date}}
                                     <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
                                         data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
-                                        aria-selected="true">{{today}}</button>
-                                    {{/if}}
-                                    {{!-- aria-selected="true">{{day1}}</button> --}}
-                                    {{#if nextday}}
-                                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
-                                        data-bs-target="#nav-profile" type="button" role="tab"
-                                        aria-controls="nav-profile" aria-selected="false">{{nextday}}</button>
-                                    {{/if}}
-                                    {{!-- aria-selected="false">{{day2}}</button> --}}
-                                    {{#if nextNextDay}}
-                                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
-                                        data-bs-target="#nav-contact" type="button" role="tab"
-                                        aria-controls="nav-contact" aria-selected="false">{{nextNextDay}}</button>
-                                    {{/if}}
+                                        aria-selected="true">{{Date}}</button>
+                                    {{/each}}
                                     {{!-- aria-selected="false">{{day3}}</button> --}}
 
                                 </div>
