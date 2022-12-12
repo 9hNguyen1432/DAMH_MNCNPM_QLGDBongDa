@@ -47,7 +47,7 @@ class Match {
         await database.ref('matchs').once('value', (snapshot) => {
             var temp = snapshot.forEach((childSnapshot) => {
                 if (childSnapshot.val().date.toString() == date && childSnapshot.val().time.toString() == time) {
-                    match.push(childSnapshot.val());
+                    match.add(childSnapshot.val());
                 }
             });
         });
@@ -154,9 +154,6 @@ class Match {
         var C2 = [0,0,0]
 
         if(goal1 > goal2){
-
-          
-
             if(match.rs == 'H'){
                 club1.score = club1.score + 2
                 club2.score = club2.score - 1

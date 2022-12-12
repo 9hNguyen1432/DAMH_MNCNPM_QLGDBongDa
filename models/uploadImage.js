@@ -44,4 +44,5 @@ const uploadImage = (req) => {
 
     return 'https://storage.googleapis.com/' + BUCKET + '/'+ name
 }
+
 module.exports = uploadImage
