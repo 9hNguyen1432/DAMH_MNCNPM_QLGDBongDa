@@ -57,23 +57,8 @@ class Club
     });
         return club;
     }
-    async uploadLogo(file){
-      
-      const bucket = admin.storage().bucket
-      var urlImage;
-      var ref = storageRef.child(file.originalname);
 
-      
-        await ref.put(file).then((snapshot)=>
-        {
-          var temp = ref.getDownloadURL().then((url)=>{
-              urlImage += url.toString();
-          }).catch((error)=>{
-          })
-        })
-
-      return urlImage;
-    }
+    
     async setLogo(uri){
       const urlImage = await this.uploadLogo(uri);
       this.logo = urlImage;

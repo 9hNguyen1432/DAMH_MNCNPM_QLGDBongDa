@@ -34,6 +34,3 @@ app.use(session({
 routes(app)
 
 app.listen (port, () => console.log(`Example app listening at http://localhost:${port}`));
-
-import { Club } from '../club.js'
-import {Match} from '../Match.js'
