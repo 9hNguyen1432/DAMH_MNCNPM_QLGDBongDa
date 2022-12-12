@@ -1,12 +1,7 @@
 const firebase = require('../config/database/config.js');
 const database = firebase.database();
-<<<<<<< Updated upstream
 // const storageRef = firebase.storage().ref();
 
-=======
-const storage = firebase.storage();
-const storageRef = firebase.storage().ref();
->>>>>>> Stashed changes
 
 class Club {
   constructor(
@@ -63,7 +58,6 @@ class Club {
       });
     });
     return club;
-<<<<<<< Updated upstream
     }
     async getAllClub(){
         var club = [];
@@ -74,45 +68,6 @@ class Club {
     });
         return club;
     }
-=======
-  }
-
-  async uploadImage(file) {
-    const ref = firebase.storage().ref();
-
-    const name = new Date() + '-' + file.filename;
-
-    const metadata = {
-      contentType: file.type
-    }
-
-    const task = ref.child(name).put(file, metadata);
-
-    task.then((snapshot) => {
-      snapshot.ref.getDownloadURL()
-      
-    }).then( url => {
-      console.log(url)
-      alert("Image Upload Success")
-      
-    })
-  }
-
-  async uploadLogo(uri) {
-    var d = new Date();
-    var urlImage;
-    var ref = storageRef.child(d.getTime().toString() + ".png");
-    console.log(ref);
-    await ref.put(uri);
-    // await ref.put(uri).then((snapshot) => {
-    //   var temp = ref
-    //     .getDownloadURL()
-    //     .then((url) => {
-    //       urlImage += url.toString();
-    //     })
-    //     .catch((error) => {});
-    // });
->>>>>>> Stashed changes
 
     
     async setLogo(uri){
@@ -122,8 +77,4 @@ class Club {
     }
 }
 
-<<<<<<< Updated upstream
 module.exports = new Club
-=======
-module.exports = new Club();
->>>>>>> Stashed changes
