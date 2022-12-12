@@ -1,53 +1,5 @@
 // import { Club } from '../club.js'
 // import {Match} from '../Match.js'
-class Club {
-    constructor(
-      id,
-      logo,
-      name,
-      stadium,
-      coach,
-      captain,
-      score,
-      numberMatch,
-      win,
-      draw,
-      lost,
-      description
-    ) {
-      this.id = id;
-      this.logo = logo;
-      this.name = name;
-      this.stadium = stadium;
-      this.coach = coach;
-      this.captain = captain;
-      this.score = score;
-  
-      this.numberMatch = numberMatch;
-      this.win = win;
-      this.draw = draw;
-      this.lost = lost;
-      this.description = description;
-  
-      //Khởi tạo club ban đầu với score = 1; win = 0; draw = 1; lost = 0
-    }
-}  
-class Match { 
-    constructor(id, date, time, club_1, club_2, referee, stadium, status, goal_1, goal_2, timeRunning,rs) {
-        this.id = id;
-        this.date = date;
-        this.time = time;
-        this.club_1 = club_1;
-        this.club_2 = club_2;
-        this.referee = referee;
-        this.stadium = stadium;
-        this.status = status;
-        this.goal_1 = goal_1;
-        this.goal_2 = goal_2;
-        this.timeRunning = timeRunning;
-        this.rs = rs ;
-    }
-}
 function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm các Match
 {
     var schedule = []
@@ -173,24 +125,24 @@ function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm
     return schedule
 }
 //---------DEMO
-var schedule = []
-var club1 = new Club ("123","123.png","Hoàng Anh Gia Lai", "Pleiku", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-var club2 = new Club ("123","123.png","FC Hà Nội", "Mỹ Đình", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-var club3 = new Club ("123","123.png","FC Sài Gòn", "Thống Nhất", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-var club4 = new Club ("123","123.png","Hải Phòng FC", "Lạch Trây", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-var club5 = new Club ("123","123.png","Hải Phòng FC", "Lạch Trây", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-var club6 = new Club ("123","123.png","tphcm", "SHB", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-var club7 = new Club ("123","123.png","zzzz", "Pleiku", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-var club8 = new Club ("123","123.png","aaaaa", "Mỹ Đình", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-var club9 = new Club ("123","123.png","bbbbbb", "Thống Nhất", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-var club10 = new Club ("123","123.png","cccccc", "Lạch Trây", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-var club11 = new Club ("123","123.png","dddddd", "SHB", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-var club12 = new Club ("123","123.png","eeeeee", "Pleiku", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-var club13 = new Club ("123","123.png","ffffff", "Mỹ Đình", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-var club14 = new Club ("123","123.png","asasssda", "Thống Nhất", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-var listClub = [club1,club2,club3,club4, club5,club6,club7,club8,club9, club10,club11,club12,club13,club14]
-var schedule = sortingSchedule(listClub)
-for(let i = 0;i<schedule.length;i++)
-{
-    console.log(schedule[i])
-}
+// var schedule = []
+// var club1 = new Club ("123","123.png","Hoàng Anh Gia Lai", "Pleiku", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+// var club2 = new Club ("123","123.png","FC Hà Nội", "Mỹ Đình", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+// var club3 = new Club ("123","123.png","FC Sài Gòn", "Thống Nhất", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+// var club4 = new Club ("123","123.png","Hải Phòng FC", "Lạch Trây", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+// var club5 = new Club ("123","123.png","Hải Phòng FC", "Lạch Trây", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+// var club6 = new Club ("123","123.png","tphcm", "SHB", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+// var club7 = new Club ("123","123.png","zzzz", "Pleiku", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+// var club8 = new Club ("123","123.png","aaaaa", "Mỹ Đình", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+// var club9 = new Club ("123","123.png","bbbbbb", "Thống Nhất", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+// var club10 = new Club ("123","123.png","cccccc", "Lạch Trây", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+// var club11 = new Club ("123","123.png","dddddd", "SHB", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+// var club12 = new Club ("123","123.png","eeeeee", "Pleiku", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+// var club13 = new Club ("123","123.png","ffffff", "Mỹ Đình", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+// var club14 = new Club ("123","123.png","asasssda", "Thống Nhất", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+// var listClub = [club1,club2,club3,club4, club5,club6,club7,club8,club9, club10,club11,club12,club13,club14]
+// var schedule = sortingSchedule(listClub)
+// for(let i = 0;i<schedule.length;i++)
+// {
+//     console.log(schedule[i])
+// }
