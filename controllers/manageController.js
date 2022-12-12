@@ -1,10 +1,13 @@
-const Match = require('../models/Match')
+const Match = require('../models/Match');
+const path = require('path')
+const express = require('express');
+const multer  = require('multer');
+const upload = multer({ dest: path.join(__dirname, '../public/uploads/imgs')});
 const Club = require('../models/Club')
 
+const uploadImage = require('../models/uploadImage')
 
 class manageController{
-
-
     async index(req,res){
         const date = await Match.getDateNotFinish();
         const today = date[0];
@@ -24,13 +27,6 @@ class manageController{
         res.render('dangkygiaidau',obj)
     }
 
-    async registerClub(req, res)
-    {
-       
-        const file = req.file;
-        const url = await Club.uploadLogo(file)
-        console.log(url)
-    }
     renderCreateLeauge(req, res){
         var obj = {author: true}
         res.render('taogiaidaumoi',obj)
@@ -38,6 +34,24 @@ class manageController{
     renderEditReg(req, res){
         var obj = {author: true}
         res.render('chinhsuaquydinh',obj)
+    }
+
+    async uploadClub(req,res,next){
+
+        if(req.file){
+
+            const url = uploadImage(req);
+            if(url)
+                console.log(url)
+                return res.render('dangkygiaidau', { 
+                    imgPath: url,
+                    imgName: req.file.originalname
+                });
+
+        }
+
+
+        res.render('dangkygiaidau')
     }
 }
 

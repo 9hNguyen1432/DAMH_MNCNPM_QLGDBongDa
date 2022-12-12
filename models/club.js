@@ -2,6 +2,7 @@ const firebase = require('../config/database/config.js');
 const database = firebase.database();
 const storageRef = firebase.storage().ref();
 
+
 class Club
 {
     constructor(id,logo,name, stadium,coach,captain,score,numberMatch,win,draw,lost,description)
@@ -56,16 +57,18 @@ class Club
     });
         return club;
     }
-    async uploadLogo(uri){
-      var d = new Date
+    async uploadLogo(file){
+      
+      const bucket = admin.storage().bucket
       var urlImage;
-      var ref = storageRef.child(d.getTime().toString() + '.png')
-        await ref.put(uri).then((snapshot)=>
+      var ref = storageRef.child(file.originalname);
+
+      
+        await ref.put(file).then((snapshot)=>
         {
           var temp = ref.getDownloadURL().then((url)=>{
               urlImage += url.toString();
           }).catch((error)=>{
-
           })
         })
 

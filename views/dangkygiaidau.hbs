@@ -10,7 +10,7 @@
     <div class="col-sm-12 col-md-19 col-lg-10 mx-auto">
       <div class="card border-0 shadow rounded-3 my-5">
         <div class="card-body p-4 p-sm-5">
-          <form class="row g-3" method ="POST" action="/manage/register-club">
+          <form class="row g-3" action="/manage/register-club" method="post" enctype="multipart/form-data">
             <div class="col-12 form-floating mb-3">
               <input type="text" class="form-control" id="inputCLB" placeholder="Tên câu lạc bộ">
               <label for="inputCLB" class="form-label">Tên câu lạc bộ</label>
@@ -19,11 +19,13 @@
               </div>
             </div>
             <div class="mb-3">
-
               <label for="fileLG" class="form-label">Logo</label>
-              <input class="form-control  form-floating" type="file" name="fileLG" id="fileLG" accept =".png,.jpg,.jpeg" ">
+              <input class="form-control  form-floating" type="file" id="fileLG" name="logo" accept =".png,.jpg,.jpeg" file={{logo}}>
             </div>
 
+            <div>
+              <img src="{{imgPath}}" class="img-thumbnail" alt="{{imgName}}">
+            </div>
 
             <div class="col-12 form-floating mb-3">
               <input type="text" class="form-control" id="inputFullName" placeholder="Sân nhà">
