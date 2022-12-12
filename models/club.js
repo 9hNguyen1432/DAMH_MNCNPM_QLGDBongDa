@@ -1,6 +1,6 @@
 const firebase = require('../config/database/config.js');
 const database = firebase.database();
-const storageRef = firebase.storage().ref();
+// const storageRef = firebase.storage().ref();
 
 
 class Club
@@ -80,9 +80,5 @@ class Club
       return await this.addClub(this);
     }
 }
-
-
-
-
 
 module.exports = new Club

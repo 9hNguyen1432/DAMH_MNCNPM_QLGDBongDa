@@ -16,8 +16,6 @@ class Match {
         this.goal_2 = goal_2;
         this.timeRunning = timeRunning;
         this.rs = rs ;
-
-
     }
 
     //dựa vào tên club => Lấy club => Tạo match => Add Match
@@ -223,8 +221,6 @@ class Match {
          await database.ref("clubs").child(club1.id).set(club1);
          await database.ref("clubs").child(club2.id).set(club2);
          return match;
-         
-
     }
     
 

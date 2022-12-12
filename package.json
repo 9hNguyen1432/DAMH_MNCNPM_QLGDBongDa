@@ -11,6 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/heoquaycutekhung/DAMH_MNCNPM_QLGDBongDa.git"
   },
+  "type": "module",
   "keywords": [
     "quanlybongda",
     "fithcmus",
@@ -23,16 +24,25 @@
   },
   "homepage": "https://github.com/heoquaycutekhung/DAMH_MNCNPM_QLGDBongDa#readme",
   "dependencies": {
+<<<<<<< HEAD
     "admin": "^1.4.1",
+=======
+>>>>>>> 2b295aba06d7bcdc0d13587e85f11984b34aa66b
     "bootstrap-icons": "^1.10.2",
     "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-handlebars": "^6.0.6",
     "express-session": "^1.17.3",
+<<<<<<< HEAD
     "firebase": "^8.10.1",
     "firebase-admin": "^11.3.0",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1"
+=======
+    "firebase": "^8.10.0",
+    "module_name": "^1.0.0",
+    "morgan": "^1.10.0"
+>>>>>>> 2b295aba06d7bcdc0d13587e85f11984b34aa66b
   },
   "devDependencies": {
     "nodemon": "^2.0.20"
