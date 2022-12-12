@@ -5,7 +5,12 @@ const multer  = require('multer');
 const upload = multer({ dest: path.join(__dirname, '../public/uploads/imgs')});
 const Club = require('../models/Club')
 
+<<<<<<< Updated upstream
 const uploadImage = require('../models/uploadImage')
+=======
+const Club = require('../models/Club')
+
+>>>>>>> Stashed changes
 
 class manageController{
     async index(req,res){
@@ -37,6 +42,7 @@ class manageController{
     }
 
     async uploadClub(req,res,next){
+<<<<<<< Updated upstream
 
         if(req.file){
 
@@ -48,6 +54,17 @@ class manageController{
                     imgName: req.file.originalname
                 });
 
+=======
+        if(req.file){
+
+            await Club.uploadImage(req.file);
+
+
+            return res.render('dangkygiaidau', { 
+                imgPath: '/uploads/imgs/' + req.file.filename ,
+                imgName: req.file.originalname
+            });
+>>>>>>> Stashed changes
         }
 
         res.render('dangkygiaidau')
