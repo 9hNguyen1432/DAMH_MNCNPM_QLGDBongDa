@@ -1,38 +1,47 @@
-<div class="card mt-2">
+<div class="card mt-2 border-bottom" style="margin: auto; max-width:800px">
     <div class="card-body">
         <div class="row">
-            <div class="col-sm-2 my-auto">
-                <p class="px-auto ">{{this.time}}</p>
+            <div class="col-2 text-center" style="margin: auto;">
+                {{#ifNotEqualZero this.timeRunning}}
+                    <div style="color:red;font-size: 12px;">Đang diễn ra</div>
+                {{/ifNotEqualZero}}
+                <div> {{this.date}} </div>
+                <div> {{this.time}} </div>
             </div>
-            <div class="col-sm-2 border-start">
-                <div class=" row">
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/vi/4/43/Binh_Dinh_FC_logo.svg"
-                        alt="">
+
+            <div class="col-8 border-end border-start">
+                <div style="margin-bottom: 15px;">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex">
+                            <img
+                                src="https://vpf.vn/wp-content/uploads/2018/10/Binh-Dinh.png"
+                                alt="" style="width: 30px; height: 30px">
+                            <div style="line-height: 30px; padding-left: 20px">{{this.club_1}}</div>
+                        </div>
+                        <div style="line-height: 30px; padding-left: 20px">{{this.goal_1}}</div>
+                    </div>
                 </div>
-                <div class="row">
-                    <img
-                        src="https://upload.wikimedia.org/wikipedia/en/thumb/2/24/Hanoi_FC_logo.svg/800px-Hanoi_FC_logo.svg.png"
-                        alt="">
-                </div>
-            </div>
-            <div class="col-sm-6 border-end">
-                <div class=" row mt-1">
-                    <p>{{this.club_1}}</p>
-                </div>
-                <div class="row mt-1">
-                    <p>{{this.club_2}}</p>
-                </div>
-            </div>
-            <div class="col-sm-2">
-                <div class=" row mt-1">
-                    <p class="mx-auto"> - </p>
-                </div>
-                <div class="row mt-1">
-                    <p class="mx-auto"> - </p>
+
+                <div>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex">
+                            <img
+                                src="https://vpf.vn/wp-content/uploads/2018/10/Binh-Dinh.png"
+                                alt="" style="width: 30px; height: 30px">
+                            <div style="line-height: 30px; padding-left: 20px">{{this.club_2}}</div>
+                        </div>
+                        <div style="line-height: 30px; padding-left: 20px">{{this.goal_2}}</div>
+                    </div>
                 </div>
             </div>
 
+            <div class="col-2">
+                <div style="margin: auto;" class="text-center">
+                    <div style="border-radius: 10px; margin: 5px;" class="border">Trực tiếp</div>
+                    <div style="border-radius: 10px; margin: 5px;" class="border">Đặt cược</div>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>

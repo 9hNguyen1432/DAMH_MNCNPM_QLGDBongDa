@@ -10,37 +10,53 @@
 
         <div style="margin: auto; width: 800px">
             {{#each match1}}
-            <div class="d-flex justify-content-between" style="max-width: 400px;
+            <div style="max-width: 400px;
                 background-color: #222035;
-                padding: 15px 50px; border-radius: 15px; margin:auto;
+                padding: 5px 50px 15px 10px; border-radius: 15px; margin:auto;
                 margin-top:30px;">
-                <div style="text-align: center;">
-                    <div style="width: 60px; height:60px; border-radius: 50%">
-                        <img
-                            src="https://firebasestorage.googleapis.com/v0/b/qlbd-234ef.appspot.com/o/BD.png?alt=media&token=8c46c32f-0f89-4758-9080-78037cfb72cc"
-                            alt="" style="border-radius: 50%; border: 3px solid
-                            white">
-                    </div>
-                    <div style="color: white; font-size: 12px; font-weight:
-                        bold; margin:4px">{{this.club_1}}</div>
-                </div>
+                {{#ifNotEqualZero this.timeRunning}}
+                <div style="color:red;font-size: 12px;">Đang diễn ra</div>
+                {{/ifNotEqualZero}}
 
-                <div style="color: white; line-height:84px; font-size: 18px;
-                    font-weight: bold;">
-                    {{this.time}}
-                </div>
-
-                <div style="text-align: center;">
-                    <div style="width: 60px; height:60px; border-radius: 50%">
-                        <img
-                            src="https://firebasestorage.googleapis.com/v0/b/qlbd-234ef.appspot.com/o/BD.png?alt=media&token=8c46c32f-0f89-4758-9080-78037cfb72cc"
-                            alt="" style="border-radius: 50%; border: 3px solid
-                            white">
+                <div class="d-flex justify-content-between" style="padding-top: 10px; padding-left: 40px">
+                    <div style="text-align: center;">
+                        <div style="width: 60px; height:60px; border-radius:
+                            50%">
+                            <img
+                                src="https://firebasestorage.googleapis.com/v0/b/qlbd-234ef.appspot.com/o/BD.png?alt=media&token=8c46c32f-0f89-4758-9080-78037cfb72cc"
+                                alt="" style="border-radius: 50%; border: 3px
+                                solid
+                                white">
+                        </div>
+                        <div style="color: white; font-size: 12px; font-weight:
+                            bold; margin:4px">{{this.club_1}}</div>
                     </div>
-                    <div style="color: white; font-size: 12px; font-weight:
-                        bold; margin:4px"> {{this.club_2}} </div>
+
+                    <div style="color: white; font-size: 18px;
+                        font-weight: bold; text-align:center">
+                        <div>{{this.time}}</div>
+                        <div>{{this.goal_1}} : {{this.goal_2}}</div>
+                        {{#ifNotEqualZero this.timeRunning}}
+                        {{!-- <div style="color:red;font-size: 12px;">Đang diễn ra</div> --}}
+                        <div style="color:red; text-decoration: underline;">{{this.timeRunning}}</div>
+                        {{/ifNotEqualZero}}
+                    </div>
+
+                    <div style="text-align: center;">
+                        <div style="width: 60px; height:60px; border-radius:
+                            50%">
+                            <img
+                                src="https://firebasestorage.googleapis.com/v0/b/qlbd-234ef.appspot.com/o/BD.png?alt=media&token=8c46c32f-0f89-4758-9080-78037cfb72cc"
+                                alt="" style="border-radius: 50%; border: 3px
+                                solid
+                                white">
+                        </div>
+                        <div style="color: white; font-size: 12px; font-weight:
+                            bold; margin:4px"> {{this.club_2}} </div>
+                    </div>
                 </div>
             </div>
+
             {{/each}}
         </div>
     </div>
@@ -59,25 +75,36 @@
 
             <div class="d-flex justify-content-between row row-cols-2">
                 {{#each match2}}
-                <div class="d-flex justify-content-between" style="max-width:
-                    400px; background-color: #222035;
-                    padding: 15px 50px; border-radius: 15px; margin:auto;
-                    margin-top:30px;">
+                <div style="max-width: 400px;
+                background-color: #222035;
+                padding: 5px 50px 15px 10px; border-radius: 15px; margin:auto;
+                margin-top:30px;">
+                {{#ifNotEqualZero this.timeRunning}}
+                <div style="color:red;font-size: 12px;">Đang diễn ra</div>
+                {{/ifNotEqualZero}}
+
+                <div class="d-flex justify-content-between" style="padding-top: 10px; padding-left: 40px">
                     <div style="text-align: center;">
                         <div style="width: 60px; height:60px; border-radius:
                             50%">
                             <img
                                 src="https://firebasestorage.googleapis.com/v0/b/qlbd-234ef.appspot.com/o/BD.png?alt=media&token=8c46c32f-0f89-4758-9080-78037cfb72cc"
                                 alt="" style="border-radius: 50%; border: 3px
-                                solid white">
+                                solid
+                                white">
                         </div>
                         <div style="color: white; font-size: 12px; font-weight:
                             bold; margin:4px">{{this.club_1}}</div>
                     </div>
 
-                    <div style="color: white; line-height:84px; font-size: 18px;
-                        font-weight: bold;">
-                        {{this.time}}
+                    <div style="color: white; font-size: 18px;
+                        font-weight: bold; text-align:center">
+                        <div>{{this.time}}</div>
+                        <div>{{this.goal_1}} : {{this.goal_2}}</div>
+                        {{#ifNotEqualZero this.timeRunning}}
+                        {{!-- <div style="color:red;font-size: 12px;">Đang diễn ra</div> --}}
+                        <div style="color:red; text-decoration: underline;">{{this.timeRunning}}</div>
+                        {{/ifNotEqualZero}}
                     </div>
 
                     <div style="text-align: center;">
@@ -86,11 +113,14 @@
                             <img
                                 src="https://firebasestorage.googleapis.com/v0/b/qlbd-234ef.appspot.com/o/BD.png?alt=media&token=8c46c32f-0f89-4758-9080-78037cfb72cc"
                                 alt="" style="border-radius: 50%; border: 3px
-                                solid white">
+                                solid
+                                white">
                         </div>
                         <div style="color: white; font-size: 12px; font-weight:
-                            bold; margin:4px"> {{this.club_2}} </div>
+                            bold; margin:4px"> {{this.club_2}} 
+                        </div>
                     </div>
+                </div>
                 </div>
                 {{/each}}
             </div>
