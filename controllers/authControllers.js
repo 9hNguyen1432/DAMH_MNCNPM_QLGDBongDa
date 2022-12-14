@@ -16,12 +16,12 @@ class authControllers{
 
         if(!username || !password){
             errors.push("Vui lòng điền đầy đủ thông tin. ")
-            res.render('login',{username,password})
+            res.render('login',{username,password, errors})
 
         }
         else if(password.length < 6){
-            errors.push("Mật khẩu không < 6 kí tự.")
-            res.render('login',{username,password})
+            errors.push("Mật khẩu không ít hơn 6 kí tự.")
+            res.render('login',{username,password, errors})
 
         }else{
     
@@ -71,7 +71,7 @@ class authControllers{
         if(!email||!password||!fullname||!birthday||!gender||!role||!repass){
             errors.push("Vui lòng điền đầy đủ thông tin.")
         if(password.length<6)
-            errors.push("Mật khẩu không được bé hơn 6 kí tự.")
+            errors.push("Mật khẩu không được ít hơn 6 kí tự.")
         }
         if(password!=repass){
             errors.push("Mật khẩu không trùng khớp.")
