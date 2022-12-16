@@ -17,7 +17,6 @@ class authControllers{
         if(!username || !password){
             errors.push("Vui lòng điền đầy đủ thông tin. ")
             res.render('login',{username,password, errors})
-
         }
         else if(password.length < 6){
             errors.push("Mật khẩu không ít hơn 6 kí tự.")
@@ -44,7 +43,7 @@ class authControllers{
                 else{
                     errors.push("Đăng nhập thất bại.")
                 }
-              return  res.render('login',{username,password});
+                return res.render('login',{username,password,errors});
 
             }else{
                 
@@ -94,7 +93,6 @@ class authControllers{
                 return res.render('registerUser',{email,password,repass, fullname, birthday,gender,role,errors})
             }else{
                 const user =new User.constructor(uID,email,fullname,birthday,gender,role,fasle);
-                console.log(user)
                 await User.addUser(user);
                 return res.redirect('/auth/login');
             }

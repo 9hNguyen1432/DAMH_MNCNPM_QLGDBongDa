@@ -28,6 +28,17 @@
               <button name="login" value="login" class="btn btn-primary
                 btn-login text-uppercase fw-bold" type="submit">ĐĂNG NHẬP</button>
             </div>
+
+            {{!-- ERROR --}}
+            {{#each errors}}
+            <div>
+              <div style="color: red; padding: 5px 0">
+                * {{this}}
+              </div>
+            </div>
+            {{/each}}
+            {{!-- END ERROR --}}
+
             <hr class="my-4">
             <div class="d-grid">
               <button name='login' value="signin" class="btn btn-facebook
