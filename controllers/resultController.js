@@ -2,8 +2,9 @@ const Match = require('../models/Match')
 
 
 class resultController{
-    index(req,res){
-        res.render('ketquacactrandau')
+    async index(req,res){
+        const Matchs = await Match.getMatchisFinished();
+        res.render('ketquacactrandau', {AllMatchs: Matchs});
     }
 }
 

@@ -9,14 +9,14 @@
         <div class="container">
             <div class="row text-center" style="padding-bottom: 10px;">
                 {{#each clubs}}
-                <a href="/detail/{{this.id}}" class="col" style="padding-bottom:
+                <a href="/detail/{{this.name}}" class="col" style="padding-bottom:
                     20px; text-decoration:none">
-                    <div class="card" style="width: 18rem;">
+                    <div class="card" style="width: 18rem;" >
                         {{!-- Logo CLB --}}
-                        <img src="{{this.img}}" class="card-img-top" alt="...">
+                        <img src="{{this.logo}}" class="card-img-top" alt="..." >
                         <div class="card-body">
                             {{!-- Tên câu lạc bộ --}}
-                            <h5 class="card-title">{{this.title}}</h5>
+                            <h5 class="card-title">{{this.name}}</h5>
                         </div>
                     </div>
                 </a>

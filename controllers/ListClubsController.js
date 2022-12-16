@@ -1,6 +1,11 @@
+
+const Club = require('../models/Club')
+
 class ListClubsController{
-    index(req,res){
-        res.render('listClubs')
+    async index(req,res){
+
+        var clubs = await Club.getAllClub();
+        return res.render('listClubs',{clubs})
     }
 }
 
