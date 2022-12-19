@@ -3,6 +3,6 @@ const router = express.Router()
 const detailClubController = require('../controllers/detailClubController')
 
 
-router.get('/:id', detailClubController.index)
+router.get('/:name', detailClubController.index)
 
 module.exports = router;
