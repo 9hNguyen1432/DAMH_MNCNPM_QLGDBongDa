@@ -4,7 +4,7 @@ class DetailClubController{
     async index(req,res){
         const {name} = req.params;
         var club = await Club.getClubByName(name);
-        console.log(club)
+        //console.log(club)
         return res.render('detailClub',{club})
     }
 }
