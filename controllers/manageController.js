@@ -23,23 +23,24 @@ class manageController{
     }
     
     renderRClub(req, res){
-        var obj = {author: true}
-        res.render('dangkygiaidau',obj)
+
+        
+        var user = req.session.user
+        res.render('dangkygiaidau',{user})
     }
 
     renderCreateLeauge(req, res){
-        var obj = {author: true}
-        res.render('taogiaidaumoi',obj)
+        var user = req.session.user
+        res.render('taogiaidaumoi',{user})
     }
     renderEditReg(req, res){
-        var obj = {author: true}
-        res.render('chinhsuaquydinh',obj)
+        var user = req.session.user
+        res.render('chinhsuaquydinh',{user})
     }
 
     async uploadClub(req,res,next){
 
         if(req.file){
-
             const url = uploadImage(req);
             if(url)
                 console.log(url)
@@ -50,7 +51,9 @@ class manageController{
 
         }
 
-        res.render('dangkygiaidau')
+
+        var user = req.session.user
+        res.render('dangkygiaidau',{user})
     }
 }
 

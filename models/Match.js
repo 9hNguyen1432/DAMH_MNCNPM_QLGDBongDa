@@ -390,7 +390,7 @@ class Match {
 
     if (goal1 > goal2) {
       if (match.rs == "H") {
-        club1.score = club1.score + 2;
+        club1.score = club1.score + 2; 
         club2.score = club2.score - 1;
 
         C1[1] = -1;

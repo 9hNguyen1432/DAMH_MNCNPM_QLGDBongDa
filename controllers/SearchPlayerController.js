@@ -1,6 +1,8 @@
 class SearchPlayerController{
     index(req,res){
-        res.render('searchFootballPlayer')
+
+        var user = req.session.user
+        res.render('searchFootballPlayer',{user})
     }
 }
 

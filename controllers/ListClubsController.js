@@ -5,7 +5,9 @@ class ListClubsController{
     async index(req,res){
 
         var clubs = await Club.getAllClub();
-        return res.render('listClubs',{clubs})
+
+        var user = req.session.user
+        return res.render('listClubs',{user,clubs})
     }
 }
 

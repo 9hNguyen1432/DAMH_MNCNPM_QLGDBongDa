@@ -2,7 +2,7 @@ const firebase = require('../config/database/config.js');
 const database = firebase.database();
 
 class Player{
-    constructor(id,avt,name,birthday,club,number,role){
+    constructor(id,avt,name,birthday,club,number,role,description){
         this.id =id;
         this.avt=avt;
         this.name =name;
@@ -10,6 +10,7 @@ class Player{
         this.club =club;
         this.number =number; 
         this.role =role;
+        this.description = description;
     }
     async addPlayer(player){
         await this.setID();

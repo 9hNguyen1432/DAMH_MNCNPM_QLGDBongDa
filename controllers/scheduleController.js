@@ -27,7 +27,9 @@ class scheduleController{
         Matchs = Matchs.reverse();
         AllMatchs = AllMatchs.reverse();
 
-        res.render('danhsachtrandau',{AllMatchs ,date1: date[0], date2: date[1], date3: date[2] ,match1,match2, match3})
+        var user = req.session.user
+
+        res.render('danhsachtrandau',{user,AllMatchs ,date1: date[0], date2: date[1], date3: date[2] ,match1,match2, match3})
     }
     
 }

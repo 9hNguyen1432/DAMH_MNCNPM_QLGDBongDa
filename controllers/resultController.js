@@ -4,7 +4,9 @@ const Match = require('../models/Match')
 class resultController{
     async index(req,res){
         const Matchs = await Match.getMatchisFinished();
-        res.render('ketquacactrandau', {AllMatchs: Matchs});
+
+        var user = req.session.user
+        res.render('ketquacactrandau', {user,AllMatchs: Matchs});
     }
 }
 
