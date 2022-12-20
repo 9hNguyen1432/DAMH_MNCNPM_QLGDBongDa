@@ -12,7 +12,6 @@ const detailPlayerRouter = require('./detailPlayerRouter.r')
 //app.use(upload.single())
 
 function route(app){
-
     app.use('/auth', authRouter);
     app.use('/searchFootballPlayer', searchPlayerRouter);
     app.use('/detail-player', detailPlayerRouter)
@@ -23,7 +22,6 @@ function route(app){
     app.use('/result', resultRouter)
     app.use('/manage', manageRouter)
     app.use('/', homeRouter);
-
 }
 
 module.exports = route

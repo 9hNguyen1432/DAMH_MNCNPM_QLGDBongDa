@@ -8,7 +8,8 @@
 
     <div class="row m-25" style="padding-top: 60px; margin: 60px; margin-top:
         0">
-        <div class="col-3 " style="margin: 0;">
+        <div class="col-3 d-flex justify-content-center;" style="margin: 0; background-color:whitesmoke;
+            margin-right: 10px; border-radius: 15px;">
             <img
                 src="{{club.logo}}"
                 alt="{{club.logo}}" style="width:100%;
@@ -22,6 +23,16 @@
             <h3 style="margin-top: 20px;">Sân vận động: {{club.stadium}}</h3>
             <h3 style="margin-top: 20px;">Huấn luyện viên trưởng: {{club.coach}}</h3>
             <h3 style="margin-top: 20px;">Tổng số điểm: {{club.score}}</h3>
+
+            <div class="text-end">
+                <a href="/detail-club/players-of-club/{{club.name}}" style="display:inline-block; background-color:
+                    #8268E9; text-decoration:none; color:white; height: 50px;
+                    line-height: 50px; padding: 0 15px; border-radius: 15px;
+                    margin-top: 15px; ">
+                    Danh sách cầu thủ
+                </a>
+            </div>
         </div>
+
     </div>
 </div>
