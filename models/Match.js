@@ -166,6 +166,8 @@ class Match {
               } else if (t2 - t1 < 100 &&t2 - t1 > 90 &&match.status == "isRunning") {
   
                 match.timeRunning = "90+";
+
+               
                 
               } else if (t2 - t1 > 100) {
                 match.timeRunning = "FT";
@@ -174,7 +176,6 @@ class Match {
 
               match = await this.updateScore(match);
               await database.ref("matchs").child(match.id).set(match);
-
             }
   
           })

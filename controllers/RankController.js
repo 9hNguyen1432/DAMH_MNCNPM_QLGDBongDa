@@ -12,7 +12,7 @@ class RankController{
 
          CLB = await CLB.sort(async (a,b)=>{
             
-            const _score = b.score - a.score;
+            const _score = a.score - b.score;
             const _goalDelta = b.goalDelta - a.goalDelta;
             const _totalGoal = b.totalGoal - a.totalGoal;
             const _facing = await Match.getFacingOf2Club(a.name,b.name);
