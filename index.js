@@ -5,6 +5,7 @@ const routes = require('./routers');
 const path = require('path')
 const session = require('express-session');
 
+
 // Router
 //const appRoute = require('./routers/app.r.js');
 // End Router
@@ -27,10 +28,10 @@ app.use(session({
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
-    cookie: { maxAge: oneDay  }
+    cookie: { maxAge: oneDay }
 }))
 
 
 routes(app)
 
-app.listen (port, () => console.log(`Example app listening at http://localhost:${port}`));
+app.listen(port, () => console.log(`Example app listening at http://localhost:${port}`));

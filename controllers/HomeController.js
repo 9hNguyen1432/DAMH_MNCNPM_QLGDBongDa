@@ -1,4 +1,6 @@
 const Match = require('../models/Match')
+const rules = require('../models/rules')
+
 
 class HomePageController{
     async index(req,res){
@@ -12,7 +14,6 @@ class HomePageController{
 
         var user = req.session.user
         res.render('giaodienchinh',{user,today,match1,nextday,match2})
-
     }
 }
 
