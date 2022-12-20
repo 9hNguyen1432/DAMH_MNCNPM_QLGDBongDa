@@ -5,7 +5,8 @@ class DetailClubController{
         const {name} = req.params;
         var club = await Club.getClubByName(name);
         //console.log(club)
-        return res.render('detailClub',{club})
+        var user = req.session.user
+        return res.render('detailClub',{club,user})
     }
 }
 
