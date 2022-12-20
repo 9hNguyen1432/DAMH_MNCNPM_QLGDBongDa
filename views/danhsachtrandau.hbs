@@ -1,77 +1,91 @@
 <div class="container p-100">
     <div class="row">
-
         <h5 class="headerBody center-horizontal">LỊCH THI ĐẤU</h5>
-
     </div>
-    <div class="row">
-        <div class="col-sm-12 col-md-19 col-lg-8 mx-auto">
+    
+    <div>
+        <div class="card-body p-4 p-sm-5">
+            <nav style="margin: auto; max-width:800px">
+                <div class="nav nav-tabs " id="nav-tab" role="tablist"
+                    style="background-color: rgba(240, 248, 255, 0.497);width:
+                    fit-content;">
+                    <button class="nav-link active border" id="nav-home-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#nav-all" type="button"
+                        role="presentation"
+                        aria-controls="nav-all"
+                        aria-selected="true" style="width: 114px; color: black;">
+                        Tất cả
+                    </button>
 
-            <div class="card border-0 shadow rounded-3 mb-5">
-                <div class="row">
-                    <div class="col-sm-5 my-auto mx-auto">
-                        <div class="row mx-auto">
-                            <img class="rounded"
-                                src="https://www.thesportsdb.com/images/media/league/poster/4l48le1583781288.jpg"
-                                alt="">
-                        </div>
-                    </div>
-                    <div class="col-sm-7 border-start">
-                        <div class="card-body p-4 p-sm-5">
-                            <nav>
-                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                    {{#if today}}
-                                    <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
-                                        data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
-                                        aria-selected="true">{{today}}</button>
-                                    {{/if}}
-                                    {{!-- aria-selected="true">{{day1}}</button> --}}
-                                    {{#if nextday}}
-                                    <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
-                                        data-bs-target="#nav-profile" type="button" role="tab"
-                                        aria-controls="nav-profile" aria-selected="false">{{nextday}}</button>
-                                    {{/if}}
-                                    {{!-- aria-selected="false">{{day2}}</button> --}}
-                                    {{#if nextNextDay}}
-                                    <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
-                                        data-bs-target="#nav-contact" type="button" role="tab"
-                                        aria-controls="nav-contact" aria-selected="false">{{nextNextDay}}</button>
-                                    {{/if}}
-                                    {{!-- aria-selected="false">{{day3}}</button> --}}
+                    {{#if date1}}
+                    <button class="nav-link border" id="nav-home-tab1"
+                        data-bs-toggle="tab"
+                        data-bs-target="#nav-home1" type="button"
+                        role="tab"
+                        aria-controls="nav-home1"
+                        aria-selected="true" style="color: black;">{{date1}}</button>
+                    {{/if}}
 
-                                </div>
-                            </nav>
-                            <div class="tab-content" id="nav-tabContent">
-                                {{#if today}}
-                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
-                                    aria-labelledby="nav-home-tab">
-                                    {{#each match1}}
-                                        {{>renderDSTranDau this}}
-                                    {{/each}}
-                                </div>
-                                {{/if}}
+                    {{#if date2}}
+                    <button class="nav-link border" id="nav-home-tab2"
+                        data-bs-toggle="tab"
+                        data-bs-target="#nav-home2" type="button"
+                        role="tab"
+                        aria-controls="nav-home2"
+                        aria-selected="false" style="color: black;">{{date2}}</button>
+                    {{/if}}
 
-                                {{#if nextday}}
-                                <div class="tab-pane fade" id="nav-profile" role="tabpanel"
-                                    aria-labelledby="nav-profile-tab">
-                                    {{#each match2}}
-                                        {{>renderDSTranDau this}}
-                                    {{/each}}
-                                    </div>
-                                {{/if}}
+                    {{#if date3}}
+                    <button class="nav-link border" id="nav-home-tab3"
+                        data-bs-toggle="tab"
+                        data-bs-target="#nav-home3" type="button"
+                        role="tab"
+                        aria-controls="nav-home3"
+                        aria-selected="false" style="color: black;">{{date3}}</button>
+                    {{/if}}
 
-                                {{#if nextNextDay}}
-                                <div class="tab-pane fade" id="nav-contact" role="tabpanel"
-                                    aria-labelledby="nav-contact-tab">
-                                    {{#each match2}}
-                                        {{>renderDSTranDau this}}
-                                    {{/each}}
-                                </div>
-                                {{/if}}
-                            </div>
-                        </div>
-                    </div>
                 </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                {{#if AllMatchs}}
+                <div class="tab-pane fade show active" id="nav-all"
+                    role="tabpanel" aria-labelledby="nav-home-tab">
+                    {{#each AllMatchs}}
+                        {{#each this}}
+                            {{>renderDSTranDau this}}
+                        {{/each}}
+                    {{/each}}
+                </div>
+                {{/if}}
+
+                {{#if match1}}
+                <div class="tab-pane fade show" id="nav-home1"
+                    role="tabpanel" aria-labelledby="nav-home-tab">
+                    {{#each match1}}
+                    {{>renderDSTranDau this}}
+                    {{/each}}
+                </div>
+                {{/if}}
+
+                {{#if match2}}
+                <div class="tab-pane fade" id="nav-home2"
+                    role="tabpanel" aria-labelledby="nav-home-tab">
+                    {{#each match2}}
+                    {{>renderDSTranDau this}}
+                    {{/each}}
+                </div>
+                {{/if}}
+
+                {{#if match3}}
+                <div class="tab-pane fade" id="nav-home3"
+                    role="tabpanel" aria-labelledby="nav-home-tab">
+                    {{#each match3}}
+                    {{>renderDSTranDau this}}
+                    {{/each}}
+                </div>
+                {{/if}}
+
             </div>
         </div>
     </div>

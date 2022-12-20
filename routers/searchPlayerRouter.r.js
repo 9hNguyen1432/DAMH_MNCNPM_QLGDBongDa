@@ -4,5 +4,6 @@ const searchPlayerController = require('../controllers/SearchPlayerController')
 
 
 router.get('/', searchPlayerController.index)
+router.post('/', searchPlayerController.index)
 
 module.exports = router;

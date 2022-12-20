@@ -16,8 +16,8 @@ class RankController{
                 
         });
 
-
-        return res.render('rank',{CLB})
+        var user = req.session.user
+        return res.render('rank',{user,CLB})
     }
 }
 

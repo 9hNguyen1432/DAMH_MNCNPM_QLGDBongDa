@@ -1,35 +1,27 @@
 <div class="background-dark vh-100" style="margin: 0; align-item:center; padding:
-    30px; padding-top: 100px">
+    30px; padding-top: 100px;">
     <div class="text-center" style="padding: 20px; width: 450px;
         background-color: #8268E9;border-radius: 35px; margin:auto;
         font-size: 25px; font-weight: 800; color:white">
-        {{!-- Cái ở dưới để điền tên câu lạc bộ --}}
-        {{!-- {{club.name}} --}}
-        HOÀNG ANH GIA LAI
+        {{club.name}}
     </div>
 
     <div class="row m-25" style="padding-top: 60px; margin: 60px; margin-top:
         0">
-        <div class="col-4 " style="margin: 0;">
+        <div class="col-3 " style="margin: 0;">
             <img
-                src="https://upload.wikimedia.org/wikipedia/vi/thumb/c/c9/Ho%C3%A0ng_Anh_Gia_Lai_FC.svg/1200px-Ho%C3%A0ng_Anh_Gia_Lai_FC.svg.png"
-                alt="detail.selectMovie.title" style="width:100%;
+                src="{{club.logo}}"
+                alt="{{club.logo}}" style="width:100%;
                 border-radius: 15px; object-fit: contain">
         </div>
         <div class="col-8" style=" background-color:#DAE4FF; border-radius:
             15px;
             padding: 30px">
-            <h3 style="color: black;">Biệt danh: Đội bóng phố núi</h3>
-            <h3 style="margin-top: 20px;">Tên ngắn gọn: Hoàng Anh Gia Lai</h3>
-            <h3 style="margin-top: 20px;">Thành lập: Pleyku</h3>
-            <div class="d-flex">
-                <h3 style="margin-top: 20px;">Sân vận động: Pleiku</h3>
-                <h3 style="margin-top: 20px; margin-left: 100px">Sức chứa:
-                    120000</h3>
-            </div>
-            <h3 style="margin-top: 20px;">Chủ tịch điều hành: Đoàn Nguyên Đức</h3>
-            <h3 style="margin-top: 20px;">Huấn luyện viên trưởng: Kiatíuk
-                Senamuang</h3>
+            <h3 style="color: black;">Mô tả: {{club.description}}</h3>
+            <h3 style="margin-top: 20px;">Đội trưởng: {{club.captain}}</h3>
+            <h3 style="margin-top: 20px;">Sân vận động: {{club.stadium}}</h3>
+            <h3 style="margin-top: 20px;">Huấn luyện viên trưởng: {{club.coach}}</h3>
+            <h3 style="margin-top: 20px;">Tổng số điểm: {{club.score}}</h3>
         </div>
     </div>
 </div>

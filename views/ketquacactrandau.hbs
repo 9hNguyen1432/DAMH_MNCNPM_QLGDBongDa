@@ -1,0 +1,15 @@
+<div class="container p-100">
+    <div class="row">
+        <h5 class="headerBody center-horizontal">KẾT QUẢ</h5>
+    </div>
+
+
+    {{#if AllMatchs}}
+    <div class="tab-pane fade show active" id="nav-all"
+        role="tabpanel" aria-labelledby="nav-home-tab">
+        {{#each AllMatchs}}
+            {{>renderDSTranDau this}}
+        {{/each}}
+    </div>
+    {{/if}}
+</div>

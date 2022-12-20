@@ -1,6 +1,7 @@
 const Match = require('../models/Match')
 const rules = require('../models/rules')
 
+
 class HomePageController{
     async index(req,res){
         const date = await Match.getDateNotFinish();
@@ -12,7 +13,6 @@ class HomePageController{
         const match2 = await Match.getMatchByDate(nextday)
 
         var user = req.session.user
-        console.log(match1)
         res.render('giaodienchinh',{user,today,match1,nextday,match2})
     }
 }

@@ -1,6 +1,7 @@
-const firebase = require("../config/database/config.js");
+const firebase = require('../config/database/config.js');
 const database = firebase.database();
-const storageRef = firebase.storage().ref();
+// const storageRef = firebase.storage().ref();
+
 
 class Club
 {
@@ -21,64 +22,44 @@ class Club
         this.description = description;
         this.validListPlayer = validListPlayer;
         //Khởi tạo club ban đầu với score = 1; win = 0; draw = 1; lost = 0
+
     }
 
-  async addClub(club) {
-    await this.setID();
-    return await database.ref("clubs").child(club.id).set(club);
-  }
+    async setID(){
+      const id = await database.ref("clubs").push().key;
+      return this.id = id;
+    }
+    setCaptain(captain){
+      this.captain =captain;
+    }
 
-  async setID() {
-    const id = await database.ref("clubs").push().key;
-    return (this.id = id);
-  }
-  setCaptain(captain) {
-    this.captain = captain;
-  }
-
-  async getClubByName(name) {
-    var club = null;
-    await database.ref("clubs").once("value", (snapshot) => {
+    async getClubByName(name){
+      var club = null;
+      await database.ref('clubs').once('value', (snapshot) => {
       var temp = snapshot.forEach((childSnapshot) => {
-        if (childSnapshot.val().name.toString() == name) {
-          club = childSnapshot.val();
-        }
+      if(childSnapshot.val().name.toString() == name){
+           club = childSnapshot.val();
+      }
       });
     });
     return club;
-  }
-  async getAllClub() {
-    var club = [];
-    await database.ref("clubs").once("value", (snapshot) => {
-      var temp = snapshot.forEach((childSnapshot) => {
-        club.push(childSnapshot.val());
-      });
+    }
+    async getAllClub(){
+        var club = [];
+        await database.ref('clubs').once('value', (snapshot) => {
+        var temp = snapshot.forEach((childSnapshot) => {
+             club.push(childSnapshot.val());
+        });
     });
-    return club;
-  }
-  async uploadLogo(uri) {
-    var urlImage;
-    var ref = storageRef.child(Date.gettime().toString() + ".png");
-    await ref.put(uri).then((snapshot) => {
-      var temp = ref
-        .getDownloadURL()
-        .then((url) => {
-          urlImage += url.toString();
-        })
-        .catch((error) => {});
-    });
+        return club;
+    }
 
-    return urlImage;
-  }
-  async setLogo(uri) {
-    const urlImage = await this.uploadLogo(uri);
-    this.logo = urlImage;
-    return await this.addClub(this);
-  }
+    
+    async setLogo(uri){
+      const urlImage = await this.uploadLogo(uri);
+      this.logo = urlImage;
+      return await this.addClub(this);
+    }
 }
 
-
-
-
-
-module.exports = new Club();
+module.exports = new Club

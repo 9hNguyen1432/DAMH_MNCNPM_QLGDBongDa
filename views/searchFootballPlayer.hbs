@@ -1,7 +1,7 @@
 <div class="row bg-light vh-100" style="margin: 0; padding-top:100px">
 
     <div class="col-2 side_bar text-center border" style=" padding-top: 30px;">
-        <form role="search">
+        <form role="search"  method="post" action="/searchFootballPlayer">
             <input class="form-control me-2" style="margin-bottom: 20px;" type="search" placeholder="Nhập tên cầu thủ"
                 aria-label="Search" name="playername" value={{playername}}>
             <button class="btn btn-outline-success" type="submit">Search</button>
@@ -13,17 +13,17 @@
         <div class="container">
             <h3 class="text-center" style="padding-bottom: 40px;">Các cầu thủ</h3>
             <div class="row text-center" style="padding-bottom: 10px;">
-                {{#each movie}}
-                <a href="/detail/{{this.id}}" class="col" style="padding-bottom:
+                {{#each players}}
+                <a href="/detail-player/{{this.id}}" class="col" style="padding-bottom:
                     20px; text-decoration:none">
                     <div class="card" style="width: 18rem;">
                         {{!-- Hình ảnh cầu thủ --}}
-                        <img src="{{this.img}}" class="card-img-top" alt="...">
+                        <img src="{{this.avt}}" class="card-img-top" alt="...">
                         <div class="card-body">
                             {{!-- Tên  --}}
-                            <h5 class="card-title">{{this.title}}</h5>
+                            <h5 class="card-title">{{this.name}}</h5>
                             {{!-- Câu lạc bộ  --}}
-                            <p class="card-text">{{this.rating}}</p> 
+                            <p class="card-text">{{this.club}}</p> 
                         </div>
                     </div>
                 </a>
