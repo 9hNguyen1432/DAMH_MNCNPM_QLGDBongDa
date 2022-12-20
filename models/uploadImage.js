@@ -16,7 +16,7 @@ const bucket = admin.storage().bucket();
 
 const uploadImage = (req) => {
 
-    const reqFile = req.file
+    const reqFile = req.files.logo[0]
     const name = Date.now() + reqFile.originalname;
 
      file = bucket.file(name);

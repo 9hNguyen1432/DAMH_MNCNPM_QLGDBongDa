@@ -5,7 +5,7 @@ const database = firebase.database();
 
 class Club
 {
-    constructor(id,logo,name, stadium, listPlayer,coach,captain,score,numberMatch,win,draw,lost,description, validListPlayer)
+    constructor(id,logo,name, stadium, listPlayer,coach,captain,score = 0,numberMatch = 0,win = 0,draw = 0,lost = 0,description)
     {
         this.id =id;
         this.logo = logo;
@@ -20,7 +20,6 @@ class Club
         this.draw = draw;
         this.lost = lost;
         this.description = description;
-        this.validListPlayer = validListPlayer;
         //Khởi tạo club ban đầu với score = 1; win = 0; draw = 1; lost = 0
 
     }

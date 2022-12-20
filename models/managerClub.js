@@ -13,17 +13,19 @@ exports.checkListPlayer =async (listPlayer) =>{
     var constrainNumOfPlayers = false;
     var constrainForeignerPlayer = false;
     var validListPlayer = false;
+    var noiBinh = "Nội Binh";
+    var ngoaiBinh= "Ngoại Binh";
     for (let player of listPlayer){
         try{
         let age = util.getAge(player.DOB);
-        console.log("tuoi:     " + age)
         if (util.isBetween(age, rulesLeauge.minAge, rulesLeauge.maxAge)){
+            if (player.type.toLocaleLowerCase().normalize() === ngoaiBinh.toLocaleLowerCase().normalize()){
 
-            if (player.type === "1"){
                 numOfForeignerPlayer ++;
                 listPlayerValid.push(player)
             }
-            else if(player.type ==="0"){
+            else if(player.type.toLocaleLowerCase().normalize() == noiBinh.toLocaleLowerCase().normalize()){
+
                 listPlayerValid.push(player)
             }
             else {
@@ -60,7 +62,7 @@ exports.checkListPlayer =async (listPlayer) =>{
 exports.CSVFiletoJsonObject = async (uriFile) =>{
     csv({
         noheader: false,
-        headers: ['stt','idCauThu', 'ten', 'DOB', 'type']
+        headers: ['idCauThu', 'ten', 'DOB','number', 'type','decribsion']
     })
     .fromFile(uriFile)
     .then((jsonObj)=>{
@@ -73,7 +75,7 @@ exports.CSVFiletoJsonObject = async (uriFile) =>{
     })
     const jsonArray=await csv({
         noheader: false,
-        headers: ['stt','idCauThu', 'ten', 'DOB', 'type']
+        headers: ['idCauThu', 'ten', 'DOB','number', 'type','decribsion']
     }).fromFile(uriFile);
     return jsonArray;
 }

@@ -12,15 +12,16 @@ class RankController{
         const Rule = await Rules.getRulesFromDataBase();
 
         var priorityRank = Rule.priorityToRank;
+        var AllMatch =await Match.getAllDate();
 
-        CLB = CLB.sort(function(a,b){
+        CLB = CLB.sort( function(a,b){
             const _score = a.score - b.score;
             const _goalDelta = a.goalDelta - b.goalDelta;
             const _totalGoal = a.totalGoal - b.totalGoal;
             const _facing = Match.getFacingOf2Club(a.name,b.name);
 
             const ranks = {score:_score, goalDelta:_goalDelta,totalGoal:_totalGoal,facing:_facing[0]-_facing[1]}
-            
+            console.log(ranks["facing"]);
             const  priority = [ranks[priorityRank["p1"]],ranks[priorityRank["p2"]],ranks[priorityRank["p3"]],ranks[priorityRank["p4"]]]
             for(var i = 0;i<priority.length; i++){
                 if(priority[i]!= 0){

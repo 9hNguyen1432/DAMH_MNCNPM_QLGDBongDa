@@ -4,7 +4,7 @@ const express = require('express');
 const multer  = require('multer');
 const upload = multer({ dest: path.join(__dirname, '../public/uploads/imgs')});
 const mo = require("../models/managerClub");
-const Club = require('../models/Club')
+const Club = require('../models/club')
 const uploadImage = require('../models/uploadImage')
 
 
@@ -39,9 +39,9 @@ class manageController{
     }
 
     async uploadClub(req,res,next){
-
+        console.log(req.files)
         var user = req.session.user
-
+        try{
         // console.log(req.file.destination);
         // if(req.file){
         //     return res.render('dangkygiaidau', { user,
@@ -49,9 +49,20 @@ class manageController{
         //         imgName: req.file.originalname
         //     });
         // }
+
         var temp = await mo.CSVFiletoJsonObject(req.files.danhsachcauthu[0].path)
         var validedData = await mo.checkListPlayer(temp);
-        console.log(validedData);
+        if (validedData.validListPlayer ==true){
+            var id = ""
+            var logo = uploadImage(req);
+            var name = req.body.tenclb;
+            var stadium = req.body.sannha;
+            var listPlayer = validedData.listPlayerValid
+            var coach = req.body.hlv
+            var captain = ""
+            var club11 = new Club.constructor(id,logo,name, stadium, listPlayer,coach,captain)
+            console.log(club11)
+        }
 
         // if(req.file){
         //     const url = uploadImage(req);
@@ -63,11 +74,13 @@ class manageController{
         //         });
 
         // }
-
-
-        var user = req.session.user
-
         res.render('dangkygiaidau',{user})
+        }
+        catch(err){
+            console.log(err)
+            res.render('dangkygiaidau',{user})
+        }
+
     }
 
     
