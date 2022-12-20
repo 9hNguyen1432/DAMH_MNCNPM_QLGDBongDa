@@ -5,7 +5,7 @@ class DetailPlayerController{
 
         const {id} = req.params
 
-        const player = await Player.searchPlayerById(id)
+        const player = await Player.getPlayerById(id)
 
         var user = req.session.user
         return res.render('detailPlayer', {user, player})
