@@ -1,12 +1,15 @@
-const Player = require('../models/player')
+const Player = require('../models/Player')
 
 class DetailPlayerController{
     async index(req,res){
 
-        // var clubs = await Club.getAllClub();
-        // clubs = [...clubs, ...clubs, ...clubs]
+        const {id} = req.params;
+        
+        var player = await Player.getPlayerById(id);
+        console.log(player);
 
-        return res.render('detailPlayer')
+        var user = req.session.user
+        return res.render('detailPlayer',{player,user});
     }
 }
 

@@ -53,14 +53,40 @@ class Player{
                     players.push(childSnapshot.val());
                   }
                     
-              });
-                  });       
+            });
+             });       
         }
 
         return players;
     }
     
+    async getAllNamePlayers(){
+        var names =[];
+        await database.ref('players').once('value', (snapshot) => {
+            var temp = snapshot.forEach((childSnapshot) => {
+              if(!names.includes(childSnapshot.val().name.toString())){
+                players.push(childSnapshot.val().name.toString());
+              }
+                
+            });
+        });  
 
+        return names;
+    }
+
+    async getPlayerById(id){
+        var player;
+        await database.ref('players').once('value', (snapshot) => {
+            var temp = snapshot.forEach((childSnapshot) => {
+              if(childSnapshot.val().id.toString()== id){
+                player = childSnapshot.val();
+              }
+                
+             });
+        });  
+
+        return player;
+    }
 
 }
 
