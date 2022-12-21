@@ -6,6 +6,7 @@ const upload = multer({ dest: path.join(__dirname, '../public/uploads/imgs')});
 const mo = require("../models/managerClub");
 const Club = require('../models/club')
 const uploadImage = require('../models/uploadImage')
+const rules = require('../models/rules')
 
 
 class manageController{
@@ -39,7 +40,7 @@ class manageController{
     }
 
     async uploadClub(req,res,next){
-        console.log(req.files)
+        // console.log(req.files)
         var user = req.session.user
         try{
         // console.log(req.file.destination);
@@ -50,31 +51,54 @@ class manageController{
         //     });
         // }
 
-        var temp = await mo.CSVFiletoJsonObject(req.files.danhsachcauthu[0].path)
+        var rule = rules.getRulesFromDataBase();
+        var temp = await mo.CSVFiletoJsonObject(req.files.danhsachcauthu[0].buffer.toString('utf8'))
+        // var temp = await mo.CSVFiletoJsonObject(req.files.danhsachcauthu[0].path)
         var validedData = await mo.checkListPlayer(temp);
-        if (validedData.validListPlayer ==true){
+        var errors = [];
+        var clb = req.body.tenclb;
+        var sannha = req.body.sannha;
+        var hlv = req.body.hlv;
+        var success = false
+        if (validedData.constrainForeignerPlayer == false){
+            errors.push ("Số ngoại binh vượt quá số lượng cho phép")
+            if(validedData.listPlayerInvalid.length !=0){
+                for (let player of validedData.listPlayerInvalid){
+                    errors.push("Thông tin cầu thủ "+ player.ten +" Không hợp lệ.");
+                }
+            }
+            res.render('dangkygiaidau',{user, clb, sannha, hlv, errors})
+        }
+        else if (validedData.constrainNumOfPlayers == false){
+            errors.push ("Tổng số cầu thủ đủ điều kiện đăng ký không hợp lệ (min: "+ rule.minPlayer +"; max: "+ rule.maxPlayer + ")")
+            if(validedData.listPlayerInvalid.length !=0){
+                for (let player of validedData.listPlayerInvalid){
+                    errors.push("Thông tin cầu thủ "+ player.ten +" Không hợp lệ.");
+                }
+            }
+            res.render('dangkygiaidau',{user, clb, sannha, hlv, errors})
+        }
+
+        else if (validedData.validListPlayer ==true){
+            success = true
             var id = ""
-            var logo = uploadImage(req);
+            console.log(req.files);
+            var logo = "logo" in req.files ? "" : uploadImage(req);
+            console.log(2);
             var name = req.body.tenclb;
             var stadium = req.body.sannha;
             var listPlayer = validedData.listPlayerValid
             var coach = req.body.hlv
             var captain = ""
             var club11 = new Club.constructor(id,logo,name, stadium, listPlayer,coach,captain)
+            await Club.addClub(club11);
             console.log(club11)
+            res.render('dangkygiaidau',{user, clb, sannha, hlv, success})
         }
 
-        // if(req.file){
-        //     const url = uploadImage(req);
-        //     if(url)
-        //         console.log(url)
-        //         return res.render('dangkygiaidau', { 
-        //             imgPath: url,
-        //             imgName: req.file.originalname
-        //         });
 
-        // }
-        res.render('dangkygiaidau',{user})
+
+
         }
         catch(err){
             console.log(err)

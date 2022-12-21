@@ -1,11 +1,12 @@
 const firebase = require('../config/database/config.js');
+const Player = require('../models/player')
 const database = firebase.database();
 // const storageRef = firebase.storage().ref();
 
 
 class Club
 {
-    constructor(id,logo,name, stadium, listPlayer,coach,captain,score = 0,numberMatch = 0,win = 0,draw = 0,lost = 0,description)
+    constructor(id,logo,name, stadium, listPlayer,coach,captain,score = 0,numberMatch = 0,win = 0,draw = 0,lost = 0,description="")
     {
         this.id =id;
         this.logo = logo;
@@ -31,6 +32,15 @@ class Club
     setCaptain(captain){
       this.captain =captain;
     }
+    async addClub(club){
+      club.id = await this.setID();
+      for (let player of club.listPlayer){
+        var temp = new Player.constructor(player.idCauThu, "", player.ten, player.DOB, club.name, player.number, player.type, player.description);
+        await database.ref("players").child(temp.id).set(temp);
+      } 
+
+      return await database.ref("clubs").child(club.id).set(club);
+  }
 
     async getClubByName(name){
       var club = null;

@@ -1,5 +1,5 @@
 const Club = require('../models/Club')
-const Rules = require('../models/rule')
+const Rules = require('../models/rules')
 const Match = require('../models/match')
 class RankController{
     async index(req,res){
