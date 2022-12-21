@@ -1,11 +1,11 @@
-            <script defer src="/js/csv.js"></script>
-            <script defer src="/js/1b-read-csv.js"></script>
+<script defer src="/js/csv.js"></script>
+<script defer src="/js/1b-read-csv.js"></script>
 
 <div class="container p-100">
   <div class="row">
-    <div class="col-5  mx-auto ">
+    <div class="col-5 mx-auto ">
       <h5 class="text-center rounded-3 py-3 mt-3 text-light" style="background-color: rgb(36, 106, 203); display: block;
-">ĐĂNG KÍ THAM GIA GIẢI ĐẤU</h5>
+        ">ĐĂNG KÍ THAM GIA GIẢI ĐẤU</h5>
     </div>
 
   </div>
@@ -15,24 +15,26 @@
         <div class="card-body p-4 p-sm-5">
           <form class="row g-3" action="/manage/register-club" method="post" enctype="multipart/form-data">
             <div class="col-12 form-floating mb-3">
-              <input type="text" name="tenclb" class="form-control" id="inputCLB" value="{{clb}}" placeholder="Tên câu lạc bộ" 
-                required>
+              <input type="text" name="tenclb" class="form-control" id="inputCLB" value="{{clb}}"
+                placeholder="Tên câu lạc bộ" required>
               <label for="inputCLB" class="form-label">Tên câu lạc bộ</label>
             </div>
             <div class="mb-3">
               <label for="fileLG" class="form-label">Logo</label>
-              <input class="form-control  form-floating" type="file" id="fileLG" name="logo" accept=".png,.jpg,.jpeg" required
-                file={{logo}}>
+              <input class="form-control  form-floating" type="file" id="fileLG" name="logo" accept=".png,.jpg,.jpeg"
+                required file={{logo}}>
             </div>
 
 
             <div class="col-12 form-floating mb-3">
-              <input type="text" name="sannha"  class="form-control" id="inputFullName" value="{{sannha}}" placeholder="Sân nhà"  required>
+              <input type="text" name="sannha" class="form-control" id="inputFullName" value="{{sannha}}"
+                placeholder="Sân nhà" required>
               <label for="inputFullName" class="form-label">Sân nhà</label>
             </div>
 
             <div class="col-12 form-floating mb-3">
-              <input type="text" name="hlv"  class="form-control" id="inputCoach" value="{{hlv}}" placeholder="Huấn luyện viên"  required>
+              <input type="text" name="hlv" class="form-control" id="inputCoach" value="{{hlv}}"
+                placeholder="Huấn luyện viên" required>
               <label for="inputCoach" class="form-label">Huấn luyện viên</label>
             </div>
 
@@ -44,9 +46,9 @@
                   <button type="button" class="form-control btn btn-primary" id="btntaimau">Tải mẫu (.csv)</button>
                 </a>
               </div>
-              <div class="col-md-5 mb-2 my-auto  mx-auto">
+              <div class="col-md-5 mb-2 my-auto mx-auto">
                 <label for="fileDS" class="form-label">Tải danh sách lên</label>
-                <input class="form-control  form-floating" type="file" name="danhsachcauthu" id="fileDS" accept=".csv" 
+                <input class="form-control  form-floating" type="file" name="danhsachcauthu" id="fileDS" accept=".csv"
                   enctype="multipart/form-data" required>
               </div>
             </fieldset>
@@ -60,16 +62,16 @@
                       <p>Hình Ảnh</p>
                     </div>
                   </div>
-                  <div class="col-sm-2  border-end my-auto">
+                  <div class="col-sm-2 border-end my-auto">
                     CMND/CCCD
                   </div>
-                  <div class="col-sm-3  border-start my-auto">
+                  <div class="col-sm-3 border-start my-auto">
                     Họ tên
                   </div>
                   <div class="col-sm-2 border-start border-end my-auto">
                     Ngày sinh
                   </div>
-                  <div class="col-sm-3  mx-auto my-auto">
+                  <div class="col-sm-3 mx-auto my-auto">
                     Quê quán
                   </div>
 
@@ -83,16 +85,16 @@
                       <img src="https://upload.wikimedia.org/wikipedia/vi/4/43/Binh_Dinh_FC_logo.svg" alt="">
                     </div>
                   </div>
-                  <div class="col-sm-2  border-end my-auto">
+                  <div class="col-sm-2 border-end my-auto">
                     <p>20120320</p>
                   </div>
-                  <div class="col-sm-3  border-start my-auto">
+                  <div class="col-sm-3 border-start my-auto">
                     <p>Nguyễn Hữu Chính</p>
                   </div>
                   <div class="col-sm-2 border-start border-end my-auto">
                     <p>14/03/2002</p>
                   </div>
-                  <div class="col-sm-3  mx-auto my-auto">
+                  <div class="col-sm-3 mx-auto my-auto">
                     <p>Thế Thạnh 2 - Ân Thạnh - Hoài Ân - Bình Định</p>
                   </div>
 
@@ -130,7 +132,7 @@
             {{/each}}
             {{!-- END ERROR --}}
             <div class="d-grid">
-              <button name="btn_DKGD" value="register" class="btn btn-primary btn-login text-uppercase fw-bold" 
+              <button name="btn_DKGD" value="register" class="btn btn-primary btn-login text-uppercase fw-bold"
                 type="submit">ĐĂNG KÝ</button>
             </div>
             <!-- Button trigger modal -->
@@ -143,43 +145,45 @@
 
 <script>
   function readURL(input) {
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
-    reader.onload = function (e) {
-      $('#blah')
-        .attr('src', e.target.result)
-        .width(150)
-        .height(200);
-    };
-    reader.readAsDataURL(input.files[0]);
-  }
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $('#blah')
+          .attr('src', e.target.result)
+          .width(150)
+          .height(200);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
   }
 </script>
 <div class="entry">
-{{#if success}}
-</div>
-<div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" style="display: block;" aria-modal="true" role="dialog">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">CHÚC MỪNG CLB {{clb}}</h5>
-        <a href="/manage/register-club">
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </a>
+  {{#if success}}
 
-      </div>
-      <div class="modal-body">
-        Câu lạc bộ của bạn đã đăng ký tham gia giải đấu thành công.
-      </div>
-      <div class="modal-footer">
-        <a href="/manage">
-          <button type="button" class="btn btn-primary">Trang chủ</button>
-        </a>
+  <div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    style="display: block;" aria-modal="true" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">CHÚC MỪNG CLB {{clb}}</h5>
+          <a href="/manage/register-club">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </a>
 
+        </div>
+        <div class="modal-body">
+          Câu lạc bộ của bạn đã đăng ký tham gia giải đấu thành công.
+        </div>
+        <div class="modal-footer">
+          <a href="/manage">
+            <button type="button" class="btn btn-primary">Trang chủ</button>
+          </a>
+
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="modal-backdrop fade show"></div>
+  <div class="modal-backdrop fade show"></div>
 
-{{/if}}
+  {{/if}}
+</div>
