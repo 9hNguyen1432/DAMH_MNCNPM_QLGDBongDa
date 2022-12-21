@@ -1,11 +1,12 @@
-            <script defer src="/js/csv.js"></script>
-            <script defer src="/js/1b-read-csv.js"></script>
+<script defer src="/js/csv.js"></script>
+<script defer src="/js/1b-read-csv.js"></script>
 
 <div class="container p-100">
   <div class="row">
-    <div class="col-5  mx-auto ">
-      <h5 class="text-center rounded-3 py-3 mt-3 text-light" style="background-color: rgb(36, 106, 203); display: block;
-">ĐĂNG KÍ THAM GIA GIẢI ĐẤU</h5>
+    <div class="col-5 mx-auto ">
+      <h5 class="text-center rounded-3 py-3 mt-3 text-light"
+        style="background-color: rgb(36, 106, 203); display: block;
+        ">ĐĂNG KÍ THAM GIA GIẢI ĐẤU</h5>
     </div>
 
   </div>
@@ -13,9 +14,11 @@
     <div class="col-sm-12 col-md-19 col-lg-10 mx-auto">
       <div class="card border-0 shadow rounded-3 my-5">
         <div class="card-body p-4 p-sm-5">
-          <form class="row g-3" action="/manage/register-club" method="post" enctype="multipart/form-data">
+          <form class="row g-3" action="/manage/register-club" method="post"
+            enctype="multipart/form-data">
             <div class="col-12 form-floating mb-3">
-              <input type="text" name="tenclb" class="form-control" id="inputCLB" placeholder="Tên câu lạc bộ"
+              <input type="text" name="tenclb" class="form-control"
+                id="inputCLB" placeholder="Tên câu lạc bộ"
                 required>
               <label for="inputCLB" class="form-label">Tên câu lạc bộ</label>
               <div class="invalid-feedback">
@@ -24,7 +27,8 @@
             </div>
             <div class="mb-3">
               <label for="fileLG" class="form-label">Logo</label>
-              <input class="form-control  form-floating" type="file" id="fileLG" name="logo" accept=".png,.jpg,.jpeg"
+              <input class="form-control form-floating" type="file" id="fileLG"
+                name="logo" accept=".png,.jpg,.jpeg"
                 file={{logo}}>
             </div>
 
@@ -33,12 +37,14 @@
             </div>
 
             <div class="col-12 form-floating mb-3">
-              <input type="text" class="form-control" id="inputFullName" placeholder="Sân nhà" required>
+              <input type="text" class="form-control" id="inputFullName"
+                placeholder="Sân nhà" required>
               <label for="inputFullName" class="form-label">Sân nhà</label>
             </div>
 
             <div class="col-12 form-floating mb-3">
-              <input type="text" class="form-control" id="inputCoach" placeholder="Huấn luyện viên" required>
+              <input type="text" class="form-control" id="inputCoach"
+                placeholder="Huấn luyện viên" required>
               <label for="inputCoach" class="form-label">Huấn luyện viên</label>
             </div>
 
@@ -47,12 +53,14 @@
               <div class="col-md-3 mb-2 my-auto">
                 <label for="btntaimau" class="form-label">Tải mẫu</label>
                 <a href="/resources/maudanhsachcauthu.csv" download="mauds.csv">
-                  <button type="button" class="form-control btn btn-primary" id="btntaimau">Tải mẫu (.csv)</button>
+                  <button type="button" class="form-control btn btn-primary"
+                    id="btntaimau">Tải mẫu (.csv)</button>
                 </a>
               </div>
-              <div class="col-md-5 mb-2 my-auto  mx-auto">
+              <div class="col-md-5 mb-2 my-auto mx-auto">
                 <label for="fileDS" class="form-label">Tải danh sách lên</label>
-                <input class="form-control  form-floating" type="file" name="danhsachcauthu" id="fileDS" accept=".csv"
+                <input class="form-control form-floating" type="file"
+                  name="danhsachcauthu" id="fileDS" accept=".csv"
                   enctype="multipart/form-data">
               </div>
             </fieldset>
@@ -66,16 +74,16 @@
                       <p>Hình Ảnh</p>
                     </div>
                   </div>
-                  <div class="col-sm-2  border-end my-auto">
+                  <div class="col-sm-2 border-end my-auto">
                     CMND/CCCD
                   </div>
-                  <div class="col-sm-3  border-start my-auto">
+                  <div class="col-sm-3 border-start my-auto">
                     Họ tên
                   </div>
                   <div class="col-sm-2 border-start border-end my-auto">
                     Ngày sinh
                   </div>
-                  <div class="col-sm-3  mx-auto my-auto">
+                  <div class="col-sm-3 mx-auto my-auto">
                     Quê quán
                   </div>
 
@@ -86,19 +94,21 @@
                 <div class="row">
                   <div class="col-sm-2 my-auto">
                     <div class=" row">
-                      <img src="https://upload.wikimedia.org/wikipedia/vi/4/43/Binh_Dinh_FC_logo.svg" alt="">
+                      <img
+                        src="https://upload.wikimedia.org/wikipedia/vi/4/43/Binh_Dinh_FC_logo.svg"
+                        alt="">
                     </div>
                   </div>
-                  <div class="col-sm-2  border-end my-auto">
+                  <div class="col-sm-2 border-end my-auto">
                     <p>20120320</p>
                   </div>
-                  <div class="col-sm-3  border-start my-auto">
+                  <div class="col-sm-3 border-start my-auto">
                     <p>Nguyễn Hữu Chính</p>
                   </div>
                   <div class="col-sm-2 border-start border-end my-auto">
                     <p>14/03/2002</p>
                   </div>
-                  <div class="col-sm-3  mx-auto my-auto">
+                  <div class="col-sm-3 mx-auto my-auto">
                     <p>Thế Thạnh 2 - Ân Thạnh - Hoài Ân - Bình Định</p>
                   </div>
 
@@ -128,7 +138,8 @@
             </div>
 
             <div class="d-grid">
-              <button name="btn_DKGD" value="register" class="btn btn-primary btn-login text-uppercase fw-bold"
+              <button name="btn_DKGD" value="register" class="btn btn-primary
+                btn-login text-uppercase fw-bold"
                 type="submit">ĐĂNG KÝ</button>
             </div>
           </form>

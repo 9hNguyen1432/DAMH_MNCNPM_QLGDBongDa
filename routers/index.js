@@ -8,6 +8,7 @@ const manageRouter = require('./manageRouter.r')
 const scheduleRouter = require('./scheduleRouter')
 const detailClubRouter = require('./detailClubRouter.r')
 const detailPlayerRouter = require('./detailPlayerRouter.r')
+const editPlayerRouter = require('./editPlayerRouter')
  
 //app.use(upload.single())
 
@@ -16,6 +17,7 @@ function route(app){
     app.use('/searchFootballPlayer', searchPlayerRouter);
     app.use('/detail-player', detailPlayerRouter)
     app.use('/rank', rankRouter)
+    app.use('/edit-player', editPlayerRouter)
     app.use('/listclubs', listclubsRouter)
     app.use('/detail-club', detailClubRouter)
     app.use('/schedule',scheduleRouter)
