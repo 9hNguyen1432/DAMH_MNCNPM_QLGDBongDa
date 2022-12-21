@@ -73,7 +73,7 @@ exports.checkListPlayer = async (listPlayer) => {
 exports.CSVFiletoJsonObject = async (uriFile) => {
     csv({
         noheader: false,
-        headers: ['idCauThu', 'ten', 'DOB', 'number', 'type', 'decribsion']
+        headers: ['idCauThu', 'ten', 'DOB', 'number', 'type', 'description']
     })
         .fromString(uriFile)
         .then((jsonObj) => {
@@ -86,7 +86,7 @@ exports.CSVFiletoJsonObject = async (uriFile) => {
         })
     const jsonArray = await csv({
         noheader: false,
-        headers: ['idCauThu', 'ten', 'DOB', 'number', 'type', 'decribsion']
+        headers: ['idCauThu', 'ten', 'DOB', 'number', 'type', 'description']
     }).fromString(uriFile);
     return jsonArray;
 }

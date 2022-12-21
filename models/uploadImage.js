@@ -34,7 +34,6 @@ const uploadImage = (req) => {
     stream.on("finish",async ()=>{
         await file.makePublic();
 
-        req.file.firebaseUrl =   'https://storage.googleapis.com/' + BUCKET + '/'+ name
         //url = 'https://storage.googleapis.com/' + BUCKET + '/'+ name
         
     })

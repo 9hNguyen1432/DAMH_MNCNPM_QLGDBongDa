@@ -83,7 +83,7 @@ class manageController{
             success = true
             var id = ""
             console.log(req.files);
-            var logo = "logo" in req.files ? "" : uploadImage(req);
+            var logo = uploadImage(req);
             console.log(2);
             var name = req.body.tenclb;
             var stadium = req.body.sannha;
