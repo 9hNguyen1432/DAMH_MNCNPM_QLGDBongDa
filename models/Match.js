@@ -145,11 +145,10 @@ class Match {
   
             if (date == match.date) {
               if (t2 - t1 >= 0 && t2 - t1 <= 90) {
-                if (match.status == "notRun") match.status = "isRunning";
-  
+                if (match.status == "notRun") 
+                    match.status = "isRunning";
                 match.timeRunning = (t2 - t1).toString();
               } else if (t2 - t1 < 100 &&t2 - t1 > 90 &&match.status == "isRunning") {
-  
                 match.timeRunning = "90+";
                 
               } else if (t2 - t1 > 100) {
@@ -193,8 +192,8 @@ class Match {
         else if (match.rs == "H") {
           club1.score = club1.score - draw + win; 
           club2.score = club2.score - draw + lost;
-          C1[1] = -1;C2[1] = -1;
-          C1[0] = 1;C2[2] = 1;
+          C1[1] = -1; C2[1] = -1;
+          C1[0] = 1; C2[2] = 1;
   
         } else if( match.rs == "L")
         {
@@ -222,7 +221,7 @@ class Match {
             club1.score = club1.score - lost + draw;
             club2.score = club2.score - win+ draw;
     
-            C1[0] = -1;C2[2] = -1;
+            C1[2] = -1; C2[0] = -1;
             C1[1] = 1;C2[1] = 1;
     
           }
@@ -238,7 +237,7 @@ class Match {
             club1.score = club1.score -win+lost;
             club2.score = club2.score -lost+ win;
     
-            C1[0] = -1;C2[2] = -1;
+            C1[0] = -1 ;C2[2] = -1;
             C1[2] = 1; C2[0] = 1;
     
     
@@ -253,7 +252,7 @@ class Match {
           match.rs = "L";
       }
   
-      club1.win = club1.win + C1[0];club1.draw = club1.draw + C1[1];club1.lost = club1.lost + C1[2];
+      club1.win = club1.win + C1[0];club1.draw = club1.draw + C1[1]; club1.lost = club1.lost + C1[2];
       club2.win = club2.win + C2[0];club2.draw = club2.draw + C2[1];club2.lost = club2.lost + C2[2];
   
       club1.numberMatch = club1.win + club1.draw + club1.lost;
