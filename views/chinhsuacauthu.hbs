@@ -1,0 +1,87 @@
+<script defer src="/js/csv.js"></script>
+<script defer src="/js/1b-read-csv.js"></script>
+
+
+<div class="container p-100">
+    <div class="row">
+        <div class="col-5 mx-auto ">
+            <h5 class="text-center rounded-3 py-3 mt-3 text-light"
+                style="background-color: rgb(36, 106, 203); display: block;
+                ">CHỈNH SỬA CẦU THỦ</h5>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-19 col-lg-10 mx-auto">
+            <div class="card border-0 shadow rounded-3 my-5">
+                <div class="card-body p-4 p-sm-5">
+                    <form class="row g-3" action="/manage/register-club"
+                        method="post"
+                        enctype="multipart/form-data">
+                        <div class="col-12 form-floating mb-3">
+                            <input type="text" name="tenclb"
+                                class="form-control"
+                                id="playername" placeholder="Tên cầu thủ"
+                                value="{{player.name}}"
+                                required>
+                            <label for="playername" class="form-label">Tên cầu thủ</label>
+                            <div class="invalid-feedback">
+                                Please provide a valid zip.
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fileAvatar" class="form-label">Avatar</label>
+                            <input class="form-control form-floating"
+                                type="file" id="fileAvatar"
+                                name="logo" accept=".png,.jpg,.jpeg"
+                                file={{logo}}>
+                        </div>
+
+                        <div class="col-12 form-floating mb-3">
+                            <input type="text" class="form-control"
+                                id="number"
+                                placeholder="Số áo" required>
+                            <label for="number" class="form-label">Số áo</label>
+                        </div>
+
+                        <div class="col-12 form-floating mb-3">
+                            <input type="text" class="form-control"
+                                id="role"
+                                placeholder="Vị trí" required>
+                            <label for="role" class="form-label">Vị trí</label>
+                        </div>
+
+                        <div class="col-12 form-floating mb-3">
+                            <input type="text" class="form-control"
+                                id="club"
+                                placeholder="Câu lạc bộ" required>
+                            <label for="club" class="form-label">Câu lạc
+                                bộ</label>
+                        </div>
+
+                        <div class="col-12 form-floating mb-3">
+                            <input type="text" class="form-control"
+                                id="description"
+                                placeholder="Mô tả" required>
+                            <label for="description" class="form-label">Mô tả</label>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="birthday" class="form-label">Ngày sinh</label>
+                            <input name="birthday" type="date"
+                                class="form-control" id="birthday"
+                                value="">
+                        </div>
+
+                        <div class="d-grid">
+                            <button name="btn_DKGD" value="register" class="btn
+                                btn-primary
+                                btn-login text-uppercase fw-bold"
+                                type="submit">HOÀN TẤT</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

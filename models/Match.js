@@ -1,7 +1,7 @@
 const firebase = require("../config/database/config.js");
 const database = firebase.database();
 const Club = require("./club");
-const Rule = require("./rule");
+const Rule = require("./rules");
 class Match {
   constructor(id,date,time,club_1,club_2, referee,stadium,status,goal_1,goal_1_bf,goal_2, goal_2_bf,timeRunning, rs ) 
   {
@@ -132,11 +132,10 @@ class Match {
         snapshot.forEach(function (childsnap) {
           arr.push(childsnap.val());
         });
-        await Promise.all(
-          arr.map(async (childSnapshot) => {
+        await Promise.all(arr.map(async (childSnapshot) => {
             let hours = date_ob.getHours();
             let minutes = date_ob.getMinutes();
-  
+
             var match = childSnapshot;
             var time = match.time;
             var t = time.split(":");
@@ -172,9 +171,9 @@ class Match {
       const club2 = await Club.getClubByName(match.club_2);
 
       const rule = await Rule.getRulesFromDataBase();
+      
       const score  = rule.score;
       const win = score.win, draw= score.draw,lost = score.lost;
-
       var goal1 = match.goal_1; var goal2 = match.goal_2;
       club1.totalGoal = club1.totalGoal - match.goal_1_bf + match.goal_1;
       club1.goalDelta =  club1.goalDelta - (match.goal_1_bf - match.goal_2_bf) + (match.goal_1 - match.goal_2) 
@@ -210,7 +209,7 @@ class Match {
           if(match.rs == "N"){
             club1.score = club1.score +draw; 
             club2.score = club2.score  + draw;
-            C1[1] = 1;C2[1] = 1;
+            C1[1] = 1 ; C2[1] = 1;
           } 
           else if (match.rs == "W") {
             club1.score = club1.score - win + draw;

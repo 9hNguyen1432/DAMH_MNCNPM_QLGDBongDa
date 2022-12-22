@@ -1,8 +1,10 @@
-const csv=require('csvtojson')
+const csv = require('csvtojson')
 const util = require('../models/util')
 const rules = require('../models/rules')
+const Player = require('../models/player')
+
 //util
-exports.checkListPlayer =async (listPlayer) =>{
+exports.checkListPlayer = async (listPlayer) => {
     var rulesLeauge = await rules.getRulesFromDataBase();
     // lish cau thu hop le (trong khoang tuoi quy dinh)
     var listPlayerValid = [];
@@ -13,68 +15,79 @@ exports.checkListPlayer =async (listPlayer) =>{
     var constrainNumOfPlayers = false;
     var constrainForeignerPlayer = false;
     var validListPlayer = false;
-    for (let player of listPlayer){
-        try{
-        let age = util.getAge(player.DOB);
-        console.log("tuoi:     " + age)
-        if (util.isBetween(age, rulesLeauge.minAge, rulesLeauge.maxAge)){
+    var noiBinh = "Nội Binh";
+    var ngoaiBinh = "Ngoại Binh";
+    for (let player of listPlayer) {
+        try {
+            let age = util.getAge(player.DOB);
+            if (util.isBetween(age, rulesLeauge.minAge, rulesLeauge.maxAge)) {
+                const checkExist = await Player.getPlayerById(player.idCauThu);
 
-            if (player.type === "1"){
-                numOfForeignerPlayer ++;
-                listPlayerValid.push(player)
-            }
-            else if(player.type ==="0"){
-                listPlayerValid.push(player)
+                if (checkExist == undefined) {
+                    if (player.type.toLocaleLowerCase().normalize() === ngoaiBinh.toLocaleLowerCase().normalize()) {
+
+                        numOfForeignerPlayer++;
+                        listPlayerValid.push(player)
+                    }
+                    else if (player.type.toLocaleLowerCase().normalize() == noiBinh.toLocaleLowerCase().normalize()) {
+
+                        listPlayerValid.push(player)
+                    }
+                    else {
+                        throw ("Loại cầu thủ không đúng.");
+                    }
+                }
+                else{
+                    throw("Cầu thủ đã được CLB khác sử dụng");
+                }
+
             }
             else {
-                throw (err);
+                
+                listPlayerInvalid.push(player)
             }
         }
-        else {
-            listPlayerInvalid.push(player)
-        }
-        }
-        catch(err){
+        catch (err) {
             listPlayerInvalid.push(player)
         }
     }
-    if (util.isBetween(listPlayerValid.length, rulesLeauge.minPlayer, rulesLeauge.maxPlayer)){
+    if (util.isBetween(listPlayerValid.length, rulesLeauge.minPlayer, rulesLeauge.maxPlayer)) {
         constrainNumOfPlayers = true;
     }
-    if (numOfForeignerPlayer <= rulesLeauge.foreignerPlayer){
+    if (numOfForeignerPlayer <= rulesLeauge.foreignerPlayer) {
         constrainForeignerPlayer = true;
     }
     validListPlayer = constrainForeignerPlayer && constrainNumOfPlayers;
-     const returnObject = {
+    const returnObject = {
         constrainForeignerPlayer,
         constrainNumOfPlayers,
         validListPlayer,
         listPlayerValid,
         listPlayerInvalid,
-     }
-     return returnObject;
-    
+    }
+    return returnObject;
+
 }
 
 
-exports.CSVFiletoJsonObject = async (uriFile) =>{
+exports.CSVFiletoJsonObject = async (uriFile) => {
     csv({
         noheader: false,
-        headers: ['stt','idCauThu', 'ten', 'DOB', 'type']
+        headers: ['idCauThu', 'ten', 'DOB', 'number', 'type', 'description']
     })
-    .fromFile(uriFile)
-    .then((jsonObj)=>{
-        /**
-         * [
-         * 	{a:"1", b:"2", c:"3"},
-         * 	{a:"4", b:"5". c:"6"}
-         * ]
-         */ 
-    })
-    const jsonArray=await csv({
+        .fromString(uriFile)
+        .then((jsonObj) => {
+            /**
+             * [
+             * 	{a:"1", b:"2", c:"3"},
+             * 	{a:"4", b:"5". c:"6"}
+             * ]
+             */
+        })
+    const jsonArray = await csv({
         noheader: false,
-        headers: ['stt','idCauThu', 'ten', 'DOB', 'type']
-    }).fromFile(uriFile);
+        headers: ['idCauThu', 'ten', 'DOB', 'number', 'type', 'description']
+    }).fromString(uriFile);
     return jsonArray;
 }
 
