@@ -10,7 +10,7 @@ var upload = multer({ storage: storage });
 
 
 router.get('/',notAdmin, manageController.index)
-router.get('/update-match', notAdmin, manageController.renderCapNhaptiso);
+router.get('/update-match', notAdmin, manageController.getCapNhaptiso);
 router.get('/register-club',notAdmin, manageController.renderRClub);
 router.get('/create-league',notAdmin,manageController.renderCreateLeauge);
 router.get('/edit-regulations',notAdmin, manageController.renderEditReg);

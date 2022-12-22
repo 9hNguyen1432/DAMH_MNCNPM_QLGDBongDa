@@ -1,6 +1,6 @@
 <div class="container p-100">
     <div class="row">
-        <h5 class="headerBody center-horizontal">KẾT QUẢ</h5>
+        <h5 class="headerBody center-horizontal">{{title}}</h5>
     </div>
 
 
@@ -8,7 +8,9 @@
     <div class="tab-pane fade show active" id="nav-all"
         role="tabpanel" aria-labelledby="nav-home-tab">
         {{#each AllMatchs}}
+        <a style="text-decoration: none" href="/result/{{this.id}}">
             {{>renderDSTranDau this}}
+            </a>
         {{/each}}
     </div>
     {{/if}}
