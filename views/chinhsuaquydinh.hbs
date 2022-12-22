@@ -14,7 +14,7 @@
                     --}}
                     <h5 class="card-title text-center mb-5 fw-light fs-5">GIẢI ĐẤU V-LEAGUE</h5>
 
-                    <form class="row g-3" method="post" action = "/manage/edit-regulations">
+                    <form class="row g-3" method="post" id="my_form" action = "/manage/edit-regulations">
 
                         <div class="col-md-6 form-floating mb-3">
                             <input name="minAge" type="number" class="form-control" id="inputDTTT"
@@ -91,24 +91,24 @@
                         <div class="border" style="margin: 5px 0; padding: 15px; border-radius: 5px; ">
                             <div style="font-weight:800; padding-bottom: 10px">TIÊU CHÍ XẾP HẠNG</div>
                             <ul id="sortable" style="list-style: none; padding-left:0" >
-                                <li class="border" style="padding: 3px 5px; margin: 5px 0">
-                                    <div class="news"  value="score">
+                                <li id="score" class="border" style="padding: 3px 5px; margin: 5px 0">
+                                    <div class="news">
                                         Tổng điểm
                                     </div>
                                 </li>
 
-                                <li class="border" style="padding: 3px 5px; margin: 5px 0">
-                                    <div class="news"  value="goalDelta">
+                                <li id="goalDelta" class="border" style="padding: 3px 5px; margin: 5px 0">
+                                    <div class="news">
                                         Hiệu số bàn thắng
                                     </div>
                                 </li>
-                                <li class="border" style="padding: 3px 5px; margin: 5px 0">
-                                    <div class="news"  value="totalGoal">
+                                <li  id="totalGoal" class="border"  style="padding: 3px 5px; margin: 5px 0">
+                                    <div class="news" >
                                         Tổng bàn thắng
                                     </div>
                                 </li>
-                                <li class="border" style="padding: 3px 5px; margin: 5px 0">
-                                    <div class="news"  value ="facing">
+                                <li id="facing" class="border" style="padding: 3px 5px; margin: 5px 0">
+                                    <div class="news" >
                                         Lịch sử đối đầu
                                     </div>
                                 </li>
@@ -118,7 +118,7 @@
 
                         <div class="d-grid">
                             <button name="login"  class="btn
-                                btn-primary btn-login text-uppercase fw-bold" type="submit">ĐĂNG KÝ</button>
+                                btn-primary btn-login text-uppercase fw-bold" type="button" id="submit">CẬP NHẬT</button>
                         </div>
                     </form>
                 </div>
@@ -126,3 +126,29 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function() {
+
+       $('#submit').click(function() {
+        console.log(1)
+        let arr=[]
+        for(let i =0; i<4; i ++){
+            arr.push($( `ul#sortable li:nth-child(${i+1})` ).attr("id"));
+        }
+        console.log(arr)
+          $.ajax({
+             type: "POST",
+             url: "/manage/edit-regulations",
+             data: {'form': $("#my_form").serialize(), 'other': arr},
+             success: function(msg) {
+                alert("Form Submitted: " + msg);
+             }
+          });
+
+       });
+
+    });
+
+</script>

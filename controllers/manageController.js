@@ -8,6 +8,7 @@ const Club = require('../models/club')
 const uploadImage = require('../models/uploadImage')
 const rules = require('../models/rules');
 const { title } = require('process');
+const util =require('../models/util')
 
 
 class manageController{
@@ -42,10 +43,16 @@ class manageController{
         res.render('chinhsuaquydinh',{user,rule})
     }
 
+
     async updateRules(req, res){
         const rule = req.body;
-        console.log(rule)
+        let priorityRank = req.body.other;
+        let temp = util.unserialize(req.body.form);
+        console.log(temp)
+        console.log(priorityRank);
     }
+
+    
 
     async uploadClub(req,res,next){
         // console.log(req.files)

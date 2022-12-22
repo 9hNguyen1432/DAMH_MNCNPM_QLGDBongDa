@@ -329,9 +329,8 @@ class Match {
       }
       match.report[1].push(report);
     }
-    console.log(match)
-    await database.ref("matchs").child(match.id).set(match);
     await this.updateScore(match);
+    await database.ref("matchs").child(match.id).set(match);
   }
 
   //update
