@@ -14,9 +14,9 @@ admin.initializeApp({
 
 const bucket = admin.storage().bucket();
 
-const uploadImage = (req) => {
+const uploadImage = (reqFile) => {
 
-    const reqFile = req.files.logo[0]
+
     const name = Date.now() + reqFile.originalname;
 
      file = bucket.file(name);

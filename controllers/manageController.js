@@ -84,9 +84,7 @@ class manageController{
         else if (validedData.validListPlayer ==true){
             success = true
             var id = ""
-            console.log(req.files);
-            var logo = uploadImage(req);
-            console.log(2);
+            var logo = uploadImage(req.files.logo[0]);
             var name = req.body.tenclb;
             var stadium = req.body.sannha;
             var listPlayer = validedData.listPlayerValid
@@ -94,7 +92,6 @@ class manageController{
             var captain = ""
             var club11 = new Club.constructor(id,logo,name, stadium, listPlayer,coach,captain)
             await Club.addClub(club11);
-            console.log(club11)
             res.render('dangkygiaidau',{user, clb, sannha, hlv, success})
         }
 
@@ -116,13 +113,29 @@ class manageController{
 
     async renderCapNhaptiso(req,res){
         const match = await Match.getMatchisRunning();
-
         const club1 = await Club.getClubByName(match[0].club_1);
         const club2 = await Club.getClubByName(match[0].club_2);
         const rule = await rules.getRulesFromDataBase();
-        console.log(rule)
         var user = req.session.user
         res.render('capnhaptiso', {user, match: match[0], club1, club2, rule});
+    }
+
+    async postCapNhaptiso(req,res, next){
+        let matchID = req.body.match;
+        let typeGoal = req.body.loaibanthang.trim();
+        let player = req.body.cauthughiban.trim();
+        let time = req.body.thoigianghiban;
+        let clb = req.body.clb;
+        let report ="Bàn thắng: "+ player + " " + typeGoal +" ("+ time +"')";
+        console.log(report);
+        await Match.updateScoreInTime(matchID, clb, report)
+
+        // const club1 = await Club.getClubByName(match[0].club_1);
+        // const club2 = await Club.getClubByName(match[0].club_2);
+        // const rule = await rules.getRulesFromDataBase();
+        // console.log(rule)
+        // var user = req.session.user
+        // res.render('capnhaptiso', {user, match: match[0], club1, club2, rule});
     }
 
     

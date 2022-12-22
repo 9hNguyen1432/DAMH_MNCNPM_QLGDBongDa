@@ -15,7 +15,7 @@ module.exports = (app) => {
         rendercombolist: function (value, options) {
           let item = "";
           for (let i = 0; i < value.length; i++) {
-            item = item + "<option value='"+i+"'>" + options.fn(value[i]) + "</option>";
+            item = item + "<option value='"+options.fn(value[i])+"'>" + options.fn(value[i]) + "</option>";
           }
           return item
         }
