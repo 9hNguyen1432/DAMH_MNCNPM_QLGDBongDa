@@ -90,7 +90,6 @@ class Player{
 
     async editPlayerById(player)
     {
-      
       await database.ref('players').child(player.id).set(player)
     }
 

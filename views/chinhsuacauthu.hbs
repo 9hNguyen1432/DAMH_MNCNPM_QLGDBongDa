@@ -1,87 +1,72 @@
 <div class="container p-100">
     <div class="row">
         <div class="col-5 mx-auto ">
-            <h5 class="text-center rounded-3 py-3 mt-3 text-light"
-                style="background-color: rgb(36, 106, 203); display: block;
+            <h5 class="text-center rounded-3 py-3 mt-3 text-light" style="background-color: rgb(36, 106, 203); display: block;
                 ">CHỈNH SỬA CẦU THỦ</h5>
         </div>
 
     </div>
     <div class="row">
+
         <div class="col-sm-12 col-md-19 col-lg-10 mx-auto">
             <div class="card border-0 shadow rounded-3 my-5">
                 <div class="card-body p-4 p-sm-5">
-                    <form class="row g-3" action="/edit-player/{{id}}"
-                        method="post"
-                        >
+                    <form class="row g-3" action="/edit-player/{{id}}" method="post" enctype="multipart/form-data">
                         <div class="col-12 form-floating mb-3">
-                            <input type="text"
-                                class="form-control"
-                                id="name" placeholder="Tên cầu thủ"
-                                value="{{player.name}}"
-                                name="name"
-                                required> </input>
+                            <input type="text" class="form-control" id="name" placeholder="Tên cầu thủ"
+                                value="{{player.name}}" name="name" required> </input>
                             <label for="playername" class="form-label">Tên cầu thủ</label>
                             <div class="invalid-feedback">
                                 Please provide a valid zip.
                             </div>
                         </div>
+
                         <div class="mb-3">
-                            <label for="logo" class="form-label">Avatar</label>
-                            <input class="form-control form-floating"
-                                type="file" id="logo"
-                                value="{{player.avt}}"
-                                name="logo" accept=".png,.jpg,.jpeg"
-                                file={{logo}}>
+                            <label for="avt" class="form-label">Logo</label>
+                            <input class="form-control  form-floating" type="file" id="avt" name="avt"
+                                accept=".png,.jpg,.jpeg">
                         </div>
 
-                        <img id="previewAvatar" class="border" style="width: 150px; padding: 5px 5px; margin:auto" src="data:image/jpeg;base64,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" alt="">
+                        <img id="previewAvatar" class="border" style="width: 150px; padding: 5px 5px; margin:auto"
+                            src="{{player.avt}}"
+                            alt="">
 
                         <div class="col-12 form-floating mb-3">
-                            <input type="text" class="form-control"
-                                id="number"
-                                name="number"
-                                placeholder="Số áo" value="{{player.number}}" required>
+                            <input type="text" class="form-control" id="number" name="number" placeholder="Số áo"
+                                value="{{player.number}}" required>
                             <label for="number" class="form-label">Số áo</label>
                         </div>
 
                         <div class="col-12 form-floating mb-3">
-                            <input type="text" class="form-control"
-                                id="role"
-                                name="role"
-                                placeholder="Vị trí" value="{{player.role}}" required>
+                            <input type="text" class="form-control" id="role" name="role" placeholder="Vị trí"
+                                value="{{player.role}}" required>
                             <label for="role" class="form-label">Vị trí</label>
                         </div>
 
                         <div class="col-12 form-floating mb-3">
-                            <input type="text" class="form-control"
-                                id="club"
-                                name="club"
-                                placeholder="Câu lạc bộ" value="{{player.club}}" required>
+                            <input type="text" class="form-control" id="club" name="club" placeholder="Câu lạc bộ"
+                                value="{{player.club}}" required>
                             <label for="club" class="form-label">Câu lạc
                                 bộ</label>
                         </div>
 
                         <div class="col-12 form-floating mb-3">
-                            <input type="text" class="form-control"
-                                id="description"
-                                name="description"
+                            <input type="text" class="form-control" id="description" name="description"
                                 placeholder="Mô tả" value="{{player.description}}" required>
                             <label for="description" class="form-label">Mô tả</label>
                         </div>
 
                         <div class="col-md-6 mb-3">
                             <label for="birthday" class="form-label">Ngày sinh</label>
-                            <input name="birthday" value="{{player.birthday}}" type="date"
-                                class="form-control" id="birthday">
+                            <input name="birthday" value="{{player.birthday}}" type="date" class="form-control"
+                                id="birthday">
                         </div>
 
 
                         <div class="d-grid">
                             <button name="btn_DKGD" value="register" class="btn
                                 btn-primary
-                                btn-login text-uppercase fw-bold"
-                                type="submit">HOÀN TẤT</button>
+                                btn-login text-uppercase fw-bold" type="submit">HOÀN TẤT</button>
                         </div>
                     </form>
                 </div>
@@ -91,9 +76,9 @@
 </div>>
 
 <script>
-    logo.onchange = evt => {
-        const [file] = logo.files;
-        if(file){
+    avt.onchange = evt => {
+        const [file] = avt.files;
+        if (file) {
             previewAvatar.src = URL.createObjectURL(file)
         }
     }
