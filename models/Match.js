@@ -1,24 +1,10 @@
 const firebase = require("../config/database/config.js");
 const database = firebase.database();
 const Club = require("./club");
-
+const Rule = require("./rules");
 class Match {
-  constructor(
-    id,
-    date,
-    time,
-    club_1,
-    club_2,
-    referee,
-    stadium,
-    status,
-    goal_1,
-    goal_1_bf,
-    goal_2,
-    goal_2_bf,
-    timeRunning,
-    rs
-  ) {
+  constructor(id,date,time,club_1,club_2, referee,stadium,status,goal_1,goal_1_bf,goal_2, goal_2_bf,timeRunning, rs ) 
+  {
     this.id = id;
     this.date = date;
     this.time = time;
@@ -146,11 +132,10 @@ class Match {
         snapshot.forEach(function (childsnap) {
           arr.push(childsnap.val());
         });
-        await Promise.all(
-          arr.map(async (childSnapshot) => {
+        await Promise.all(arr.map(async (childSnapshot) => {
             let hours = date_ob.getHours();
             let minutes = date_ob.getMinutes();
-  
+
             var match = childSnapshot;
             var time = match.time;
             var t = time.split(":");
@@ -166,8 +151,6 @@ class Match {
               } else if (t2 - t1 < 100 &&t2 - t1 > 90 &&match.status == "isRunning") {
   
                 match.timeRunning = "90+";
-
-               
                 
               } else if (t2 - t1 > 100) {
                 match.timeRunning = "FT";
@@ -187,6 +170,11 @@ class Match {
       const club1 = await Club.getClubByName(match.club_1);
       const club2 = await Club.getClubByName(match.club_2);
 
+      const rule = await Rule.getRulesFromDataBase();
+      
+      const score  = rule.score;
+      const win = score.win, draw= score.draw,lost = score.lost;
+      var goal1 = match.goal_1; var goal2 = match.goal_2;
       club1.totalGoal = club1.totalGoal - match.goal_1_bf + match.goal_1;
       club1.goalDelta =  club1.goalDelta - (match.goal_1_bf - match.goal_2_bf) + (match.goal_1 - match.goal_2) 
 
@@ -194,64 +182,75 @@ class Match {
       club2.goalDelta =  club2.goalDelta - (match.goal_2_bf - match.goal_1_bf) + (match.goal_2 - match.goal_1) 
 
       match.goal_1_bf = match.goal_1; match.goal_2_bf = match.goal_2;
-
-      var goal1 = match.goal_1; var goal2 = match.goal_2;
-  
       var C1 = [0, 0, 0];var C2 = [0, 0, 0];
   
       if (goal1 > goal2) {
-
-        if (match.rs == "H") {
-          club1.score = club1.score + 2; 
-          club2.score = club2.score - 1;
+        if(match.rs == "N"){
+          club1.score = club1.score + win; 
+          club2.score = club2.score  + lost;
+          C1[0]= 1;C2[2]= 1;
+        } 
+        else if (match.rs == "H") {
+          club1.score = club1.score - draw + win; 
+          club2.score = club2.score - draw + lost;
           C1[1] = -1;C2[1] = -1;
           C1[0] = 1;C2[2] = 1;
   
         } else if( match.rs == "L")
         {
-          club1.score = club1.score + 3;
-          club2.score = club2.score - 3;
+          club1.score = club1.score -lost + win;
+          club2.score = club2.score - win + lost;
   
           C1[2] = -1;C2[0] = -1;
           C1[0] = 1;C2[2] = 1;
         }
         match.rs = "W";
       } else if (goal1 == goal2) {
-        if (match.rs == "W") {
-          club1.score = club1.score - 2;
-          club2.score = club2.score + 1;
-  
-          C1[0] = -1;C2[2] = -1;
-          C1[1] = 1;C2[1] = 1;
-  
-        } else if (match.rs == "L") {
-          club1.score = club1.score + 1;
-          club2.score = club2.score - 2;
-  
-          C1[0] = -1;C2[2] = -1;
-          C1[1] = 1;C2[1] = 1;
-  
-        }
-  
+          if(match.rs == "N"){
+            club1.score = club1.score +draw; 
+            club2.score = club2.score  + draw;
+            C1[1] = 1 ; C2[1] = 1;
+          } 
+          else if (match.rs == "W") {
+            club1.score = club1.score - win + draw;
+            club2.score = club2.score - lost+ draw;
+    
+            C1[0] = -1;C2[2] = -1;
+            C1[1] = 1;C2[1] = 1;
+    
+          } else if (match.rs == "L") {
+            club1.score = club1.score - lost + draw;
+            club2.score = club2.score - win+ draw;
+    
+            C1[0] = -1;C2[2] = -1;
+            C1[1] = 1;C2[1] = 1;
+    
+          }
+    
         match.rs = "H";
       } else {
-        if (match.rs == "W") {
-          club1.score = club1.score - 3;
-          club2.score = club2.score + 3;
-  
-          C1[0] = -1;C2[2] = -1;
-          C1[2] = 1; C2[0] = 1;
-  
-  
-        } else if (match.rs == "H") {
-          club1.score = club1.score - 2;
-          club2.score = club2.score + 2;
-  
-          C1[1] = -1;C2[1] = -1;
-          C1[2] = 1;C2[0] = 1;
-  
-        }
-        match.rs = "L";
+          if(match.rs == "N"){
+            club1.score = club1.score +lost; 
+            club2.score = club2.score  + win;
+            C1[2] = 1;C2[0] = 1;
+          } 
+          else if (match.rs == "W") {
+            club1.score = club1.score -win+lost;
+            club2.score = club2.score -lost+ win;
+    
+            C1[0] = -1;C2[2] = -1;
+            C1[2] = 1; C2[0] = 1;
+    
+    
+          } else if (match.rs == "H") {
+            club1.score = club1.score -draw + lost;
+            club2.score = club2.score -draw + win;
+    
+            C1[1] = -1;C2[1] = -1;
+            C1[2] = 1;C2[0] = 1;
+    
+          }
+          match.rs = "L";
       }
   
       club1.win = club1.win + C1[0];club1.draw = club1.draw + C1[1];club1.lost = club1.lost + C1[2];

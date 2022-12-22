@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const manageController = require('../controllers/manageController')
 const {notAdmin, isAdmin} = require('../middlewares/home')
-
 const path = require('path')
 // const multer = require('../config/multer')
 var multer = require('multer')

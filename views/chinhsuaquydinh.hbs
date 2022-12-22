@@ -1,8 +1,10 @@
+
 <div class="container p-100">
     <div class="row">
-        <div class="col-5  mx-auto ">
-            <h5 class="text-center rounded-3 py-3 mt-3 text-light" style="background-color: rgb(36, 106, 203); display: block;
-">CHỈNH SỬA QUY ĐỊNH</h5>
+        <div class="col-5 mx-auto ">
+            <h5 class="text-center rounded-3 py-3 mt-3 text-light"
+                style="background-color: rgb(36, 106, 203); display: block;
+                ">CHỈNH SỬA QUY ĐỊNH</h5>
         </div>
 
     </div>
@@ -11,77 +13,142 @@
             <div class="card border-0 shadow rounded-3 my-5">
                 <div class="card-body p-4 p-sm-5">
                     {{!-- <h5 class="card-title text-center mb-5 fw-light fs-5">{{tengiai}}</h5>
-                     --}}
-                    <h5 class="card-title text-center mb-5 fw-light fs-5">GIẢI ĐẤU V-LEAGUE</h5>
-                    
+                    --}}
+                    <h5 class="card-title text-center mb-5 fw-light fs-5">GIẢI
+                        ĐẤU V-LEAGUE</h5>
+
+                    <div class="border" style="margin: 5px 0; padding: 15px; border-radius: 5px; ">
+                        <div  style="font-weight:800; padding-bottom: 10px">DANH SÁCH QUY ĐỊNH</div>
+                        <ul id="sortable" style="list-style: none; padding-left:0">
+                            <li class="border" style="padding: 3px 5px; margin: 1px 0">
+                                <div class="news">
+                                    QUY ĐỊNH 1 
+                                </div>
+                            </li>
+
+                            <li class="border" style="padding: 3px 5px; margin: 1px 0">
+                                <div class="news">
+                                    QUY ĐỊNH 2 
+                                </div>
+                            </li>
+                            <li class="border" style="padding: 3px 5px; margin: 1px 0">
+                                <div class="news">
+                                    QUY ĐỊNH 3
+                                </div>
+                            </li>
+                        </ul>
+
+                    </div>
+
                     <form class="row g-3">
 
                         <div class="col-md-6 form-floating mb-3">
-                            <input name="dotuoitoithieu" type="number" class="form-control" id="inputDTTT"
-                                placeholder="Độ tuổi cầu thủ tối thiểu" value="">
-                            <label for="inputDTTT">Độ tuổi cầu thủ tối thiểu</label>
+                            <input name="dotuoitoithieu" type="number"
+                                class="form-control" id="inputDTTT"
+                                placeholder="Độ tuổi cầu thủ tối thiểu"
+                                value="">
+                            <label for="inputDTTT">Độ tuổi cầu thủ tối
+                                thiểu</label>
                         </div>
                         <div class="col-md-6 form-floating mb-3">
 
-                            <input name="dotuoitoida" type="number" class="form-control" id="inputDTTD"
-                                placeholder="Độ tuổi cầu thủ tối đa" value="">
-                            <label for="inputDTTD" class="form-label">Độ tuổi cầu thủ tối đa</label>
+                            <input name="dotuoitoida" type="number"
+                                class="form-control" id="inputDTTD"
+                                placeholder="Độ tuổi cầu thủ tối đa"
+                                value="">
+                            <label for="inputDTTD" class="form-label">Độ tuổi
+                                cầu thủ tối đa</label>
                         </div>
 
                         <div class="col-md-6 form-floating mb-3">
-                            <input name="socauthumin" type="number" class="form-control" id="inputSCTMin"
-                                placeholder="Số cầu thủ CLB tối thiểu" value="">
-                            <label for="inputSCTMin">Số cầu thủ CLB tối thiểu</label>
+                            <input name="socauthumin" type="number"
+                                class="form-control" id="inputSCTMin"
+                                placeholder="Số cầu thủ CLB tối thiểu"
+                                value="">
+                            <label for="inputSCTMin">Số cầu thủ CLB tối
+                                thiểu</label>
                         </div>
                         <div class="col-md-6 form-floating mb-3">
 
-                            <input name="socauthumax" type="number" class="form-control" id="inputSCTMax"
-                                placeholder="Số cầu thủ CLB tối đa" value="">
-                            <label for="inputSCTMax" class="form-label">Số cầu thủ CLB tối đa</label>
+                            <input name="socauthumax" type="number"
+                                class="form-control" id="inputSCTMax"
+                                placeholder="Số cầu thủ CLB tối đa"
+                                value="">
+                            <label for="inputSCTMax" class="form-label">Số cầu
+                                thủ CLB tối đa</label>
                         </div>
 
                         <div class="col-md-4 form-floating mb-3">
-                            <input type="number" class="form-control" id="inputFullName" placeholder="Số ngoại binh">
-                            <label for="inputFullName" class="form-label">Số ngoại binh</label>
+                            <input type="number" class="form-control"
+                                id="inputFullName" placeholder="Số ngoại
+                                binh">
+                            <label for="inputFullName" class="form-label">Số
+                                ngoại binh</label>
                         </div>
 
 
                         <div class="col-md-3 mb-3 mx-auto">
-                            <label class="row pl-3" for="multiple-checkboxes">Loại bàn thắng</label>
-                            <select class="select row" id="multiple-checkboxes" multiple="multiple">
-                                <option class="py-1" value="Cứa lòng">Đánh đầu</option>
+                            <label class="row pl-3" for="multiple-checkboxes">Loại
+                                bàn thắng</label>
+                            <select class="select row" id="multiple-checkboxes"
+                                multiple="multiple">
+                                <option class="py-1" value="Cứa lòng">Đánh
+                                    đầu</option>
                                 <option class="py-1" value="Sút xa">Sút xa</option>
-                                <option class="py-1" value="Cận thành">Cận thành</option>
-                                <option class="py-1" value="Phạt đền">Phạt đền</option>
-                                <option class="py-1" value="Phản lưới">Phản lưới</option>
-                                <option class="py-1" value="Phạt góc">Phạt góc</option>
+                                <option class="py-1" value="Cận thành">Cận
+                                    thành</option>
+                                <option class="py-1" value="Phạt đền">Phạt
+                                    đền</option>
+                                <option class="py-1" value="Phản lưới">Phản
+                                    lưới</option>
+                                <option class="py-1" value="Phạt góc">Phạt
+                                    góc</option>
                             </select>
 
                         </div>
 
                         <div class="col-md-4 form-floating mb-3">
-                            <input type="number" class="form-control" id="inputTDGBTD"
+                            <input type="number" class="form-control"
+                                id="inputTDGBTD"
                                 placeholder="Thời điểm ghi bàn tối đa">
-                            <label for="inputTDGBTD" class="form-label">Thời điểm ghi bàn tối đa</label>
+                            <label for="inputTDGBTD" class="form-label">Thời
+                                điểm ghi bàn tối đa</label>
                         </div>
 
                         <div class="col-md-4 form-floating mb-3">
-                            <input type="number" class="form-control" id="inputSoDiemThang" placeholder="Số điểm thắng">
-                            <label for="inputSoDiemThang" class="form-label">Số điểm thắng</label>
+                            <input type="number" class="form-control"
+                                id="inputSoDiemThang" placeholder="Số điểm
+                                thắng">
+                            <label for="inputSoDiemThang" class="form-label">Số
+                                điểm thắng</label>
                         </div>
                         <div class="col-md-4 form-floating mb-3">
-                            <input type="number" class="form-control" id="inputSoDiemHoa" placeholder="Số điểm hòa">
-                            <label for="inputSoDiemHoa" class="form-label">Số điểm hòa</label>
+                            <input type="number" class="form-control"
+                                id="inputSoDiemHoa" placeholder="Số điểm
+                                hòa">
+                            <label for="inputSoDiemHoa" class="form-label">Số
+                                điểm hòa</label>
                         </div>
                         <div class="col-md-4 form-floating mb-3">
-                            <input type="number" class="form-control" id="inputSoDiemThua" placeholder="Số điểm thua">
-                            <label for="inputSoDiemThua" class="form-label">Số điểm thua</label>
+                            <input type="number" class="form-control"
+                                id="inputSoDiemThua" placeholder="Số điểm
+                                thua">
+                            <label for="inputSoDiemThua" class="form-label">Số
+                                điểm thua</label>
                         </div>
 
-
+                        <div id="list">
+                            <div class="draggable">A</div>
+                            <div class="draggable">B</div>
+                            <div class="draggable">C</div>
+                            <div class="draggable">D</div>
+                            <div class="draggable">E</div>
+                        </div>
+                        
 
                         <div class="d-grid">
-                            <button name="login" value="login" class="btn btn-primary btn-login text-uppercase fw-bold"
+                            <button name="login" value="login" class="btn
+                                btn-primary btn-login text-uppercase fw-bold"
                                 type="submit">ĐĂNG KÝ</button>
                         </div>
                     </form>
@@ -90,3 +157,144 @@
         </div>
     </div>
 </div>
+
+<script>
+let draggingEle;
+
+// The current position of mouse relative to the dragging element
+let x = 0;
+let y = 0;
+
+const mouseDownHandler = function (e) {
+    draggingEle = e.target;
+
+    // Calculate the mouse position
+    const rect = draggingEle.getBoundingClientRect();
+    x = e.pageX - rect.left;
+    y = e.pageY - rect.top;
+
+    // Attach the listeners to `document`
+    document.addEventListener('mousemove', mouseMoveHandler);
+    document.addEventListener('mouseup', mouseUpHandler);
+};
+
+const mouseMoveHandler = function (e) {
+    // Set position for dragging element
+    draggingEle.style.position = 'absolute';
+    draggingEle.style.top = `${e.pageY - y}px`;
+    draggingEle.style.left = `${e.pageX - x}px`;
+};
+
+const mouseUpHandler = function () {
+// Remove the position styles
+draggingEle.style.removeProperty('top');
+draggingEle.style.removeProperty('left');
+draggingEle.style.removeProperty('position');
+
+x = null;
+y = null;
+draggingEle = null;
+
+// Remove the handlers of `mousemove` and `mouseup`
+document.removeEventListener('mousemove', mouseMoveHandler);
+document.removeEventListener('mouseup', mouseUpHandler);
+};
+const list = document.getElementById('list');
+// Query all items
+[].slice.call(list.querySelectorAll('.draggable')).forEach(function (item) {
+    item.addEventListener('mousedown', mouseDownHandler);
+});
+
+let placeholder;
+let isDraggingStarted = false;
+
+const mouseMoveHandler = function(e) {
+    const draggingRect = draggingEle.getBoundingClientRect();
+
+    if (!isDraggingStarted) {
+        // Update the flag
+        isDraggingStarted = true;
+
+        // Let the placeholder take the height of dragging element
+        // So the next element won't move up
+        placeholder = document.createElement('div');
+        placeholder.classList.add('placeholder');
+        draggingEle.parentNode.insertBefore(
+            placeholder,
+            draggingEle.nextSibling
+        );
+
+        // Set the placeholder's height
+        placeholder.style.height = `${draggingRect.height}px`;
+    }
+
+    ...
+}
+
+
+const mouseUpHandler = function() {
+// Remove the placeholder
+placeholder && placeholder.parentNode.removeChild(placeholder);
+// Reset the flag
+isDraggingStarted = false;
+
+...
+};
+
+const isAbove = function (nodeA, nodeB) {
+    // Get the bounding rectangle of nodes
+    const rectA = nodeA.getBoundingClientRect();
+    const rectB = nodeB.getBoundingClientRect();
+
+    return rectA.top + rectA.height / 2 < rectB.top + rectB.height / 2;
+};
+
+                            const mouseMoveHandler = function (e) {
+    // The current order:
+    // prevEle
+    // draggingEle
+    // placeholder
+    // nextEle
+    const prevEle = draggingEle.previousElementSibling;
+    const nextEle = placeholder.nextElementSibling;
+};
+
+const mouseMoveHandler = function(e) {
+...
+
+// User moves item to the top
+if (prevEle && isAbove(draggingEle, prevEle)) {
+    // The current order    -> The new order
+    // prevEle              -> placeholder
+    // draggingEle          -> draggingEle
+    // placeholder          -> prevEle
+    swap(placeholder, draggingEle);
+    swap(placeholder, prevEle);
+    return;
+}
+};
+
+const mouseMoveHandler = function(e) {
+...
+
+    // User moves the dragging element to the bottom
+    if (nextEle && isAbove(nextEle, draggingEle)) {
+        // The current order    -> The new order
+        // draggingEle          -> nextEle
+        // placeholder          -> placeholder
+        // nextEle              -> draggingEle
+        swap(nextEle, placeholder);
+        swap(nextEle, draggingEle);
+    }
+};
+const swap = function (nodeA, nodeB) {
+const parentA = nodeA.parentNode;
+const siblingA = nodeA.nextSibling === nodeB ? nodeA : nodeA.nextSibling;
+
+// Move `nodeA` to before the `nodeB`
+nodeB.parentNode.insertBefore(nodeA, nodeB);
+
+// Move `nodeB` to before the sibling of `nodeA`
+parentA.insertBefore(nodeB, siblingA);
+};
+</script>

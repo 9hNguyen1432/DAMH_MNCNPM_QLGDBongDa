@@ -34,7 +34,9 @@ class manageController{
         var user = req.session.user
         res.render('taogiaidaumoi',{user})
     }
-    renderEditReg(req, res){
+    async renderEditReg(req, res){
+
+        
         var user = req.session.user
         res.render('chinhsuaquydinh',{user})
     }
