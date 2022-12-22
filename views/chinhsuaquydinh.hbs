@@ -56,12 +56,12 @@
                             <label class="row pl-3" for="multiple-checkboxes">Loại
                                 bàn thắng</label>
                             <select class="select row" id="multiple-checkboxes" multiple="multiple" name="typeOfGoal" value ={{rule.typeOfGoal}}>
-                                <option class="py-1" value="Đánh đầu" checked = "checkExist('Đánh đầu',{{rule.typeOfGoal}})" >Đánh đầu</option>
-                                <option class="py-1" value="Sút xa">Sút xa</option>
-                                <option class="py-1" value="Cận thành">Cận thành</option>
-                                <option class="py-1" value="Phạt đền">Phạt đền</option>
-                                <option class="py-1" value="Phản lưới">Phản lưới</option>
-                                <option class="py-1" value="Phạt góc">Phạt góc</option>
+                                <option class="py-1" value="Đánh đầu" {{#checkSelected 'Đánh đầu' rule.typeOfGoal}}selected{{/checkSelected}}>Đánh đầu</option>
+                                <option class="py-1" value="Sút xa" {{#checkSelected 'Sút xa' rule.typeOfGoal}}selected{{/checkSelected}}>Sút xa</option>
+                                <option class="py-1" value="Cận thành" {{#checkSelected 'Cận thành' rule.typeOfGoal}}selected{{/checkSelected}}>Cận thành</option>
+                                <option class="py-1" value="Phạt đền" {{#checkSelected 'Phạt đền' rule.typeOfGoal}}selected{{/checkSelected}}>Phạt đền</option>
+                                <option class="py-1" value="Phản lưới" {{#checkSelected 'Phản lưới' rule.typeOfGoal}}selected{{/checkSelected}}>Phản lưới</option>
+                                <option class="py-1" value="Phạt góc" {{#checkSelected 'Phạt góc' rule.typeOfGoal}}selected{{/checkSelected}}>Phạt góc</option>
                             </select>
 
                         </div>
@@ -126,12 +126,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    function checkExist(value,list){
-        if(list.includes(value))
-            return true;
-        else
-            return false;
-    }
-</script>
