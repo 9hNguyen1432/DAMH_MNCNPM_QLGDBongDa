@@ -45,16 +45,24 @@
     </div>
     <div class="card-footer text-muted">
         <div class="row">
-            <div class="col-6 text-start">
-                {{hihi}}
-                cdcdcdcdccdcdcd
-                cdcdcdss
-            </div>
+            {{#each this.report as | rp |}}
+            {{#if @index}}
             <div class="col-6 text-end">
-                {{hihi}}
-                cdcdcdcdccdcdcd
-                cdcdcdss
+                {{else}}
+                <div class="col-6 text-start">
+                    {{/if}}
+
+
+                    {{#renderlines rp}}
+                    {{this}}
+                    {{/renderlines}}
+                </div>
+                {{/each}}
+                {{!-- <div class="col-6 text-end">
+                    {{hihi}}
+                    cdcdcdcdccdcdcd
+                    cdcdcdss
+                </div> --}}
             </div>
         </div>
     </div>
-</div>

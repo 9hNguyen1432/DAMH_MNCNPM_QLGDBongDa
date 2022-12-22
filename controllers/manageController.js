@@ -6,7 +6,8 @@ const upload = multer({ dest: path.join(__dirname, '../public/uploads/imgs')});
 const mo = require("../models/managerClub");
 const Club = require('../models/club')
 const uploadImage = require('../models/uploadImage')
-const rules = require('../models/rules')
+const rules = require('../models/rules');
+const { title } = require('process');
 
 
 class manageController{
@@ -111,17 +112,14 @@ class manageController{
 
 
 
-
-
-
-    async renderCapNhaptiso(req,res){
-        const match = await Match.getMatchisRunning();
-        const club1 = await Club.getClubByName(match[0].club_1);
-        const club2 = await Club.getClubByName(match[0].club_2);
-        const rule = await rules.getRulesFromDataBase();
+    async getCapNhaptiso(req, res){
+        const Matchs = await Match.getMatchisRunning();
+        var title = "CÁC TRẬN ĐANG DIỄN RA"
         var user = req.session.user
-        res.render('capnhaptiso', {user, match: match[0], club1, club2, rule});
+        res.render('ketquacactrandau', {user,AllMatchs: Matchs, title});
     }
+
+
 
     async postCapNhaptiso(req,res, next){
         let matchID = req.body.match;
@@ -129,16 +127,18 @@ class manageController{
         let player = req.body.cauthughiban.trim();
         let time = req.body.thoigianghiban;
         let clb = req.body.clb;
-        let report ="Bàn thắng: "+ player + " " + typeGoal +" ("+ time +"')";
+        let report ="Bàn thắng: "+ player + " - " + typeGoal +" ("+ time +"')";
         console.log(report);
-        await Match.updateScoreInTime(matchID, clb, report)
+        await Match.updateScoreInTime(matchID, clb, report);
 
-        // const club1 = await Club.getClubByName(match[0].club_1);
-        // const club2 = await Club.getClubByName(match[0].club_2);
-        // const rule = await rules.getRulesFromDataBase();
-        // console.log(rule)
-        // var user = req.session.user
-        // res.render('capnhaptiso', {user, match: match[0], club1, club2, rule});
+        
+        let match = await Match.findMatchByID(matchID);
+        const club1 = await Club.getClubByName(match.club_1);
+        const club2 = await Club.getClubByName(match.club_2);
+        const rule = await rules.getRulesFromDataBase();
+ 
+        var user = req.session.user
+        res.render('capnhaptiso', {user, match, club1, club2, rule});
     }
 
     

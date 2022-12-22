@@ -10,7 +10,7 @@
                     <div class="input-group col-12 mb-3">
                         <label class="input-group-text" for="loaibanthang">Loại bàn thắng</label>
                         <select name="loaibanthang" class="form-select" id="loaibanthang">
-                            <option selected>Choose...</option>
+
                             {{#rendercombolist rule.typeOfGoal}}
                             {{this}}
                             {{/rendercombolist}}
@@ -19,7 +19,6 @@
                     <div class="input-group col-12 mb-3">
                         <label class="input-group-text" for="cauthughiban">Cầu thủ ghi bàn</label>
                         <select name="cauthughiban" class="form-select" id="cauthughiban">
-                            <option selected>Choose...</option>
                             {{#rendercombolist club.listPlayer}}
                             {{ten}}
                             {{/rendercombolist}}

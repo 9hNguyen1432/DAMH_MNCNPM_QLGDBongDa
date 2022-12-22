@@ -1,9 +1,11 @@
+const { machineLearning } = require("firebase-admin");
+const { accessSync } = require("fs");
 const firebase = require("../config/database/config.js");
 const database = firebase.database();
 const Club = require("./club");
 const Rule = require("./rules");
 class Match {
-  constructor(id,date,time,club_1,club_2, referee,stadium,status,goal_1,goal_1_bf,goal_2, goal_2_bf,timeRunning, rs ) 
+  constructor(id,date,time,club_1,club_2, referee,stadium,status,goal_1,goal_1_bf,goal_2, goal_2_bf,timeRunning, rs, report = [[],[]] ) 
   {
     this.id = id;
     this.date = date;
@@ -19,7 +21,7 @@ class Match {
     this.goal_2_bf =goal_2_bf;
     this.timeRunning = timeRunning;
     this.rs = rs;
-    this.report = [[],[]]
+    this.report = report
   }
 
   //dựa vào tên club => Lấy club => Tạo match => Add Match
@@ -252,7 +254,6 @@ class Match {
           }
           match.rs = "L";
       }
-      
   
       club1.win = club1.win + C1[0];club1.draw = club1.draw + C1[1]; club1.lost = club1.lost + C1[2];
       club2.win = club2.win + C2[0];club2.draw = club2.draw + C2[1];club2.lost = club2.lost + C2[2];
@@ -297,22 +298,43 @@ class Match {
     return [count1, count2];
 
   }
+  async findMatchByID(id){
+    let match = null;
+    await database.ref('matchs').child(id).once('value', (snapshot) => {
+      match = snapshot.val();
+   });
+   return match;
+  }
 
   async updateScoreInTime(id, club,report){
     let match = null;
     await database.ref('matchs').child(id).once('value', (snapshot) => {
       match = snapshot.val();
    });
-    console.log(match)
+
+    if(match.report == undefined){
+      match.report = [[],[]];
+    }
     if (club.normalize() == match.club_1.normalize()){
       match.goal_1 = match.goal_1 + 1;
+      if(match.report[0] == undefined){
+        match.report[0] = [];
+      }
       match.report[0].push(report);
     }
     else{
-      match.goal_1 = match.goal_1 + 1;
-      match.report[0].push(report);
+      match.goal_2 = match.goal_2 + 1;
+      if(match.report[1] == undefined){
+        match.report[1] = [];
+      }
+      match.report[1].push(report);
     }
+    console.log(match)
+    await database.ref("matchs").child(match.id).set(match);
+    await this.updateScore(match);
   }
+
+  //update
 }
 
 module.exports = new Match();
