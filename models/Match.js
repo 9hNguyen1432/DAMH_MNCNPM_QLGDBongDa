@@ -90,7 +90,7 @@ class Match {
         return date.sort((a,b) =>{
             var dateParts1 = a.split('/')
             var dateParts2 =  b.split('/')
-            return (new Date(+dateParts1[2], dateParts1[1] - 1, +dateParts1[0])) - (new Date(+dateParts2[2], dateParts2[1] - 1, +dateParts2[0]) )})
+            return (new Date(+dateParts1[2], dateParts1[1] - 1, +dateParts1[0])) - (new Date(+dateParts2[2], dateParts2[1] - 1, +dateParts2[0]))})
         
     }
     async getMatchisFinished(){
