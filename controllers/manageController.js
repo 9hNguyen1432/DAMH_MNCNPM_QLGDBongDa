@@ -4,7 +4,7 @@ const express = require('express');
 const multer  = require('multer');
 const upload = multer({ dest: path.join(__dirname, '../public/uploads/imgs')});
 const mo = require("../models/managerClub");
-const Club = require('../models/Club')
+const Club = require('../models/club')
 const uploadImage = require('../models/uploadImage')
 
 
@@ -33,15 +33,16 @@ class manageController{
         var user = req.session.user
         res.render('taogiaidaumoi',{user})
     }
-    renderEditReg(req, res){
+    async renderEditReg(req, res){
+
+        
         var user = req.session.user
         res.render('chinhsuaquydinh',{user})
     }
 
     async uploadClub(req,res,next){
 
-        var user = req.session.user
-
+    
         // console.log(req.file.destination);
         // if(req.file){
         //     return res.render('dangkygiaidau', { user,
@@ -49,20 +50,19 @@ class manageController{
         //         imgName: req.file.originalname
         //     });
         // }
-        var temp = await mo.CSVFiletoJsonObject(req.files.danhsachcauthu[0].path)
-        var validedData = await mo.checkListPlayer(temp);
-        console.log(validedData);
+      //  var temp = await mo.CSVFiletoJsonObject(req.files.danhsachcauthu[0].path)
+       // var validedData = await mo.checkListPlayer(temp);
+    
+        if(req.file){
+            const url = uploadImage(req);
+            if(url)
+                console.log(url)
+                return res.render('dangkygiaidau', { 
+                    imgPath: url,
+                    imgName: req.file.originalname
+                });
 
-        // if(req.file){
-        //     const url = uploadImage(req);
-        //     if(url)
-        //         console.log(url)
-        //         return res.render('dangkygiaidau', { 
-        //             imgPath: url,
-        //             imgName: req.file.originalname
-        //         });
-
-        // }
+        }
 
 
         var user = req.session.user
