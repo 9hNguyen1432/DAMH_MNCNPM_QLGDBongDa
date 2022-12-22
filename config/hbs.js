@@ -24,13 +24,17 @@ module.exports = (app) => {
         }
           return item
         },
-
         renderlines: function (value, options) {
           let item = "";
           for (let i = 0; i < value.length; i++) {
             item = item + "<p>" + options.fn(value[i]) + "</p>";
           }
           return item;
+      },
+        checkSelected: function (value, list, options){
+          if(list.includes(value)){
+            return options.fn(this)
+          }
         }
       }
     })

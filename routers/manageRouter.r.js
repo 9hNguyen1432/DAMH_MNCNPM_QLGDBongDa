@@ -14,6 +14,9 @@ router.get('/update-match', notAdmin, manageController.getCapNhaptiso);
 router.get('/register-club',notAdmin, manageController.renderRClub);
 router.get('/create-league',notAdmin,manageController.renderCreateLeauge);
 router.get('/edit-regulations',notAdmin, manageController.renderEditReg);
+
+router.post('/edit-regulations', manageController.updateRules);
+
 router.post('/register-club',upload.fields([{name: "logo"}, {name: "danhsachcauthu"}]), manageController.uploadClub);
 router.post('/update-match', notAdmin, manageController.postCapNhaptiso);
 

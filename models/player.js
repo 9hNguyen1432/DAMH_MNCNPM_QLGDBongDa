@@ -88,6 +88,11 @@ class Player{
         return player;
     }
 
+    async editPlayerById(player)
+    {
+      await database.ref('players').child(player.id).set(player)
+    }
+
 }
 
 module.exports = new Player

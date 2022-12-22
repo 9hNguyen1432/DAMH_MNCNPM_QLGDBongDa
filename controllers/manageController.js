@@ -37,9 +37,14 @@ class manageController{
     }
     async renderEditReg(req, res){
 
-        
+        const rule = await rules.getRulesFromDataBase();
         var user = req.session.user
-        res.render('chinhsuaquydinh',{user})
+        res.render('chinhsuaquydinh',{user,rule})
+    }
+
+    async updateRules(req, res){
+        const rule = req.body;
+        console.log(rule)
     }
 
     async uploadClub(req,res,next){

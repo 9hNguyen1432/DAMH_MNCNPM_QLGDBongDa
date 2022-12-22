@@ -92,7 +92,7 @@ class Match {
         return date.sort((a,b) =>{
             var dateParts1 = a.split('/')
             var dateParts2 =  b.split('/')
-            return (new Date(+dateParts1[2], dateParts1[1] - 1, +dateParts1[0])) - (new Date(+dateParts2[2], dateParts2[1] - 1, +dateParts2[0]) )})
+            return (new Date(+dateParts1[2], dateParts1[1] - 1, +dateParts1[0])) - (new Date(+dateParts2[2], dateParts2[1] - 1, +dateParts2[0]))})
         
     }
     async getMatchisFinished(){
@@ -148,11 +148,10 @@ class Match {
   
             if (date == match.date) {
               if (t2 - t1 >= 0 && t2 - t1 <= 90) {
-                if (match.status == "notRun") match.status = "isRunning";
-  
+                if (match.status == "notRun") 
+                    match.status = "isRunning";
                 match.timeRunning = (t2 - t1).toString();
               } else if (t2 - t1 < 100 &&t2 - t1 > 90 &&match.status == "isRunning") {
-  
                 match.timeRunning = "90+";
                 
               } else if (t2 - t1 > 100) {
