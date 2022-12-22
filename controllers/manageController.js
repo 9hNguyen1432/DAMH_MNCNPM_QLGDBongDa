@@ -8,7 +8,8 @@ const Club = require('../models/club')
 const uploadImage = require('../models/uploadImage')
 const rules = require('../models/rules');
 const { title } = require('process');
-const util =require('../models/util')
+const util =require('../models/util');
+const { runInContext } = require('vm');
 
 
 class manageController{
@@ -41,7 +42,12 @@ class manageController{
         const rule = await rules.getRulesFromDataBase();
         var user = req.session.user
         console.log(rule);
-        res.render('chinhsuaquydinh',{user,rule})
+        let arr = [];
+        arr.push(rule.priorityToRank.p1)
+        arr.push(rule.priorityToRank.p2)
+        arr.push(rule.priorityToRank.p3)
+        arr.push(rule.priorityToRank.p4)
+        res.render('chinhsuaquydinh',{user,rule, arrRule:arr})
     }
 
 
@@ -49,15 +55,36 @@ class manageController{
         
         let priorityRank = req.body.other;
         var temp = util.unserialize(req.body.form);
-        
- 
+        let alert =[];
+        let cstAge = false;
+        let cstNum = false;
+        let cstGoal = false;
+        let isValid = false;
+        if(temp.minPlayer < temp.maxAge){
+            cstAge = true;
+        }
+        else{alert.push("Tuổi tối đa không được nhỏ hơn tuổi tối thiểu\n")}
+        if(temp.minPlayer < temp.maxPlayer){
+            cstNum = true;
+        }        
+        else{alert.push("Số cầu thủ tối đa không được nhỏ hơn số cầu thủ tối thiểu\n")}
+        if(temp.win > temp.draw && temp.draw > temp.lost){
+            cstGoal = true;
+        }        
+        else{alert.push("Điểm các trạng thái thắng, thua, hòa không hợp lệ.\n")}
+
+        isValid = cstAge && cstGoal && cstNum;
+        if (isValid){
+            alert.push("Thay đổi quy định thành công.\n")
         var rule = new rules.constructor(parseInt(temp.minAge), parseInt(temp.maxAge),parseInt(temp.foreignerPlayer),
         parseInt(temp.minPlayer),parseInt(temp.maxPlayer),parseInt(temp.maxTimeGoal),
-        temp.typeOfGoal,{'win':parseInt(temp.win),'draw':parseInt(temp.draw),'lost':parseInt(temp.lost)},{'p1':priorityRank[0],'p2':priorityRank[1],'p3':priorityRank[2],'p4':priorityRank[3]})
+        temp.typeOfGoal,{'win':parseInt(temp.win),'draw':parseInt(temp.draw),'lost':parseInt(temp.lost)},
+            {'p1':priorityRank[0].trim(),'p2':priorityRank[1].trim(),'p3':priorityRank[2].trim(),'p4':priorityRank[3].trim()})
         
         await rule.addRule(rule)
-        var user = req.session.user
-        return res.render('chinhsuaquydinh',{user,rule})
+        }
+        else{alert.push("Thay đổi quy định thất bại.")}
+        return res.send(alert);
     }
 
     
