@@ -128,7 +128,9 @@ class manageController{
         let time = req.body.thoigianghiban;
         let clb = req.body.clb;
         let report ="Bàn thắng: "+ player + " - " + typeGoal +" ("+ time +"')";
-        console.log(report);
+        
+        await Match.updateMatchIsRunning()
+
         await Match.updateScoreInTime(matchID, clb, report);
 
         
