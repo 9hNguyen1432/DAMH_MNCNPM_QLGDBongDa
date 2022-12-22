@@ -12,6 +12,8 @@ class resultController{
         res.render('ketquacactrandau', {user,AllMatchs: Matchs, title});
     }
     async renderResultDetail(req, res, next){
+        
+        await Match.updateMatchIsRunning()
         let id = req.params.id;
         let match = await Match.findMatchByID(id);
         var user = req.session.user

@@ -30,6 +30,9 @@ class rules {
         });
         return rules;
     }
+    async addRule(rule){
+       return await database.ref('rules').set(rule);
+    }
 
 }
 

@@ -4,6 +4,9 @@ const Match = require('../models/match')
 class RankController{
     async index(req,res){
 
+
+        await Match.updateMatchIsRunning()
+
         var CLB = await Club.getAllClub();
         const Rule = await Rules.getRulesFromDataBase();
 

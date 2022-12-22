@@ -159,7 +159,7 @@ class Match {
                 match.status = "isFinished";
               }
 
-              match = await this.updateScore(match);
+              //match = await this.updateScore(match);
               await database.ref("matchs").child(match.id).set(match);
             }
   
@@ -261,7 +261,6 @@ class Match {
       club1.numberMatch = club1.win + club1.draw + club1.lost;
       club2.numberMatch = club2.win + club2.draw + club2.lost;
 
-      
       await database.ref("clubs").child(club1.id).set(club1);
       await database.ref("clubs").child(club2.id).set(club2);
   
@@ -329,7 +328,8 @@ class Match {
       }
       match.report[1].push(report);
     }
-    await this.updateScore(match);
+
+    match = await this.updateScore(match);
     await database.ref("matchs").child(match.id).set(match);
   }
 
