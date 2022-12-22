@@ -6,11 +6,18 @@ module.exports = (app) => {
     "hbs",
     handlebars.engine({
       extname: ".hbs",
-      helpers:{
-        ifNotEqualZero: function(value,options) {
-            if(value > 0){
-                return options.fn(this);
-            }
+      helpers: {
+        ifNotEqualZero: function (value, options) {
+          if (value > 0) {
+            return options.fn(this);
+          }
+        },
+        rendercombolist: function (value, options) {
+          let item = "";
+          for (let i = 0; i < value.length; i++) {
+            item = item + "<option value='"+i+"'>" + options.fn(value[i]) + "</option>";
+          }
+          return item
         }
       }
     })

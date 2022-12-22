@@ -107,6 +107,22 @@ class manageController{
 
     }
 
+
+
+
+
+
+    async renderCapNhaptiso(req,res){
+        const match = await Match.getMatchisRunning();
+
+        const club1 = await Club.getClubByName(match[0].club_1);
+        const club2 = await Club.getClubByName(match[0].club_2);
+        const rule = await rules.getRulesFromDataBase();
+        console.log(rule)
+        var user = req.session.user
+        res.render('capnhaptiso', {user, match: match[0], club1, club2, rule});
+    }
+
     
 }
 
