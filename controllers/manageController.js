@@ -40,16 +40,24 @@ class manageController{
 
         const rule = await rules.getRulesFromDataBase();
         var user = req.session.user
+        console.log(rule);
         res.render('chinhsuaquydinh',{user,rule})
     }
 
 
     async updateRules(req, res){
-        const rule = req.body;
+        
         let priorityRank = req.body.other;
-        let temp = util.unserialize(req.body.form);
-        console.log(temp)
-        console.log(priorityRank);
+        var temp = util.unserialize(req.body.form);
+        
+ 
+        var rule = new rules.constructor(parseInt(temp.minAge), parseInt(temp.maxAge),parseInt(temp.foreignerPlayer),
+        parseInt(temp.minPlayer),parseInt(temp.maxPlayer),parseInt(temp.maxTimeGoal),
+        temp.typeOfGoal,{'win':parseInt(temp.win),'draw':parseInt(temp.draw),'lost':parseInt(temp.lost)},{'p1':priorityRank[0],'p2':priorityRank[1],'p3':priorityRank[2],'p4':priorityRank[3]})
+        
+        await rule.addRule(rule)
+        var user = req.session.user
+        return res.render('chinhsuaquydinh',{user,rule})
     }
 
     
