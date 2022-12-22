@@ -19,6 +19,7 @@ class Match {
     this.goal_2_bf =goal_2_bf;
     this.timeRunning = timeRunning;
     this.rs = rs;
+    this.report = [[],[]]
   }
 
   //dựa vào tên club => Lấy club => Tạo match => Add Match
@@ -89,7 +90,7 @@ class Match {
         return date.sort((a,b) =>{
             var dateParts1 = a.split('/')
             var dateParts2 =  b.split('/')
-            return (new Date(+dateParts1[2], dateParts1[1] - 1, +dateParts1[0])) - (new Date(+dateParts2[2], dateParts2[1] - 1, +dateParts2[0]) )})
+            return (new Date(+dateParts1[2], dateParts1[1] - 1, +dateParts1[0])) - (new Date(+dateParts2[2], dateParts2[1] - 1, +dateParts2[0]))})
         
     }
     async getMatchisFinished(){
@@ -251,6 +252,7 @@ class Match {
           }
           match.rs = "L";
       }
+      
   
       club1.win = club1.win + C1[0];club1.draw = club1.draw + C1[1]; club1.lost = club1.lost + C1[2];
       club2.win = club2.win + C2[0];club2.draw = club2.draw + C2[1];club2.lost = club2.lost + C2[2];
@@ -294,6 +296,22 @@ class Match {
 
     return [count1, count2];
 
+  }
+
+  async updateScoreInTime(id, club,report){
+    let match = null;
+    await database.ref('matchs').child(id).once('value', (snapshot) => {
+      match = snapshot.val();
+   });
+    console.log(match)
+    if (club.normalize() == match.club_1.normalize()){
+      match.goal_1 = match.goal_1 + 1;
+      match.report[0].push(report);
+    }
+    else{
+      match.goal_1 = match.goal_1 + 1;
+      match.report[0].push(report);
+    }
   }
 }
 
