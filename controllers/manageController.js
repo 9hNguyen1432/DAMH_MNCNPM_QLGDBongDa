@@ -98,6 +98,9 @@ class manageController{
             res.render('dangkygiaidau',{user, clb, sannha, hlv, success})
         }
 
+
+
+
         }
         catch(err){
             console.log(err)

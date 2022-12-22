@@ -20,7 +20,7 @@ class RankController{
             }    
         }
 
-        CLB = CLB.sort(function(a,b){
+        CLB = CLB.sort( function(a,b){
             const _score = a.score - b.score;
             const _goalDelta = a.goalDelta - b.goalDelta;
             const _totalGoal = a.totalGoal - b.totalGoal;
