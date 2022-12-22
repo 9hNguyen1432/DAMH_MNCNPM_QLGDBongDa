@@ -18,6 +18,11 @@ module.exports = (app) => {
             item = item + "<option value='"+options.fn(value[i])+"'>" + options.fn(value[i]) + "</option>";
           }
           return item
+        },
+        checkSelected: function (value, list, options){
+          if(list.includes(value)){
+            return options.fn(this)
+          }
         }
       }
     })

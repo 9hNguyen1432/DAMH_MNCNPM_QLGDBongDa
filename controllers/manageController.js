@@ -37,7 +37,6 @@ class manageController{
     async renderEditReg(req, res){
 
         const rule = await rules.getRulesFromDataBase();
-        console.log(rule.typeOfGoal)
         var user = req.session.user
         res.render('chinhsuaquydinh',{user,rule})
     }
