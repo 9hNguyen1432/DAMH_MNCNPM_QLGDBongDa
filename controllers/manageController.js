@@ -43,8 +43,9 @@ class manageController{
     }
 
     async updateRules(req, res){
-        const rule = req.body;
-        console.log(rule)
+        const data = req.body;
+        var rule = {"minAge":data.minAge,"maxAge":data.maxAge,"minPlayer":data.minPlayer,"maxPlayer":data.maxPlayer,"score":[data.win,data.draw,data.lost],}
+        console.log(data)
     }
 
     async uploadClub(req,res,next){
@@ -100,9 +101,6 @@ class manageController{
             await Club.addClub(club11);
             res.render('dangkygiaidau',{user, clb, sannha, hlv, success})
         }
-
-
-
 
         }
         catch(err){
