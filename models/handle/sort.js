@@ -3,7 +3,7 @@ const Club = require ('../club.js')
 const Match = require('../Match.js')
 
 
-function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm các Match
+function sortingSchedule(listOfClub,dayStart)//listOfClub gồm các club, schedule gồm các Match
 {
     var schedule = []
     var check_even = false
@@ -38,7 +38,7 @@ function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm
         guest.push(listOfClub[i])
     }
     var newID ="TD"
-    var newDate = new Date("2022/09/01")
+    var newDate = new Date(daystart)
     var newTime = ["17:00:00", "20:00:00"]
     const newReferee = "Hoàng Khuê"
     var secondStadium = []

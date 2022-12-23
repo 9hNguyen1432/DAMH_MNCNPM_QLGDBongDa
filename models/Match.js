@@ -28,8 +28,7 @@ class Match {
   //
 
   async addMatch(match) {
-    await this.setID();
-    return await database.ref("matchs").child(club.id).set(club);
+    return await database.ref("matchs").child(match.id).set(match);
   }
 
     async setID() {
