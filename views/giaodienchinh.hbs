@@ -12,54 +12,51 @@
                 <div></div>
             </div>
 
-            <div style="margin: auto; width: 1000px">
+            <div class="row" style="margin: auto; width: 1000px">
                 {{#each match1}}
-                <div style="max-width: 400px;
-                background-color: #222035;
-                padding: 5px 50px 15px 10px; border-radius: 15px; margin:auto;
-                margin-top:30px;">
-                    {{#ifNotEqualZero this.timeRunning}}
-                    <div style="color:red;font-size: 12px;">Đang diễn ra</div>
-                    {{/ifNotEqualZero}}
+                <div class="row my-3">
+                    <div class="col-sm-10 col-md-9 col-lg-8 mx-auto">
+                        <div class="card bg-dark text-center my-1">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between">
+                                    <div style="color:red;font-size: 12px;"></div>
+                                    {{#ifNotEqualZero this.match.timeRunning}}
+                                    Đang diễn ra
+                                    {{/ifNotEqualZero}}
+                                </div>
 
-                    <div class="d-flex justify-content-between " style="padding-top: 10px; padding-left: 40px">
-                        <div style="align-items:center ">
-                            <div style="width: 60px; height:60px; border-radius:
-                            50%; margin:auto">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/qlbd-234ef.appspot.com/o/BD.png?alt=media&token=8c46c32f-0f89-4758-9080-78037cfb72cc"
-                                    alt="" style="border-radius: 50%; border: 3px
-                                solid
-                                white">
                             </div>
-                            <div style="width:100px; color: white; font-size: 12px; font-weight:
-                            bold; margin:4px; overflow-wrap: break-word; margin:auto; text-align:center">
-                                {{this.club_1}}</div>
-                        </div>
 
-                        <div style="color: white; font-size: 18px;
-                        font-weight: bold; text-align:center">
-                            <div>{{this.time}}</div>
-                            <div>{{this.goal_1}} : {{this.goal_2}}</div>
-                            {{#ifNotEqualZero this.timeRunning}}
-                            {{!-- <div style="color:red;font-size: 12px;">Đang diễn ra</div> --}}
-                            <div style="color:red; text-decoration: underline;">{{this.timeRunning}}</div>
-                            {{/ifNotEqualZero}}
-                        </div>
-
-                        <div style="text-align: center;">
-                            <div style="width: 60px; height:60px; border-radius:
-                            50%; margin:auto">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/qlbd-234ef.appspot.com/o/BD.png?alt=media&token=8c46c32f-0f89-4758-9080-78037cfb72cc"
-                                    alt="" style="border-radius: 50%; border: 3px
-                                solid
-                                white">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <img src="{{this.logos.logo1}}" alt="" style="width: 60px; height: 60px">
+                                        </div>
+                                        <div class="col-12 h5" style="line-height: 30px; padding-left: 20px">
+                                            {{this.match.club_1}}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4 h3 mx-auto">
+                                    <div class=" text-center my-auto">{{this.match.time}}</div>
+                                    <div class=" text-center my-auto ">{{this.match.goal_1}} : {{this.match.goal_2}}</div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="row">
+                                        <div class="col-12">
+                                            <img src="{{this.logos.logo2}}" alt="" style="width: 60px; height: 60px">
+                                        </div>
+                                        <div class="col-12 h5" style="line-height: 30px; padding-left: 20px">
+                                            {{this.match.club_2}}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div style="width:100px; color: white; font-size: 12px; font-weight:
-                            bold; margin:4px; overflow-wrap: break-word; margin:auto; text-align:center">
-                                {{this.club_2}} </div>
                         </div>
                     </div>
                 </div>
+
 
                 {{/each}}
             </div>
@@ -79,11 +76,10 @@
 
                 <div class="d-flex justify-content-between row row-cols-2">
                     {{#each match2}}
-                    <div style="max-width: 400px;
-                background-color: #222035;
-                padding: 5px 50px 15px 10px; border-radius: 15px; margin:auto;
+                    <div class="bg-dark" style="max-width: 400px;
+                height: 150px; padding: 5px 50px 15px 10px; border-radius: 15px; margin:auto;
                 margin-top:30px;">
-                        {{#ifNotEqualZero this.timeRunning}}
+                        {{#ifNotEqualZero this.match.timeRunning}}
                         <div style="color:red;font-size: 12px;">Đang diễn ra</div>
                         {{/ifNotEqualZero}}
 
@@ -91,37 +87,31 @@
                             <div style="align-items:center ">
                                 <div style="width: 60px; height:60px; border-radius:
                             50%; margin:auto">
-                                    <img src="https://firebasestorage.googleapis.com/v0/b/qlbd-234ef.appspot.com/o/BD.png?alt=media&token=8c46c32f-0f89-4758-9080-78037cfb72cc"
-                                        alt="" style="border-radius: 50%; border: 3px
-                                solid
-                                white">
+                                    <img src="{{this.logos.logo1}}" alt="">
                                 </div>
                                 <div style="width:100px; color: white; font-size: 12px; font-weight:
                             bold; margin:4px; overflow-wrap: break-word; margin:auto; text-align:center">
-                                    {{this.club_1}}</div>
+                                    {{this.match.club_1}}</div>
                             </div>
 
                             <div style="color: white; font-size: 18px;
                         font-weight: bold; text-align:center">
-                                <div>{{this.time}}</div>
-                                <div>{{this.goal_1}} : {{this.goal_2}}</div>
-                                {{#ifNotEqualZero this.timeRunning}}
+                                <div>{{this.match.time}}</div>
+                                <div>{{this.match.goal_1}} : {{this.match.goal_2}}</div>
+                                {{#ifNotEqualZero this.match.timeRunning}}
                                 {{!-- <div style="color:red;font-size: 12px;">Đang diễn ra</div> --}}
-                                <div style="color:red; text-decoration: underline;">{{this.timeRunning}}</div>
+                                <div style="color:red; text-decoration: underline;">{{this.match.timeRunning}}</div>
                                 {{/ifNotEqualZero}}
                             </div>
 
                             <div style="text-align: center;">
                                 <div style="width: 60px; height:60px; border-radius:
                             50%; margin:auto">
-                                    <img src="https://firebasestorage.googleapis.com/v0/b/qlbd-234ef.appspot.com/o/BD.png?alt=media&token=8c46c32f-0f89-4758-9080-78037cfb72cc"
-                                        alt="" style="border-radius: 50%; border: 3px
-                                solid
-                                white">
+                                    <img src="{{this.logos.logo2}}" alt="">
                                 </div>
                                 <div style="width:100px; color: white; font-size: 12px; font-weight:
                             bold; margin:4px; overflow-wrap: break-word; margin:auto; text-align:center">
-                                    {{this.club_2}} </div>
+                                    {{this.match.club_2}} </div>
                             </div>
                         </div>
                     </div>

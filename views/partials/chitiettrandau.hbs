@@ -1,11 +1,11 @@
 <div class="card text-center my-1">
     <div class="card-header bg-dark text-white text-start h3">
-        {{this.club_1}}-{{this.club_2}}
+        {{match.club_1}}-{{match.club_2}}
     </div>
     <div class="card-body">
         <div class="d-flex justify-content-between">
             <h5 class="card-title">Giải V-Leaugue</h5>
-            {{#ifNotEqualZero this.timeRunning}}
+            {{#ifNotEqualZero match.timeRunning}}
             <div style="color:red;font-size: 12px;">Đang diễn ra</div>
             {{else}}
             <div style="color:black;font-size: 12px;">Kết Thúc</div>
@@ -17,35 +17,35 @@
             <div class="col-3">
                 <div class="row">
                     <div class="col-12">
-                        <img src="https://vpf.vn/wp-content/uploads/2018/10/Binh-Dinh.png" alt=""
+                        <img src="{{club1.logo}}" alt=""
                             style="width: 60px; height: 60px">
                     </div>
-                    <div class="col-12 h4" style="line-height: 30px; padding-left: 20px">{{this.club_1}}</div>
+                    <div class="col-12 h4" style="line-height: 30px; padding-left: 20px">{{match.club_1}}</div>
                 </div>
             </div>
             <div class="col-2 h1">
-                <div style="line-height: 30px; padding-left: 20px">{{this.goal_1}}</div>
+                <div style="line-height: 30px; padding-left: 20px">{{match.goal_1}}</div>
 
             </div>
             <div class="col-2 h1"> - </div>
             <div class="col-2 h1">
-                <div style="line-height: 30px; padding-left: 20px">{{this.goal_2}}</div>
+                <div style="line-height: 30px; padding-left: 20px">{{match.goal_2}}</div>
 
             </div>
             <div class="col-3">
                 <div class="row">
                     <div class="col-12">
-                        <img src="https://vpf.vn/wp-content/uploads/2018/10/Binh-Dinh.png" alt=""
+                        <img src="{{club2.logo}}" alt=""
                             style="width: 60px; height: 60px">
                     </div>
-                    <div class="col-12 h4" style="line-height: 30px; padding-left: 20px">{{this.club_2}}</div>
+                    <div class="col-12 h4" style="line-height: 30px; padding-left: 20px">{{match.club_2}}</div>
                 </div>
             </div>
         </div>
     </div>
     <div class="card-footer text-muted">
         <div class="row">
-            {{#each this.report as | rp |}}
+            {{#each match.report as | rp |}}
             {{#if @index}}
             <div class="col-6 text-end">
                 {{else}}

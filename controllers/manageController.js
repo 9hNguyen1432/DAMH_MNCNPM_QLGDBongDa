@@ -157,8 +157,9 @@ class manageController{
 
 
     async getCapNhaptiso(req, res){
-        const Matchs = await Match.getMatchisRunning();
-        var title = "CÁC TRẬN ĐANG DIỄN RA"
+        var Matchs = await Match.getMatchisRunning();
+        Matchs = await util.getLogoMatch(Matchs)
+        var title = "TRẬN ĐANG DIỄN RA"
         var user = req.session.user
         res.render('ketquacactrandau', {user,AllMatchs: Matchs, title});
     }
@@ -191,7 +192,7 @@ class manageController{
         var user = req.session.user
         var matchs =[];
         matchs = await Match.getMatchNotRun();
-    
+        matchs = matchs.reverse();
         let info =[];
         for (let i = 0; i< matchs.length; i++){
             let date = matchs[i].date;
