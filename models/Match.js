@@ -142,7 +142,7 @@ class Match {
             var time = match.time;
             var t = time.split(":");
   
-            var t1 = eval(t[0]) * 60 + eval(t[1]);
+            var t1 = parseInt(t[0]) * 60 + parseInt(t[1]);
             var t2 = eval(hours) * 60 + eval(minutes);
   
             if (date == match.date) {
@@ -167,6 +167,25 @@ class Match {
       });
     }
   
+    async getMatchNotRun(){
+      var match = [];
+      await database.ref('matchs').once('value', (snapshot) => {
+          var temp = snapshot.forEach((childSnapshot) => {
+              if (childSnapshot.val().status.toString() == "notRun" ) {
+                  match.push(childSnapshot.val());
+              }
+          });
+      });
+      return match.sort((a,b)=>{
+          var dateParts1 = a.date.split("/");
+          var dateParts2 = b.date.split("/");
+          return (
+             new Date(+dateParts2[2], dateParts2[1] - 1, +dateParts2[0])-
+             new Date(+dateParts1[2], dateParts1[1] - 1, +dateParts1[0])
+             
+          );
+      })
+  }
     async updateScore(match) {
       const club1 = await Club.getClubByName(match.club_1);
       const club2 = await Club.getClubByName(match.club_2);

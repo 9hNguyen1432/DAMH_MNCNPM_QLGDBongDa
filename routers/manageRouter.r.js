@@ -20,6 +20,7 @@ router.post('/edit-regulations', manageController.updateRules);
 router.post('/register-club',upload.fields([{name: "logo"}, {name: "danhsachcauthu"}]), manageController.uploadClub);
 router.post('/update-match', notAdmin, manageController.postCapNhaptiso);
 router.post('/create-schedule', notAdmin, manageController.postCreateSchedule);
+router.post('/edit-schedule', notAdmin, manageController.postEditSchedule);
 router.get('/',notAdmin, manageController.index)
 
 

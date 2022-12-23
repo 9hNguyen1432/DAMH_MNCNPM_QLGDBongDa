@@ -38,7 +38,7 @@ function sortingSchedule(listOfClub,dayStart)//listOfClub gồm các club, sched
         guest.push(listOfClub[i])
     }
     var newID ="TD"
-    var newDate = new Date(daystart)
+    var newDate = new Date(dayStart)
     var newTime = ["17:00:00", "20:00:00"]
     const newReferee = "Hoàng Khuê"
     var secondStadium = []
@@ -101,7 +101,7 @@ function sortingSchedule(listOfClub,dayStart)//listOfClub gồm các club, sched
     else
     {
         //thêm đội ảo vào home
-        home.push(new Club("identify","identify.png","identify", "identify","identify","identify",-1,-1,-1,-1,-1,"identify"))
+        home.push(new Club.constructor("identify","identify.png","identify", "identify","identify","identify",-1,-1,-1,-1,-1,"identify"))
         for (var i = 0; i< totalMatches/home.length;i++)
         {
             //thêm lịch
@@ -133,3 +133,5 @@ function sortingSchedule(listOfClub,dayStart)//listOfClub gồm các club, sched
     }
     return schedule
 }
+
+module.exports = sortingSchedule;

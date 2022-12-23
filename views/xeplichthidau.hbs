@@ -7,19 +7,28 @@
     {{#if AllMatchs}}
     <div class="tab-pane fade show active" id="nav-all" role="tabpanel" aria-labelledby="nav-home-tab">
         {{#each AllMatchs}}
-            {{>chinhsuathongtintrandau this}}
+        {{>chinhsuathongtintrandau this}}
 
         {{/each}}
     </div>
     {{else}}
-    <form method="post" action="/manage/createSchedule">
+    <form method="post" action="/manage/create-schedule">
         <div class="row mx-auto">
-            <input class="col-5 mx-auto" type="date" name="dateStart" class="datepicker" data-date-format="mm/dd/yyyy" value="{{dateStart}}">
-            <div class ="col-3">
-            <button type="submit" class="btn btn-secondary" style="width: 75%">TẠO LỊCH</button>
+            <input class="col-5 mx-auto" type="date" name="dateStart" class="datepicker" data-date-format="mm/dd/yyyy"
+                value="{{dateStart}}" required>
+            <div class="col-3">
+                <button type="submit" class="btn btn-secondary" style="width: 75%">TẠO LỊCH</button>
+            </div>
         </div>
+        {{!-- ERROR --}}
+        {{#each errors}}
+        <div>
+            <div style="color: red; padding: 5px 0">
+                * {{this}}
+            </div>
         </div>
-        
+        {{/each}}
+        {{!-- END ERROR --}}
     </form>
     {{/if}}
 

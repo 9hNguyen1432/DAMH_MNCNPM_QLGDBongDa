@@ -189,11 +189,9 @@ class manageController{
 
     async getCreateSchedule(req,res, next){
         var user = req.session.user
-        const days = await Match.getAllDate();
         var matchs =[];
-        for (let i = 0; i< days.length; i++){
-            matchs = matchs.concat(await Match.getMatchByDate(days[i]));
-        }
+        matchs = await Match.getMatchNotRun();
+    
         let info =[];
         for (let i = 0; i< matchs.length; i++){
             let date = matchs[i].date;
@@ -219,7 +217,7 @@ class manageController{
     }
 
     
-    async postCreateSchedule(req,res, next){
+    async postEditSchedule(req,res, next){
         var alert=[];
 
         var temp = util.unserialize(req.body.form);
@@ -245,6 +243,30 @@ class manageController{
         }
         res.send(alert);
     }
+    async postCreateSchedule(req,res, next){
+        let clubs = await Club.getAllClub();
+        let date = req.body.dateStart;
+        var user = req.session.user
+        let errors= []
+        if (util.inFuture(date)){
+            let schedule = CreateSchedule(clubs, date);
+            console.log(schedule);
+            for (let i = 0; i < schedule.length; i++){
+                await Match.addMatch(schedule[i]);
+            }
+            return res.redirect('/manage/create-schedule');
+        }
+        else{
+            errors.push("Ngày giải đấu bắt đầu phải lớn hơn hôm nay.")
+            return res.render("xeplichthidau", {AllMatchs: [], user, errors})
+        }
+
+
+
+
+
+    }
+
 
     
 }

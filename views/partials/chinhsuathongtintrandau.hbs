@@ -4,9 +4,9 @@
             <input type="text" name="idMatch" value="{{this.match.id}}" style="display: none;">
             <div class="row">
                 <div class="col-3 text-center" style="margin: auto;">
-                    <input id="ipdate{{@index}}" name="date{{@index}}" class="ip my-1 no-bd w-100" type="date"
+                    <input id="ipdate{{@index}}" name="date{{@index}}" class="ip my-1 no-bd w-100 text-center" type="date"
                         data-date-format="dd/mm/yyyy" value="{{this.match.date}}" disabled> </input>
-                    <input id="iptime{{@index}}" name="time{{@index}}" class="ip my-1 no-bd w-100" type="time"
+                    <input id="iptime{{@index}}" name="time{{@index}}" class="ip my-1 no-bd w-100 text-center" type="time"
                         value="{{this.match.time}}" disabled> </input>
                 </div>
                 <div class="col-6 border-end border-start my-auto">
@@ -33,7 +33,7 @@
 
                 <div class="col-2 align-items-center my-auto" style="position: relative;">
                     <input id="ipsan{{@index}}" name="san{{@index}}" type="text" class="ip no-bd w-100 p-3 " class="text-center"
-                        value="{{this.match.stadium}}" disabled>
+                        value="{{this.match.stadium}}" disabled required>
 
                 </div>
                 <div class="col-1 align-items-center my-auto" style="position: relative;">
@@ -65,7 +65,7 @@
         $(`#xong${a}`).click(function () {
             $.ajax({
                 type: "POST",
-                url: "/manage/create-schedule",
+                url: "/manage/edit-schedule",
                 data: { 'form': $(`#my_form${a}`).serialize() },
                 success: function (msg) {
                     if (msg[0]!="Errors"){
