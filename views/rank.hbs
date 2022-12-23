@@ -1,11 +1,11 @@
 <style>
-    .center-horizontal
-    {
+    .center-horizontal {
         margin: auto;
-        margin-top: 50px;
-        margin-bottom: 50px;
+        margin-top: 30px;
+        margin-bottom: 30px;
     }
-    h5{
+
+    h5 {
         font-size: 30px;
         color: white;
         background-color: rgb(36, 106, 203);
@@ -17,110 +17,118 @@
         display: block;
     }
 
-    .list-group li{
+    .list-group li {
         height: 70px;
         margin: 0 !important;
         padding: 0 !important;
     }
-    li div
-    {
+
+    li div {
         line-height: 70px;
     }
-    .list-group div img
-    {
+
+    .list-group div img {
         width: 50px;
         height: 50px;
     }
+
     .list-group,
-    .attribute-row
-    {
+    .attribute-row {
         max-width: 1000px;
 
     }
-    .attribute-row
-    {
+
+    .attribute-row {
         margin: 0px;
     }
+
     .attribute-row .col,
-    .attribute-row .col-1
-    {
-        color: white;
+    .attribute-row .col-1 {
+        color: black;
     }
+
     .col,
-    .col-1
-    {
+    .col-1 {
         text-align: center;
+        
     }
 </style>
-<div style="padding-top: 100px;">
-    <h5 class="center-horizontal">BẢNG XẾP HẠNG</h5>
+<div class="container p-100"></div>
+<h5 class="center-horizontal">BẢNG XẾP HẠNG</h5>
 
-    <ul class="center-horizontal list-group">
-        <div class="center-horizontal row attribute-row">
-            <div class="col-1"></div>
+<div class="row">
+    <div class="col-sm-12 col-md-12 col-lg-10 col-xl-9 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-5">
+            <div class="card-body p-1 p-sm-2">
+                <ul class="center-horizontal list-group">
+                    <div class="center-horizontal row attribute-row">
+                        <div class="col-1"></div>
 
-            <div class="col">
-            </div>
+                        <div class="col">
+                        </div>
 
-            <div class="col">
+                        <div class="col">
 
-            </div>
+                        </div>
 
-            <div class="col-1">
-                Số trận
-            </div>
+                        <div class="col-1">
+                            Số trận
+                        </div>
 
-            <div class="col-1">
-                Thắng
-            </div>
+                        <div class="col-1">
+                            Thắng
+                        </div>
 
-            <div class="col-1">
-                Hòa
-            </div>
+                        <div class="col-1">
+                            Hòa
+                        </div>
 
-            <div class="col-1">
-                Thua
-            </div>
+                        <div class="col-1">
+                            Thua
+                        </div>
 
-            <div class="col-1">
-                Tổng
+                        <div class="col-1">
+                            Tổng
+                        </div>
+                    </div>
+
+                    {{#each CLB}}
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-1">{{#addOne @index}}{{/addOne}}</div>
+
+                            <div class="col">
+                                <img src={{this.logo}} alt="">
+                            </div>
+                            <div class="col">
+                                {{this.name}}
+                            </div>
+
+                            <div class="col-1">
+                                {{this.numberMatch}}
+                            </div>
+
+                            <div class="col-1">
+                                {{this.win}}
+                            </div>
+
+                            <div class="col-1">
+                                {{this.draw}}
+                            </div>
+
+                            <div class="col-1">
+                                {{this.lost}}
+                            </div>
+
+                            <div class="col-1">
+                                {{this.score}}
+                            </div>
+                        </div>
+                    </li>
+                    {{/each}}
+
+                </ul>
             </div>
         </div>
-
-    {{#each CLB}}
-        <li class="list-group-item">
-            <div class="row">
-                <div class="col-1">1</div>
-
-                <div class="col">
-                    <img src={{this.logo}} alt="">
-                </div>
-                <div class="col">
-                    {{this.name}}
-                </div>
-
-                <div class="col-1">
-                    {{this.numberMatch}}
-                </div>
-
-                <div class="col-1">
-                    {{this.win}}
-                </div>
-
-                <div class="col-1">
-                    {{this.draw}}
-                </div>
-
-                <div class="col-1">
-                    {{this.lost}}
-                </div>
-
-                <div class="col-1">
-                    {{this.score}}
-                </div>
-            </div>
-        </li>
-    {{/each}}
-       
-    </ul>
+    </div>
 </div>

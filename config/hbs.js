@@ -50,6 +50,9 @@ module.exports = (app) => {
           }
           return item;
         }
+        ,addOne: function(value){
+          return value +1
+        }
 
       }
     })
