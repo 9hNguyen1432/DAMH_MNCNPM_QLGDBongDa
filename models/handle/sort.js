@@ -1,5 +1,60 @@
 // import { Club } from '../club.js'
 // import {Match} from '../Match.js'
+class Club
+{
+    constructor(id,logo,name, stadium, listPlayer,coach,captain,score,numberMatch,win,draw,lost,description, validListPlayer)
+    {
+        this.id =id;
+        this.logo = logo;
+        this.name=name
+        this.stadium=stadium
+        this.listPlayer = listPlayer
+        this.coach = coach;
+        this.captain = captain;
+        this.score = score;
+        this.numberMatch = numberMatch ;
+        this.win = win;
+        this.draw = draw;
+        this.lost = lost;
+        this.description = description;
+        this.validListPlayer = validListPlayer;
+        //Khởi tạo club ban đầu với score = 1; win = 0; draw = 1; lost = 0
+
+    }
+}
+class Match {
+    constructor(
+      id,
+      date,
+      time,
+      club_1,
+      club_2,
+      referee,
+      stadium,
+      status,
+      goal_1,
+      goal_1_bf,
+      goal_2,
+      goal_2_bf,
+      timeRunning,
+      rs
+    ) {
+      this.id = id;
+      this.date = date;
+      this.time = time;
+      this.club_1 = club_1;
+      this.club_2 = club_2;
+      this.referee = referee;
+      this.stadium = stadium;
+      this.status = status;
+      this.goal_1 = goal_1;
+      this.goal_2 = goal_2;
+      this.goal_1_bf = goal_1_bf;
+      this.goal_2_bf =goal_2_bf;
+      this.timeRunning = timeRunning;
+      this.rs = rs;
+    }
+}  
 function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm các Match
 {
     var schedule = []
@@ -38,7 +93,7 @@ function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm
     var newDate = new Date("2022-09-01")
     var newTime = ["17:00:00", "19:00:00"]
     const newReferee = "Hoàng Khuê"
-    const newStadium = "Vườn Sao Băng"
+    var secondStadium = []
     const timeRunning = 0
     var cnt = 0
     //xếp lịch thời gian
@@ -81,6 +136,7 @@ function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm
                 cnt++
                 var newMatch = new Match(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], home[j].name, guest[j].name, newReferee, home[j].stadium, 'notRun', 0, 0, timeRunning, 'H')
                 schedule.push(newMatch)
+                secondStadium.push(guest[j].stadium)
             }
             //vòng mới
             home.splice(1, 0, guest[0])
@@ -104,6 +160,7 @@ function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm
                     cnt++
                     var newMatch = new Match(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], home[j].name, guest[j].name, newReferee, home[j].stadium, 'notRun', 0, 0, timeRunning, 'H')
                     schedule.push(newMatch)
+                    secondStadium.push(guest[j].stadium)
                 }
             }
             //vòng mới
@@ -119,17 +176,17 @@ function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm
     for(let i = 0; i < len; i++)
     {
         cnt++
-        var newMatch = new Match(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], schedule[i].club_2, schedule[i].club_1, newReferee, newStadium, 'notRun', 0, 0, timeRunning, 'H')
+        var newMatch = new Match(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], schedule[i].club_2, schedule[i].club_1, newReferee, secondStadium[i], 'notRun', 0, 0, timeRunning, 'H')
         schedule.push(newMatch)
     }
     return schedule
 }
 //---------DEMO
-// var schedule = []
-// var club1 = new Club ("123","123.png","Hoàng Anh Gia Lai", "Pleiku", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-// var club2 = new Club ("123","123.png","FC Hà Nội", "Mỹ Đình", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-// var club3 = new Club ("123","123.png","FC Sài Gòn", "Thống Nhất", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
-// var club4 = new Club ("123","123.png","Hải Phòng FC", "Lạch Trây", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+var schedule = []
+var club1 = new Club ("123","123.png","Hoàng Anh Gia Lai", "Pleiku", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+var club2 = new Club ("123","123.png","FC Hà Nội", "Mỹ Đình", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+var club3 = new Club ("123","123.png","FC Sài Gòn", "Thống Nhất", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
+var club4 = new Club ("123","123.png","Hải Phòng FC", "Lạch Trây", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
 // var club5 = new Club ("123","123.png","Hải Phòng FC", "Lạch Trây", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
 // var club6 = new Club ("123","123.png","tphcm", "SHB", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
 // var club7 = new Club ("123","123.png","zzzz", "Pleiku", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
@@ -141,8 +198,9 @@ function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm
 // var club13 = new Club ("123","123.png","ffffff", "Mỹ Đình", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
 // var club14 = new Club ("123","123.png","asasssda", "Thống Nhất", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
 // var listClub = [club1,club2,club3,club4, club5,club6,club7,club8,club9, club10,club11,club12,club13,club14]
-// var schedule = sortingSchedule(listClub)
-// for(let i = 0;i<schedule.length;i++)
-// {
-//     console.log(schedule[i])
-// }
+var listClub = [club1,club2,club3,club4]
+var schedule = sortingSchedule(listClub)
+for(let i = 0;i<schedule.length;i++)
+{
+    console.log(schedule[i])
+}
