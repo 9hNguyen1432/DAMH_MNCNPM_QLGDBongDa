@@ -39,7 +39,7 @@ function sortingSchedule(listOfClub,dayStart)//listOfClub gồm các club, sched
     }
     var newID ="TD"
     var newDate = new Date(dayStart)
-    var newTime = ["17:00:00", "20:00:00"]
+    var newTime = ["17:00", "20:00"]
     const newReferee = "Hoàng Khuê"
     var secondStadium = []
     const timeRunning = 0
@@ -87,7 +87,7 @@ function sortingSchedule(listOfClub,dayStart)//listOfClub gồm các club, sched
             for (var j = 0; j < home.length; j++)
             {
                 cnt++
-                var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], home[j].name, guest[j].name, newReferee, home[j].stadium, 'notRun', 0, 0, 0, 0, timeRunning, 'H')
+                var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], home[j].name, guest[j].name, newReferee, home[j].stadium, 'notRun', 0, 0, 0, 0, timeRunning, 'N')
                 schedule.push(newMatch)
                 secondStadium.push(guest[j].stadium)
             }
@@ -111,7 +111,7 @@ function sortingSchedule(listOfClub,dayStart)//listOfClub gồm các club, sched
                 if(home[j].name != 'identify' && guest[j].name != 'identify')
                 {
                     cnt++
-                    var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], home[j].name, guest[j].name, newReferee, home[j].stadium, 'notRun', 0, 0, 0, 0, timeRunning, 'H')
+                    var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], home[j].name, guest[j].name, newReferee, home[j].stadium, 'notRun', 0, 0, 0, 0, timeRunning, 'N')
                     schedule.push(newMatch)
                     secondStadium.push(guest[j].stadium)
                 }
@@ -128,7 +128,7 @@ function sortingSchedule(listOfClub,dayStart)//listOfClub gồm các club, sched
     for(let i = 0; i < len; i++)
     {
         cnt++
-        var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], schedule[i].club_2, schedule[i].club_1, newReferee, secondStadium[i], 'notRun', 0, 0, 0, 0, timeRunning, 'H')
+        var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], schedule[i].club_2, schedule[i].club_1, newReferee, secondStadium[i], 'notRun', 0, 0, 0, 0, timeRunning, 'N')
         schedule.push(newMatch)
     }
     return schedule
