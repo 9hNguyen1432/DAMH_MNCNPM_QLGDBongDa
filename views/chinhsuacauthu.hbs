@@ -1,0 +1,85 @@
+<div class="container p-100">
+    <div class="row">
+        <div class="col-5 mx-auto ">
+            <h5 class="text-center rounded-3 py-3 mt-3 text-light" style="background-color: rgb(36, 106, 203); display: block;
+                ">CHỈNH SỬA CẦU THỦ</h5>
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-sm-12 col-md-19 col-lg-10 mx-auto">
+            <div class="card border-0 shadow rounded-3 my-5">
+                <div class="card-body p-4 p-sm-5">
+                    <form class="row g-3" action="/edit-player/{{id}}" method="post" enctype="multipart/form-data">
+                        <div class="col-12 form-floating mb-3">
+                            <input type="text" class="form-control" id="name" placeholder="Tên cầu thủ"
+                                value="{{player.name}}" name="name" required> </input>
+                            <label for="playername" class="form-label">Tên cầu thủ</label>
+                            <div class="invalid-feedback">
+                                Please provide a valid zip.
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="avt" class="form-label">Logo</label>
+                            <input class="form-control  form-floating" type="file" id="avt" name="avt"
+                                accept=".png,.jpg,.jpeg">
+                        </div>
+
+                        <img id="previewAvatar" class="border" style="width: 150px; padding: 5px 5px; margin:auto"
+                            src="{{player.avt}}"
+                            alt="">
+
+                        <div class="col-12 form-floating mb-3">
+                            <input type="text" class="form-control" id="number" name="number" placeholder="Số áo"
+                                value="{{player.number}}" required>
+                            <label for="number" class="form-label">Số áo</label>
+                        </div>
+
+                        <div class="col-12 form-floating mb-3">
+                            <input type="text" class="form-control" id="role" name="role" placeholder="Vị trí"
+                                value="{{player.role}}" required>
+                            <label for="role" class="form-label">Vị trí</label>
+                        </div>
+
+                        <div class="col-12 form-floating mb-3">
+                            <input type="text" class="form-control" id="club" name="club" placeholder="Câu lạc bộ"
+                                value="{{player.club}}" required>
+                            <label for="club" class="form-label">Câu lạc
+                                bộ</label>
+                        </div>
+
+                        <div class="col-12 form-floating mb-3">
+                            <input type="text" class="form-control" id="description" name="description"
+                                placeholder="Mô tả" value="{{player.description}}" required>
+                            <label for="description" class="form-label">Mô tả</label>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="birthday" class="form-label">Ngày sinh</label>
+                            <input name="birthday" value="{{player.birthday}}" type="date" class="form-control"
+                                id="birthday">
+                        </div>
+
+
+                        <div class="d-grid">
+                            <button name="btn_DKGD" value="register" class="btn
+                                btn-primary
+                                btn-login text-uppercase fw-bold" type="submit">HOÀN TẤT</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>>
+
+<script>
+    avt.onchange = evt => {
+        const [file] = avt.files;
+        if (file) {
+            previewAvatar.src = URL.createObjectURL(file)
+        }
+    }
+</script>

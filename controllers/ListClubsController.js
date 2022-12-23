@@ -1,11 +1,15 @@
 
 const Club = require('../models/Club')
+const Match = require('../models/Match')
 
 class ListClubsController{
     async index(req,res){
+        
+
+        await Match.updateMatchIsRunning()
 
         var clubs = await Club.getAllClub();
-        clubs = [...clubs, ...clubs, ...clubs]
+        
 
         var user = req.session.user
 

@@ -14,9 +14,9 @@ admin.initializeApp({
 
 const bucket = admin.storage().bucket();
 
-const uploadImage = (req) => {
+const uploadImage = (reqFile) => {
 
-    const reqFile = req.file
+
     const name = Date.now() + reqFile.originalname;
 
      file = bucket.file(name);
@@ -34,7 +34,6 @@ const uploadImage = (req) => {
     stream.on("finish",async ()=>{
         await file.makePublic();
 
-        req.file.firebaseUrl =   'https://storage.googleapis.com/' + BUCKET + '/'+ name
         //url = 'https://storage.googleapis.com/' + BUCKET + '/'+ name
         
     })

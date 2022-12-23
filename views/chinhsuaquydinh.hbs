@@ -1,8 +1,8 @@
 <div class="container p-100">
     <div class="row">
-        <div class="col-5  mx-auto ">
+        <div class="col-5 mx-auto ">
             <h5 class="text-center rounded-3 py-3 mt-3 text-light" style="background-color: rgb(36, 106, 203); display: block;
-">CHỈNH SỬA QUY ĐỊNH</h5>
+                ">CHỈNH SỬA QUY ĐỊNH</h5>
         </div>
 
     </div>
@@ -11,82 +11,181 @@
             <div class="card border-0 shadow rounded-3 my-5">
                 <div class="card-body p-4 p-sm-5">
                     {{!-- <h5 class="card-title text-center mb-5 fw-light fs-5">{{tengiai}}</h5>
-                     --}}
+                    --}}
                     <h5 class="card-title text-center mb-5 fw-light fs-5">GIẢI ĐẤU V-LEAGUE</h5>
-                    
-                    <form class="row g-3">
+
+                    <form class="row g-3" method="post" id="my_form" action="/manage/edit-regulations">
 
                         <div class="col-md-6 form-floating mb-3">
-                            <input name="dotuoitoithieu" type="number" class="form-control" id="inputDTTT"
-                                placeholder="Độ tuổi cầu thủ tối thiểu" value="">
-                            <label for="inputDTTT">Độ tuổi cầu thủ tối thiểu</label>
+                            <input name="minAge" type="number" class="form-control" id="inputDTTT"
+                                placeholder="Độ tuổi cầu thủ tối thiểu" value={{rule.minAge}} min="10" max="50">
+                            <label for="inputDTTT">Độ tuổi cầu thủ tối
+                                thiểu</label>
                         </div>
                         <div class="col-md-6 form-floating mb-3">
 
-                            <input name="dotuoitoida" type="number" class="form-control" id="inputDTTD"
-                                placeholder="Độ tuổi cầu thủ tối đa" value="">
-                            <label for="inputDTTD" class="form-label">Độ tuổi cầu thủ tối đa</label>
+                            <input name="maxAge" type="number" class="form-control" id="inputDTTD"
+                                placeholder="Độ tuổi cầu thủ tối đa" value={{rule.maxAge}} min="10" max="50">
+                            <label for="inputDTTD" class="form-label">Độ tuổi
+                                cầu thủ tối đa</label>
                         </div>
 
                         <div class="col-md-6 form-floating mb-3">
-                            <input name="socauthumin" type="number" class="form-control" id="inputSCTMin"
-                                placeholder="Số cầu thủ CLB tối thiểu" value="">
-                            <label for="inputSCTMin">Số cầu thủ CLB tối thiểu</label>
+                            <input name="minPlayer" type="number" class="form-control" id="inputSCTMin"
+                                placeholder="Số cầu thủ CLB tối thiểu" value={{rule.minPlayer}} min="11" max="40">
+                            <label for="inputSCTMin">Số cầu thủ CLB tối
+                                thiểu</label>
                         </div>
                         <div class="col-md-6 form-floating mb-3">
 
-                            <input name="socauthumax" type="number" class="form-control" id="inputSCTMax"
-                                placeholder="Số cầu thủ CLB tối đa" value="">
-                            <label for="inputSCTMax" class="form-label">Số cầu thủ CLB tối đa</label>
+                            <input name="maxPlayer" type="number" class="form-control" id="inputSCTMax"
+                                placeholder="Số cầu thủ CLB tối đa" value={{rule.maxPlayer}} min="11" max="40">
+                            <label for="inputSCTMax" class="form-label">Số cầu
+                                thủ CLB tối đa</label>
                         </div>
 
                         <div class="col-md-4 form-floating mb-3">
-                            <input type="number" class="form-control" id="inputFullName" placeholder="Số ngoại binh">
-                            <label for="inputFullName" class="form-label">Số ngoại binh</label>
+                            <input type="number" class="form-control" id="inputFullName" placeholder="Số ngoại
+                                binh" name="foreignerPlayer" value={{rule.foreignerPlayer}} min="0" max="11">
+                            <label for="inputFullName" class="form-label">Số
+                                ngoại binh</label>
                         </div>
 
 
                         <div class="col-md-3 mb-3 mx-auto">
-                            <label class="row pl-3" for="multiple-checkboxes">Loại bàn thắng</label>
-                            <select class="select row" id="multiple-checkboxes" multiple="multiple">
-                                <option class="py-1" value="Cứa lòng">Đánh đầu</option>
-                                <option class="py-1" value="Sút xa">Sút xa</option>
-                                <option class="py-1" value="Cận thành">Cận thành</option>
-                                <option class="py-1" value="Phạt đền">Phạt đền</option>
-                                <option class="py-1" value="Phản lưới">Phản lưới</option>
-                                <option class="py-1" value="Phạt góc">Phạt góc</option>
+                            <label class="row pl-3" for="multiple-checkboxes">Loại
+                                bàn thắng</label>
+                            <select class="select row" id="multiple-checkboxes" multiple="multiple" name="typeOfGoal"
+                                value={{rule.typeOfGoal}}>
+                                <option class="py-1" value="Đánh đầu" {{#checkSelected 'Đánh đầu'
+                                    rule.typeOfGoal}}selected{{/checkSelected}}>Đánh đầu</option>
+                                <option class="py-1" value="Sút xa" {{#checkSelected 'Sút xa'
+                                    rule.typeOfGoal}}selected{{/checkSelected}}>Sút xa</option>
+                                <option class="py-1" value="Cận thành" {{#checkSelected 'Cận thành'
+                                    rule.typeOfGoal}}selected{{/checkSelected}}>Cận thành</option>
+                                <option class="py-1" value="Phạt đền" {{#checkSelected 'Phạt đền'
+                                    rule.typeOfGoal}}selected{{/checkSelected}}>Phạt đền</option>
+                                <option class="py-1" value="Phản lưới" {{#checkSelected 'Phản lưới'
+                                    rule.typeOfGoal}}selected{{/checkSelected}}>Phản lưới</option>
+                                <option class="py-1" value="Phạt góc" {{#checkSelected 'Phạt góc'
+                                    rule.typeOfGoal}}selected{{/checkSelected}}>Phạt góc</option>
                             </select>
 
                         </div>
 
                         <div class="col-md-4 form-floating mb-3">
-                            <input type="number" class="form-control" id="inputTDGBTD"
-                                placeholder="Thời điểm ghi bàn tối đa">
+                            <input type="number" class="form-control" id="inputTDGBTD" name="maxTimeGoal"
+                                placeholder="Thời điểm ghi bàn tối đa" value={{rule.maxTimeGoal}}>
                             <label for="inputTDGBTD" class="form-label">Thời điểm ghi bàn tối đa</label>
                         </div>
 
                         <div class="col-md-4 form-floating mb-3">
-                            <input type="number" class="form-control" id="inputSoDiemThang" placeholder="Số điểm thắng">
+                            <input type="number" class="form-control" id="inputSoDiemThang" placeholder="Số điểm
+                                thắng" name="win" value={{rule.score.win}} min="0">
                             <label for="inputSoDiemThang" class="form-label">Số điểm thắng</label>
                         </div>
                         <div class="col-md-4 form-floating mb-3">
-                            <input type="number" class="form-control" id="inputSoDiemHoa" placeholder="Số điểm hòa">
+                            <input type="number" class="form-control" id="inputSoDiemHoa" placeholder="Số điểm
+                                hòa" name="draw" value={{rule.score.draw}} min="0">
                             <label for="inputSoDiemHoa" class="form-label">Số điểm hòa</label>
                         </div>
                         <div class="col-md-4 form-floating mb-3">
-                            <input type="number" class="form-control" id="inputSoDiemThua" placeholder="Số điểm thua">
+                            <input type="number" class="form-control" id="inputSoDiemThua" placeholder="Số điểm
+                                thua" name="lost" value={{rule.score.lost}} min="0">
                             <label for="inputSoDiemThua" class="form-label">Số điểm thua</label>
                         </div>
 
+                        <div class="border" style="margin: 5px 0; padding: 15px; border-radius: 5px; ">
+                            <div style="font-weight:800; padding-bottom: 10px">TIÊU CHÍ XẾP HẠNG</div>
+                            <ul id="sortable" style="list-style: none; padding-left:0">
+                                {{#renderListPriorityRank arrRule}}
+                                {{this}}
+                                {{/renderListPriorityRank}}
 
+                                {{!-- <li id="score" class="border" style="padding: 3px 5px; margin: 5px 0">
+                                    <div class="news">
+                                        Tổng điểm
+                                    </div>
+                                </li>
+
+                                <li id="goalDelta" class="border" style="padding: 3px 5px; margin: 5px 0">
+                                    <div class="news">
+                                        Hiệu số bàn thắng
+                                    </div>
+                                </li>
+                                <li id="totalGoal" class="border" style="padding: 3px 5px; margin: 5px 0">
+                                    <div class="news">
+                                        Tổng bàn thắng
+                                    </div>
+                                </li>
+                                <li id="facing" class="border" style="padding: 3px 5px; margin: 5px 0">
+                                    <div class="news">
+                                        Lịch sử đối đầu
+                                    </div>
+                                </li> --}}
+                            </ul>
+
+                        </div>
 
                         <div class="d-grid">
-                            <button name="login" value="login" class="btn btn-primary btn-login text-uppercase fw-bold"
-                                type="submit">ĐĂNG KÝ</button>
+                            <button name="login" class="btn
+                                btn-primary btn-login text-uppercase fw-bold" type="button" id="submit">CẬP
+                                NHẬT</button>
+
                         </div>
+                        {{!-- ERROR --}}
+                        {{#each errors}}
+                        <div>
+                            <div style="color: red; padding: 5px 0">
+                                * {{this}}
+                            </div>
+                        </div>
+                        {{/each}}
+                        {{!-- END ERROR --}}
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $('#inputSoDiemThang').click(function () {
+            let diemthang = $("#inputSoDiemThang").val();
+            $("#inputSoDiemHoa").attr("max", diemthang);
+            let diemhoa = $("#inputSoDiemHoa").val();
+            $("#inputSoDiemThua").attr("max", diemhoa);
+        });
+        $('#inputSoDiemHoa').click(function () {
+            let diemthang = $("#inputSoDiemThang").val();
+            $("#inputSoDiemHoa").attr("max", diemthang);
+            let diemhoa = $("#inputSoDiemHoa").val();
+            $("#inputSoDiemThua").attr("max", diemhoa);
+        });
+        $('#submit').click(function () {
+            console.log(1)
+            let arr = []
+            for (let i = 0; i < 4; i++) {
+                arr.push($(`ul#sortable li:nth-child(${i + 1})`).attr("id"));
+            }
+            console.log(arr)
+            $.ajax({
+                type: "POST",
+                url: "/manage/edit-regulations",
+                data: { 'form': $("#my_form").serialize(), 'other': arr },
+                success: function (msg) {
+                    let mes = ""
+                    for(let i=0; i<msg.length; i++){
+                        mes = mes + msg[i]
+                    }
+                    alert("Thông báo: " + mes);
+                }
+            });
+
+        });
+
+    });
+
+</script>

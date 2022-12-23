@@ -1,0 +1,59 @@
+<div class="row">
+    <div class="col-sm-12 col-md-19 col-lg-12 mx-auto">
+        <div class="card border-0 shadow rounded-3 my-1">
+            <div class="card-header">
+                <h5 class="card-title text-center mb-2 fw-bold fs-3">{{club.name}}</h5>
+
+            </div>
+            <div class="card-body p-4 p-sm-5">
+                <form method="post" action="/manage/update-match" class="row g-3">
+                    <div class="input-group col-12 mb-3">
+                        <label class="input-group-text" for="loaibanthang">Loại bàn thắng</label>
+                        <select name="loaibanthang" class="form-select" id="loaibanthang">
+
+                            {{#rendercombolist rule.typeOfGoal}}
+                            {{this}}
+                            {{/rendercombolist}}
+                        </select>
+                    </div>
+                    <div class="input-group col-12 mb-3">
+                        <label class="input-group-text" for="cauthughiban">Cầu thủ ghi bàn</label>
+                        <select name="cauthughiban" class="form-select" id="cauthughiban">
+                            {{#rendercombolist club.listPlayer}}
+                            {{ten}}
+                            {{/rendercombolist}}
+                        </select>
+                    </div>
+
+                    <div class="col-12 form-floating mb-3">
+                        <input name="thoigianghiban" type="number" class="form-control" id="thoidiemghiban"
+                            placeholder="Thời điểm ghi bàn" value="">
+                        <label for="thoidiemghiban" class="form-label">Thời điểm ghi bàn</label>
+                    </div>
+
+                    <div >
+                        <input name="match" value="{{match.id}}" type="text" style="display: none;">
+                    </div>
+                    <div class="col-md-6 form-floating mb-3 mx-auto">
+
+
+                        <div class="d-grid ">
+                            <button name="clb" value="{{club.name}}" class="btn
+                                btn-primary btn-login text-uppercase fw-bold" id="buttonRegister" type="submit">CẬP
+                                NHẬP</button>
+                        </div>
+                        {{!-- ERROR --}}
+                        {{#each errors}}
+                        <div>
+                            <div style="color: red; padding: 5px 0">
+                                * {{this}}
+                            </div>
+                        </div>
+                        {{/each}}
+                        {{!-- END ERROR --}}
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

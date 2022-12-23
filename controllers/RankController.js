@@ -1,8 +1,11 @@
 const Club = require('../models/Club')
-const Rules = require('../models/rule')
+const Rules = require('../models/rules')
 const Match = require('../models/match')
 class RankController{
     async index(req,res){
+
+
+        await Match.updateMatchIsRunning()
 
         var CLB = await Club.getAllClub();
         const Rule = await Rules.getRulesFromDataBase();
@@ -20,7 +23,7 @@ class RankController{
             }    
         }
 
-        CLB = CLB.sort(function(a,b){
+        CLB = CLB.sort( function(a,b){
             const _score = a.score - b.score;
             const _goalDelta = a.goalDelta - b.goalDelta;
             const _totalGoal = a.totalGoal - b.totalGoal;

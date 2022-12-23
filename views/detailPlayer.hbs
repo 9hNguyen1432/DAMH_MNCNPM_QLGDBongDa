@@ -1,9 +1,12 @@
-<div class="row m-25" style="padding-top: 60px; margin: 60px; margin-top: 0; padding-top: 100px">
-    <div class="col-4" style="margin: 0;">
+<div class="row m-25" style="padding-top: 200px !important; margin: 60px; margin-top: 0;
+    padding-top: 100px">
+    <div class="col-3 d-flex justify-content-center;" style="margin: 0;
+        background-color:whitesmoke;
+        margin-right: 10px; border-radius: 15px;">
         <img
-            src={{player.avt}}
-            alt="detail.selectMovie.title" style="width: 450px; height: 600px;
-            border-radius: 15px">
+            src="{{player.avt}}"
+            alt="{{player.avt}}" style="width:100%;
+            border-radius: 15px; object-fit: contain">
     </div>
     <div class="col-8" style=" background-color:#DAE4FF; border-radius: 15px;
         padding: 30px">
@@ -13,6 +16,5 @@
         <h3 style="margin-top: 20px;">Số áo: {{player.number}}</h3>
         <h4 style="margin-top: 20px;">Vị trí: {{player.role}}</h4>
         <h4 style="margin-top: 20px;">Mô tả: {{player.description}}</h4>
-
     </div>
 </div>

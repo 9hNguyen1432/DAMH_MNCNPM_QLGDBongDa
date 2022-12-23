@@ -1,0 +1,30 @@
+<div class="container p-100">
+    <div class="row">
+        {{#if user.author}}
+        <h5 class="headerBody center-horizontal">CẬP NHẬP TỈ SỐ</h5>
+        {{else}}
+        <h5 class="headerBody center-horizontal">CHI TIẾT TRẬN ĐẤU</h5>
+        {{/if}}
+    </div>
+
+    <div class="card text-center my-1">
+
+        <div class="card-body">
+            <div class="row">
+                {{>chitiettrandau match}}
+            </div>
+
+            {{#if user.author}}
+            <div class="row">
+                <div class="col-6">
+                    {{>tiso club=club1 rule=rule match=match}}
+                </div>
+                <div class="col-6">
+                    {{>tiso club=club2 rule=rule match=match}}
+                </div>
+
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>

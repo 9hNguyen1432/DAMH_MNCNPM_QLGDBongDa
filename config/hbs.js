@@ -6,12 +6,51 @@ module.exports = (app) => {
     "hbs",
     handlebars.engine({
       extname: ".hbs",
-      helpers:{
-        ifNotEqualZero: function(value,options) {
-            if(value > 0){
-                return options.fn(this);
+      helpers: {
+        ifNotEqualZero: function (value, options) {
+          if (value > 0) {
+            return options.fn(this);
+          }
+        },
+        rendercombolist: function (value, options) {
+          let item = "";
+          for (let i = 0; i < value.length; i++) {
+            if (i==0){
+              item = item + "<option value='"+options.fn(value[i])+"' selected>" + options.fn(value[i]) + "</option>"
             }
+            else{
+            item = item + "<option value='"+options.fn(value[i])+"'>" + options.fn(value[i]) + "</option>";
+          }
         }
+          return item
+        },
+        renderlines: function (value, options) {
+          let item = "";
+          for (let i = 0; i < value.length; i++) {
+            item = item + "<p>" + options.fn(value[i]) + "</p>";
+          }
+          return item;
+      },
+        checkSelected: function (value, list, options){
+          if(list.includes(value)){
+            return options.fn(this)
+          }
+        },
+        renderListPriorityRank: function(value, options){
+          let item = "";
+          let label = {
+            "score": "Tổng điểm",
+            "totalGoal": "Tổng bàn thắng",
+            "goalDelta": "Hiệu số bàn thắng",
+            "facing": "Lịch sử đối đầu"
+          }
+          for (let i = 0; i < value.length; i++) {
+            item = item + "<li  id='" + options.fn(value[i]) + "' class='border'  style='padding: 3px 5px; margin: 5px 0'><div class='news' >"
+            + options.fn(label[value[i]])+"</div></li>";
+          }
+          return item;
+        }
+
       }
     })
   );

@@ -7,10 +7,6 @@ exports.getAge = (DOB) => {
 }
 
 exports.isBetween = (vari, start, end)=>{
-    console.log(typeof vari)
-    console.log(typeof start)
-    console.log(typeof end)
-
     if (vari <= end && vari >= start){
         return true;
     }
@@ -18,3 +14,19 @@ exports.isBetween = (vari, start, end)=>{
 }
 
 
+exports.unserialize = (serializedData) => {
+    let urlParams = new URLSearchParams(serializedData); // get interface / iterator
+    let unserializedData = {}; // prepare result object
+    let arr = []
+    for (let [key, value] of urlParams) { // get pair > extract it to key/value
+        if (key == "typeOfGoal"){
+            arr.push(value);
+        }
+        else{
+        unserializedData[key] = value;
+        }
+    }
+    unserializedData["typeOfGoal"] = arr;
+
+    return unserializedData;
+}

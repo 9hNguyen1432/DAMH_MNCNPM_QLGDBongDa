@@ -1,5 +1,23 @@
-﻿STT,CMND/CCCD,Họ Và Tên,Ngày sinh,Loại cầu thủ
-1,2022122,Nguyen Huu Chinh,14/03/2002,1
-2,3022033,Tran Van C,20/07/2000,0
-3,3022044,Tran Van D,20/07/2000,3
-4,3022024,Tran Van D,acv,1
+id,name,birthday,number,role,description
+1.13502E+12,Bùi Tấn Trường,19/02/1986,1,Nội binh,Chiều cao: 180 cm. Cân nặng: 74 kg.
+6.6641E+12,Huỳnh Tấn Sinh,6/4/1998,3,Nội binh,Chiều cao: 180 cm. Cân nặng: 62 kg.
+3.36522E+12,Đoàn Văn Hậu,19/04/1999,5,Nội binh,Chiều cao: 180 cm. Cân nặng: 65 kg.
+4.32275E+12,Đậu Văn Toàn,7/4/1997,8,Nội binh,Chiều cao: 181 cm. Cân nặng: 68 kg.
+9.81428E+12,Phạm Tuấn Hải,19/05/1998,9,Nội binh,Chiều cao: 177 cm. Cân nặng: 62 kg.
+4.53073E+12,Nguyễn Văn Quyết,1/7/1991,10,Nội binh,Chiều cao: 177 cm. Cân nặng: 67 kg.
+8.76408E+11,Phạm Thành Lương,10/9/1988,11,Nội binh,Chiều cao: 183 cm. Cân nặng: 70 kg.
+3.88464E+12,Trần Văn Kiên,13/05/1996,13,Nội binh,Chiều cao: 178 cm. Cân nặng: 70 kg.
+3.91773E+12,Nguyễn Hai Long,27/08/2000,14,Nội binh,Chiều cao: 184 cm. Cân nặng: 73 kg.
+3.83501E+12,Phạm Đức Huy,20/01/1995,15,Nội binh,Chiều cao: 178 cm. Cân nặng: 63 kg.
+9.50312E+12,Nguyễn Thành Chung,8/9/1997,16,Nội binh,Chiều cao: 182 cm. Cân nặng: 73 kg.
+3.55209E+11,Nguyễn Văn Công,1/8/1992,18,Nội binh,Chiều cao: 177 cm. Cân nặng: 58 kg.
+2.41192E+12,Nguyễn Quang Hải,12/4/1997,19,Nội binh,Chiều cao: 179 cm. Cân nặng: 68 kg.
+1.46581E+12,Bùi Hoàng Việt Anh,1/1/1999,20,Nội binh,Chiều cao: 183 cm. Cân nặng: 66 kg.
+7.46557E+12,Lê Xuân Tú,6/9/1999,25,Nội binh,Chiều cao: 176 cm. Cân nặng: 66 kg.
+8.62058E+12,Nguyễn Tuấn Anh,7/7/1999,26,Nội binh,Chiều cao: 176 cm. Cân nặng: 71 kg.
+8.14712E+12,Vũ Tiến Long,4/4/2002,27,Nội binh,Chiều cao: 177 cm. Cân nặng: 67 kg.
+7.13807E+12,Đỗ Duy Mạnh,29/09/1996,28,Nội binh,Chiều cao: 175 cm. Cân nặng: 68 kg.
+7.83512E+12,Ngô Đức Hoàng,16/09/2002,29,Nội binh,Chiều cao: 181 cm. Cân nặng: 63 kg.
+3.82646E+12,Nguyễn Bá Minh Hiếu,23/05/1997,31,Nội binh,Chiều cao: 185 cm. Cân nặng: 64 kg.
+,,,,,
+,,,,,

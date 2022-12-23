@@ -1,0 +1,99 @@
+<div class="vh-100" style="margin: 0; align-item:center; padding: 30px;
+    padding-top:100px; background: linear-gradient(to right, #372554, #042134)">
+    <div class="text-center" style="padding: 15px; width: 450px;
+        background-color: #8268E9;border-radius: 35px; margin:auto;
+        font-size: 20px; margin-bottom: 20px">
+        HOÀNG ANH GIA LAI
+    </div>
+
+    <div style="color: white; font-size:20px">
+        Danh sách cầu thủ
+    </div>
+    <div class="text-center" style=" padding-top: 30px;">
+        <div class="container" style="margin: auto; max-width:1100px">
+            <ul class="list-group">
+                <li class="list-group-item" style="background-color: rgb(85,
+                    138, 217);">
+                    <div class="row" style="background-color: rgb(85, 138, 217);
+                        border-radius:10px; padding:10px;">
+                        <div class="col-10">
+                            <a href="/detail-player/{{this.id}}"
+                                style="text-decoration:
+                                none; color:black" class="row">
+                                <div class="col-1 border-end">
+                                    Số
+                                </div>
+                                <div class="col-3 border-end">
+                                    Họ và tên
+                                </div>
+                                <div class="col-2 border-end">
+                                    Ngày sinh
+                                </div>
+                                <div class="col-2 border-end">
+                                    Vị trí
+                                </div>
+                                <div class="col-4">
+                                    Ghi chú
+                                </div>
+                            </a>
+                        </div>
+
+                        {{#if user.author}}
+                            <div class="col-2">
+                                <div class="row">
+                                    <div class="col"></div>
+                                    <div class="col"></div>
+                                </div>
+                            </div>
+                        {{/if}}
+                    </div>
+                </li>
+
+                {{#each playersOfClub}}
+                <li class="list-group-item">
+                    <div class="row" style="background-color: white;
+                        border-radius:10px; padding:10px;">
+                        <div class="col-10">
+                            <a href="/detail-player/{{this.id}}"
+                                style="text-decoration:
+                                none; color:black" class="row">
+                                <div class="col-1 border-end">
+                                    {{this.number}}
+                                </div>
+                                <div class="col-3 border-end">
+                                    {{this.name}}
+                                </div>
+                                <div class="col-2 border-end">
+                                    {{this.birthday}}
+                                </div>
+                                <div class="col-2 border-end">
+                                    {{this.role}}
+                                </div>
+                                <div class="col-4">
+                                    {{this.description}}
+                                </div>
+                            </a>
+                        </div>
+                        {{#if ../user.author}}
+                            <div class="col-2 border-start">
+                                <div class="row">
+                                    <a href="/edit-player/{{this.id}}" class="col-8" style="text-decoration: none;">Chỉnh sửa</a>
+                                    <a class="col-4 border-start" style="text-decoration: none;">Loại</a>
+                                </div>
+                            </div>
+                        {{/if}}
+                    </div>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    {{#if user.author}}
+        <div style="margin-top: 20px;" class="row justify-content-center">
+            <button type="button" class="col-2 btn-outline-success btn"
+                style="margin-right: 15px;">Thêm cầu thủ</button>
+            <button type="button" class="col-2 btn-outline-success btn"
+                style="margin-left: 15px;">Hoàn thành</button>
+        </div>
+    {{/if}}
+</div>
