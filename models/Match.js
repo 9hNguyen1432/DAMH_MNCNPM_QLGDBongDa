@@ -142,7 +142,7 @@ class Match {
             var time = match.time;
             var t = time.split(":");
   
-            var t1 = eval(t[0]) * 60 + eval(t[1]);
+            var t1 = parseInt(t[0]) * 60 + parseInt(t[1]);
             var t2 = eval(hours) * 60 + eval(minutes);
   
             if (date == match.date) {
