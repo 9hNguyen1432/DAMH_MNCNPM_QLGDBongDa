@@ -184,6 +184,15 @@ class manageController{
         res.render('capnhaptiso', {user, match, club1, club2, rule});
     }
 
+    async getCreateSchedule(req,res, next){
+
+    }
+
+    
+    async postCreateSchedule(req,res, next){
+        
+    }
+
     
 }
 
