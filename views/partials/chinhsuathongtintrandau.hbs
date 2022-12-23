@@ -1,0 +1,98 @@
+<div class="card mt-2 border-bottom" style="margin: auto; max-width:800px">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-3 text-center" style="margin: auto;">
+                <input id="ipdate{{@index}}" class="ip my-1 no-bd w-100" type="date" value="{{this.date}}" disabled> </input>
+                <input id="iptime{{@index}}" class="ip my-1 no-bd w-100" type="time" value="{{this.time}}" disabled> </input>
+
+            </div>
+            <div class="col-6 border-end border-start my-auto">
+                <div style="margin-bottom: 15px;">
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex">
+                            <img src="https://vpf.vn/wp-content/uploads/2018/10/Binh-Dinh.png" alt=""
+                                style="width: 30px; height: 30px">
+                            <div style="line-height: 30px; padding-left: 20px">{{this.club_1}}</div>
+                        </div>
+                        {{!-- <div style="line-height: 30px; padding-left: 20px">{{this.goal_1}}</div> --}}
+                    </div>
+                </div>
+
+                <div>
+                    <div class="d-flex justify-content-between">
+                        <div class="d-flex">
+                            <img src="https://vpf.vn/wp-content/uploads/2018/10/Binh-Dinh.png" alt=""
+                                style="width: 30px; height: 30px">
+                            <div style="line-height: 30px; padding-left: 20px">{{this.club_2}}</div>
+                        </div>
+                        {{!-- <div style="line-height: 30px; padding-left: 20px">{{this.goal_2}}</div> --}}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-2 align-items-center my-auto" style="position: relative;">
+                <input id="ipsan{{@index}}" type="text" class="ip no-bd w-100 p-3 " class="text-center" value="{{this.stadium}}" disabled>
+
+            </div>
+            <div class="col-1 align-items-center my-auto" style="position: relative;">
+                <div class="row">
+                    <button id="sua{{@index}}" type="button" class="my-1 btn btn-dark">Sửa</button>
+                </div>
+                <div class="row">
+                    <button id="xong{{@index}}" type="button" class=" my-1 btn btn-dark" disabled>Xong</button>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+        $(document).ready(function () {
+                                 let a = {{@index}}   
+        $(`#sua${a}`).click(function () {
+
+            $(`#ipdate${a}, #iptime${a}, #ipsan${a}, #xong${a}`).prop("disabled", false);
+            $(`#ipdate${a}, #iptime${a}, #ipsan${a}`).removeClass("no-bd");
+
+
+        });
+        $(`#xong${a}`).click(function () {
+            console.log(1)
+            let arr = []
+            for (let i = 0; i < 4; i++) {
+                arr.push($(`ul#sortable li:nth-child(${i + 1})`).attr("id"));
+            }
+            console.log(arr)
+            $.ajax({
+                type: "POST",
+                url: "/manage/edit-regulations",
+                data: { 'form': $("#my_form").serialize(), 'other': arr },
+                success: function (msg) {
+                    let mes = ""
+                    for(let i=0; i<msg.length; i++){
+                        mes = mes + msg[i]
+                    }
+                    alert("Thông báo: " + mes);
+                }
+            });
+
+        });
+
+    });
+
+</script>
+</div>
+<style>
+    .no-bd {
+        border: 0;
+        outline: 0;
+    }
+    .ip{
+        margin: ;
+    }
+    .no-bd:focus {
+        outline: none !important;
+        background-color: gainsboro;
+    }
+</style>
