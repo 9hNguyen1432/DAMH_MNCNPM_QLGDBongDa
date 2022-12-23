@@ -1,48 +1,6 @@
 // import { Club } from '../club.js'
 // import {Match} from '../Match.js'
-class Match {
-    constructor(id,date,time,club_1,club_2, referee,stadium,status,goal_1,goal_1_bf,goal_2, goal_2_bf,timeRunning, rs, report = [[],[]] ) 
-    {
-      this.id = id;
-      this.date = date;
-      this.time = time;
-      this.club_1 = club_1;
-      this.club_2 = club_2;
-      this.referee = referee;
-      this.stadium = stadium;
-      this.status = status;
-      this.goal_1 = goal_1;
-      this.goal_2 = goal_2;
-      this.goal_1_bf = goal_1_bf;
-      this.goal_2_bf =goal_2_bf;
-      this.timeRunning = timeRunning;
-      this.rs = rs;
-      this.report = report
-    }
-}  
-class Club
-{
-    constructor(id,logo,name, stadium, listPlayer,coach,captain,totalGoal=0,goalDelta=0,score = 0,numberMatch = 0,win = 0,draw = 0,lost = 0,description="")
-    {
-        this.id =id;
-        this.logo = logo;
-        this.name=name
-        this.stadium=stadium
-        this.listPlayer = listPlayer
-        this.coach = coach;
-        this.captain = captain;
-        this.score = score;
-        this.numberMatch = numberMatch ;
-        this.totalGoal = totalGoal;
-        this.goalDelta = goalDelta;
-        this.win = win;
-        this.draw = draw;
-        this.lost = lost;
-        this.description = description;
-        //Khởi tạo club ban đầu với score = 1; win = 0; draw = 1; lost = 0
 
-    }
-}
 function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm các Match
 {
     var schedule = []
