@@ -11,7 +11,16 @@ class EditPlayerController{
 
         let player = await Player.getPlayerById(id)
         let birthday = player.birthday;
-        player.birthday = birthday.split("/").reverse().join("-")
+        let arr = birthday.split("/");
+        if(parseInt(arr[0]) < 10){
+            arr[0] = "0" + parseInt(arr[0]); 
+        }
+
+        if(parseInt(arr[1]) < 10){
+            arr[0] = "0" + parseInt(arr[1]); 
+        }
+
+        player.birthday = arr.reverse().join("-");
         var user = req.session.user
         return res.render('chinhsuacauthu', {id,user,player})
     }

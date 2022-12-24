@@ -33,6 +33,18 @@ class rules {
     async addRule(rule){
        return await database.ref('rules').set(rule);
     }
+    async getDayStart(){
+        var date = null;
+        await database.ref('dayStart').once('value', (snapshot) => {
+           date = snapshot.val();
+        });
+        return date;
+    }
+    async setDayStart(date){
+       return await database.ref('dayStart').set(date);
+    }
+
+
 
 }
 

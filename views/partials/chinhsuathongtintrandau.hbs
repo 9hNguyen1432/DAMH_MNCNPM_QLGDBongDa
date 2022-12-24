@@ -1,0 +1,103 @@
+<div class="card mt-2 border-bottom" style="margin: auto; max-width:800px">
+    <div class="card-body">
+        <form id="my_form{{@index}}" action="post">
+            <input type="text" name="idMatch" value="{{this.match.id}}" style="display: none;">
+            <div class="row">
+                <div class="col-3 text-center" style="margin: auto;">
+                    <input id="ipdate{{@index}}" name="date{{@index}}" class="ip my-1 no-bd w-100 text-center" type="date"
+                        data-date-format="dd/mm/yyyy" value="{{this.match.date}}" disabled> </input>
+                    <input id="iptime{{@index}}" name="time{{@index}}" class="ip my-1 no-bd w-100 text-center" type="time"
+                        value="{{this.match.time}}" disabled> </input>
+                </div>
+                <div class="col-6 border-end border-start my-auto">
+                    <div style="margin-bottom: 15px;">
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                                <img src="{{this.logos.logo1}}" alt="" style="width: 30px; height: 30px">
+                                <div style="line-height: 30px; padding-left: 20px">{{this.match.club_1}}</div>
+                            </div>
+                            {{!-- <div style="line-height: 30px; padding-left: 20px">{{this.match.goal_1}}</div> --}}
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="d-flex justify-content-between">
+                            <div class="d-flex">
+                                <img src="{{this.logos.logo2}}" alt="" style="width: 30px; height: 30px">
+                                <div style="line-height: 30px; padding-left: 20px">{{this.match.club_2}}</div>
+                            </div>
+                            {{!-- <div style="line-height: 30px; padding-left: 20px">{{this.match.goal_2}}</div> --}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-2 align-items-center my-auto" style="position: relative;">
+                    <input id="ipsan{{@index}}" name="san{{@index}}" type="text" class="ip no-bd w-100 p-3 " class="text-center"
+                        value="{{this.match.stadium}}" disabled required>
+
+                </div>
+                <div class="col-1 align-items-center my-auto" style="position: relative;">
+                    <div class="row">
+                        <button id="sua{{@index}}" type="button" class="my-1 btn btn-dark">Sửa</button>
+                    </div>
+                    <div class="row">
+                        <button id="xong{{@index}}" type="button" class=" my-1 btn btn-dark" disabled>Xong</button>
+                    </div>
+
+
+                </div>
+            </div>
+    </div>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            let a = {{@index
+        }}
+
+            $(`#sua${a}`).click(function () {
+
+                $(`#ipdate${a}, #iptime${a}, #ipsan${a}, #xong${a}`).prop("disabled", false);
+                $(`#ipdate${a}, #iptime${a}, #ipsan${a}`).removeClass("no-bd");
+
+
+            });
+        $(`#xong${a}`).click(function () {
+            $.ajax({
+                type: "POST",
+                url: "/manage/edit-schedule",
+                data: { 'form': $(`#my_form${a}`).serialize() },
+                success: function (msg) {
+                    if (msg[0]!="Errors"){
+                    $(`#ipdate${a}, #iptime${a}, #ipsan${a}, #xong${a}`).prop("disabled", true);
+                    $(`#ipdate${a}, #iptime${a}, #ipsan${a}`).addClass("no-bd");
+                    }
+                    let mes = ""
+                    for (let i = 0; i < msg.length; i++) {
+                        mes = mes + msg[i]
+                    }
+                    alert("Thông báo: " + mes);
+                }
+            });
+
+        });
+
+    });
+
+    </script>
+</div>
+<style>
+    .no-bd {
+        border: 0;
+        outline: 0;
+    }
+
+    .ip {
+        margin: ;
+    }
+
+    .no-bd:focus {
+        outline: none !important;
+        background-color: gainsboro;
+    }
+</style>

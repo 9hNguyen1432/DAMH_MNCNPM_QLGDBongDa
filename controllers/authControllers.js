@@ -92,7 +92,7 @@ class authControllers{
                 }
                 return res.render('registerUser',{email,password,repass, fullname, birthday,gender,role,errors})
             }else{
-                const user =new User.constructor(uID,email,fullname,birthday,gender,role,fasle);
+                const user =new User.constructor(uID,email,fullname,birthday,gender,role,false);
                 await User.addUser(user);
                 return res.redirect('/auth/login');
             }

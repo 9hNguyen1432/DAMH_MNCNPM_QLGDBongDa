@@ -1,7 +1,9 @@
-// import { Club } from '../club.js'
-// import {Match} from '../Match.js'
 
-function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm các Match
+const Club = require ('../club.js')
+const Match = require('../Match.js')
+
+
+function sortingSchedule(listOfClub,dayStart)//listOfClub gồm các club, schedule gồm các Match
 {
     var schedule = []
     var check_even = false
@@ -36,8 +38,8 @@ function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm
         guest.push(listOfClub[i])
     }
     var newID ="TD"
-    var newDate = new Date("2022-09-02")
-    var newTime = ["17:00:00", "19:00:00"]
+    var newDate = new Date(dayStart)
+    var newTime = ["17:00", "20:00"]
     const newReferee = "Hoàng Khuê"
     var secondStadium = []
     const timeRunning = 0
@@ -85,7 +87,7 @@ function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm
             for (var j = 0; j < home.length; j++)
             {
                 cnt++
-                var newMatch = new Match(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], home[j].name, guest[j].name, newReferee, home[j].stadium, 'notRun', 0, 0, timeRunning, 'H')
+                var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], home[j].name, guest[j].name, newReferee, home[j].stadium, 'notRun', 0, 0, 0, 0, timeRunning, 'N')
                 schedule.push(newMatch)
                 secondStadium.push(guest[j].stadium)
             }
@@ -99,7 +101,7 @@ function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm
     else
     {
         //thêm đội ảo vào home
-        home.push(new Club("identify","identify.png","identify", "identify","identify","identify",-1,-1,-1,-1,-1,"identify"))
+        home.push(new Club.constructor("identify","identify.png","identify", "identify","identify","identify",-1,-1,-1,-1,-1,"identify"))
         for (var i = 0; i< totalMatches/home.length;i++)
         {
             //thêm lịch
@@ -109,7 +111,7 @@ function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm
                 if(home[j].name != 'identify' && guest[j].name != 'identify')
                 {
                     cnt++
-                    var newMatch = new Match(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], home[j].name, guest[j].name, newReferee, home[j].stadium, 'notRun', 0, 0, timeRunning, 'H')
+                    var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], home[j].name, guest[j].name, newReferee, home[j].stadium, 'notRun', 0, 0, 0, 0, timeRunning, 'N')
                     schedule.push(newMatch)
                     secondStadium.push(guest[j].stadium)
                 }
@@ -126,11 +128,12 @@ function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm
     for(let i = 0; i < len; i++)
     {
         cnt++
-        var newMatch = new Match(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], schedule[i].club_2, schedule[i].club_1, newReferee, secondStadium[i], 'notRun', 0, 0, timeRunning, 'H')
+        var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], schedule[i].club_2, schedule[i].club_1, newReferee, secondStadium[i], 'notRun', 0, 0, 0, 0, timeRunning, 'N')
         schedule.push(newMatch)
     }
     return schedule
 }
+
 //---------DEMO
 // var schedule = []
 // var club1 = new Club ("123","123.png","Hoàng Anh Gia Lai", "Pleiku", "updating...","updating...","updating...","updating...","updating...","updating...","updating...","updating...")
@@ -154,3 +157,6 @@ function sortingSchedule(listOfClub)//listOfClub gồm các club, schedule gồm
 // {
 //     console.log(schedule[i])
 // }
+
+module.exports = sortingSchedule;
+

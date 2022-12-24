@@ -10,6 +10,9 @@ const rules = require('../models/rules');
 const { title } = require('process');
 const util =require('../models/util');
 const { runInContext } = require('vm');
+const CreateSchedule =require("../models/handle/sort");
+const { copyFileSync } = require('fs');
+const { match } = require('assert');
 
 
 class manageController{
@@ -183,6 +186,87 @@ class manageController{
         var user = req.session.user
         res.render('capnhaptiso', {user, match, club1, club2, rule});
     }
+
+    async getCreateSchedule(req,res, next){
+        var user = req.session.user
+        var matchs =[];
+        matchs = await Match.getMatchNotRun();
+    
+        let info =[];
+        for (let i = 0; i< matchs.length; i++){
+            let date = matchs[i].date;
+            matchs[i].date = date.split("/").reverse().join("-")
+            let time = matchs[i].time;
+            let temp =time.split(':');
+            if(parseInt(temp[0])<10){
+                temp[0]="0"+parseInt(temp[0]);
+            }
+            matchs[i].time=temp.join(':')
+            let club1 = await Club.getClubByName(matchs[i].club_1);
+            let club2 = await Club.getClubByName(matchs[i].club_2);
+            let logos ={
+                logo1: club1.logo,
+                logo2: club2.logo,
+            }
+            info.push({
+                match: matchs[i], logos
+            })
+        }
+         
+        res.render("xeplichthidau", {AllMatchs: info, user})
+    }
+
+    
+    async postEditSchedule(req,res, next){
+        var alert=[];
+
+        var temp = util.unserialize(req.body.form);
+        let arrVar = Object.values(temp);
+        let idMatch = arrVar[0];
+        let date = arrVar[1];
+        let time = arrVar[2];
+        let san = arrVar[3];
+        console.log(arrVar)
+        var constrainDay = util.inFuture(date);
+        if (constrainDay){
+        alert.push("Chỉnh sửa thành công.")
+        var match  = await Match.findMatchByID(idMatch);
+        match.date = date.split("-").reverse().join("/")
+        match.time = time;
+        match.stadium = san;
+        console.log(match)
+        await Match.addMatch(match);
+    }
+        else{
+            alert.push("Errors")
+            alert.push("Ngày diễn ra trận đấu không hợp lệ.")
+        }
+        res.send(alert);
+    }
+    async postCreateSchedule(req,res, next){
+        let clubs = await Club.getAllClub();
+        let date = req.body.dateStart;
+        var user = req.session.user
+        let errors= []
+        if (util.inFuture(date)){
+            let schedule = CreateSchedule(clubs, date);
+            console.log(schedule);
+            for (let i = 0; i < schedule.length; i++){
+                await Match.addMatch(schedule[i]);
+            }
+            return res.redirect('/manage/create-schedule');
+        }
+        else{
+            errors.push("Ngày giải đấu bắt đầu phải lớn hơn hôm nay.")
+            return res.render("xeplichthidau", {AllMatchs: [], user, errors})
+        }
+
+
+
+
+
+    }
+
 
     
 }

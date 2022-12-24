@@ -13,6 +13,11 @@ exports.isBetween = (vari, start, end)=>{
     return false;
 }
 
+exports.inFuture=(date)=>{
+    let day = new Date(date);
+    let today = new Date();
+    return day>=today;
+}
 
 exports.unserialize = (serializedData) => {
     let urlParams = new URLSearchParams(serializedData); // get interface / iterator
