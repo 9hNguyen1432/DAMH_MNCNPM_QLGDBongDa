@@ -9,10 +9,11 @@ module.exports = (app) => {
       helpers: {
         ifNotEqualZero: function (value,status , options) {
           if (value > 0) {
-            return options.fn(this);
+            return "<div style='color:red;font-size: 12px;'>" + this.timeRunning +  '&#180;' + "</div>" 
           }
           else if (status == "isFinished"){
-            return "FT"
+            // return "FT"
+            return "FT";
           }
         },
         status: function (value, options) {
