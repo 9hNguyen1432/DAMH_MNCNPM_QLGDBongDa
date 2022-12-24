@@ -7,9 +7,23 @@ module.exports = (app) => {
     handlebars.engine({
       extname: ".hbs",
       helpers: {
-        ifNotEqualZero: function (value, options) {
+        ifNotEqualZero: function (value,status , options) {
           if (value > 0) {
             return options.fn(this);
+          }
+          else if (status == "isFinished"){
+            return "FT"
+          }
+        },
+        status: function (value, options) {
+          if (value == "notRun") {
+            return "Chưa diễn ra";
+          }
+          else if (value == "isRunning"){
+            return "Đang diễn ra";
+          }
+          else if(value =="isFinished"){
+            return "Đã kết thúc"
           }
         },
         rendercombolist: function (value, options) {

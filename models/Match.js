@@ -5,7 +5,7 @@ const database = firebase.database();
 const Club = require("./club");
 const Rule = require("./rules");
 class Match {
-  constructor(id,date,time,club_1,club_2, referee,stadium,status,goal_1,goal_1_bf,goal_2, goal_2_bf,timeRunning, rs, report = [[],[]] ) 
+  constructor(id,date,time,club_1,club_2, referee,stadium,status,goal_1,goal_1_bf,goal_2, goal_2_bf,timeRunning, rs,logo_1, logo_2, report = [[],[]] ) 
   {
     this.id = id;
     this.date = date;
@@ -21,6 +21,8 @@ class Match {
     this.goal_2_bf =goal_2_bf;
     this.timeRunning = timeRunning;
     this.rs = rs;
+    this.logo_1 =logo_1;
+    this.logo_2 = logo_2;
     this.report = report
   }
 

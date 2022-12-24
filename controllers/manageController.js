@@ -158,7 +158,6 @@ class manageController{
 
     async getCapNhaptiso(req, res){
         var Matchs = await Match.getMatchisRunning();
-        Matchs = await util.getLogoMatch(Matchs)
         var title = "TRẬN ĐANG DIỄN RA"
         var user = req.session.user
         res.render('ketquacactrandau', {user,AllMatchs: Matchs, title});
@@ -193,7 +192,7 @@ class manageController{
         var matchs =[];
         matchs = await Match.getMatchNotRun();
         matchs = matchs.reverse();
-        let info =[];
+
         for (let i = 0; i< matchs.length; i++){
             let date = matchs[i].date;
             matchs[i].date = date.split("/").reverse().join("-")
@@ -203,18 +202,10 @@ class manageController{
                 temp[0]="0"+parseInt(temp[0]);
             }
             matchs[i].time=temp.join(':')
-            let club1 = await Club.getClubByName(matchs[i].club_1);
-            let club2 = await Club.getClubByName(matchs[i].club_2);
-            let logos ={
-                logo1: club1.logo,
-                logo2: club2.logo,
-            }
-            info.push({
-                match: matchs[i], logos
-            })
+            
         }
          
-        res.render("xeplichthidau", {AllMatchs: info, user})
+        res.render("xeplichthidau", {AllMatchs: matchs, user})
     }
 
     

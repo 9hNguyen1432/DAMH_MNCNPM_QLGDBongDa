@@ -11,8 +11,6 @@ class HomePageController{
 
         var match1 = await Match.getMatchByDate(today)
         var match2 = await Match.getMatchByDate(nextday)
-        match1 =await util.getLogoMatch(match1);
-        match2 = await util.getLogoMatch(match2);
         var user = req.session.user
         res.render('giaodienchinh',{user,today,match1,nextday,match2})
     }

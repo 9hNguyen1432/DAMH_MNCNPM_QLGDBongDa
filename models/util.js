@@ -37,19 +37,3 @@ exports.unserialize = (serializedData) => {
 
     return unserializedData;
 }
-
-exports.getLogoMatch = async (matchs)=>{
-    let info =[];
-    for (let i = 0; i< matchs.length; i++){
-        let club1 = await Club.getClubByName(matchs[i].club_1);
-        let club2 = await Club.getClubByName(matchs[i].club_2);
-        let logos ={
-            logo1: club1.logo,
-            logo2: club2.logo,
-        }
-        info.push({
-            match: matchs[i], logos
-        })
-    }
-    return info;
-}

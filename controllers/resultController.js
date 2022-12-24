@@ -7,21 +7,9 @@ const rules = require('../models/rules')
 class resultController{
     async index(req,res){
         const matchs = await Match.getMatchisFinished();
-        let info =[];
-        for (let i = 0; i< matchs.length; i++){
-            let club1 = await Club.getClubByName(matchs[i].club_1);
-            let club2 = await Club.getClubByName(matchs[i].club_2);
-            let logos ={
-                logo1: club1.logo,
-                logo2: club2.logo,
-            }
-            info.push({
-                match: matchs[i], logos
-            })
-        }
         const title = "KẾT QUẢ";
         var user = req.session.user
-        res.render('ketquacactrandau', {user,AllMatchs: info, title});
+        res.render('ketquacactrandau', {user,AllMatchs: matchs, title});
     }
     async renderResultDetail(req, res, next){
         
