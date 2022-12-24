@@ -87,7 +87,7 @@ function sortingSchedule(listOfClub,dayStart)//listOfClub gồm các club, sched
             for (var j = 0; j < home.length; j++)
             {
                 cnt++
-                var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], home[j].name, guest[j].name, newReferee, home[j].stadium, 'notRun', 0, 0, 0, 0, timeRunning, 'N')
+                var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], home[j].name, guest[j].name, newReferee, home[j].stadium, 'notRun', 0, 0, 0, 0, timeRunning, 'N', home[j].logo, guest[j].logo)
                 schedule.push(newMatch)
                 secondStadium.push(guest[j].stadium)
             }
@@ -111,7 +111,7 @@ function sortingSchedule(listOfClub,dayStart)//listOfClub gồm các club, sched
                 if(home[j].name != 'identify' && guest[j].name != 'identify')
                 {
                     cnt++
-                    var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], home[j].name, guest[j].name, newReferee, home[j].stadium, 'notRun', 0, 0, 0, 0, timeRunning, 'N')
+                    var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], home[j].name, guest[j].name, newReferee, home[j].stadium, 'notRun', 0, 0, 0, 0, timeRunning, 'N', home[j].logo, guest[j].logo)
                     schedule.push(newMatch)
                     secondStadium.push(guest[j].stadium)
                 }
@@ -128,7 +128,7 @@ function sortingSchedule(listOfClub,dayStart)//listOfClub gồm các club, sched
     for(let i = 0; i < len; i++)
     {
         cnt++
-        var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], schedule[i].club_2, schedule[i].club_1, newReferee, secondStadium[i], 'notRun', 0, 0, 0, 0, timeRunning, 'N')
+        var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], schedule[i].club_2, schedule[i].club_1, newReferee, secondStadium[i], 'notRun', 0, 0, 0, 0, timeRunning, 'N', schedule[i].logo_1, schedule[i].logo_2)
         schedule.push(newMatch)
     }
     return schedule

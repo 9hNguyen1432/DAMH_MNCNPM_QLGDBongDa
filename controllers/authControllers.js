@@ -69,7 +69,7 @@ class authControllers{
         let errors =[];
         if(!email||!password||!fullname||!birthday||!gender||!role||!repass){
             errors.push("Vui lòng điền đầy đủ thông tin.")
-        if(password.length<6)
+        if(password.length < 6 )
             errors.push("Mật khẩu không được ít hơn 6 kí tự.")
         }
         if(password!=repass){

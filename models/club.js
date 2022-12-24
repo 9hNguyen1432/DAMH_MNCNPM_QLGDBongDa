@@ -37,7 +37,8 @@ class Club
     async addClub(club){
       club.id = await this.setID();
       for (let player of club.listPlayer){
-        var temp = new Player.constructor(player.idCauThu, "", player.ten, player.DOB, club.name, player.number, player.type, player.description);
+        let logo ="https://firebasestorage.googleapis.com/v0/b/qlbd-234ef.appspot.com/o/16716118829092784403.png?alt=media&token=b1324135-a031-4645-ad74-3136cb033627"
+        var temp = new Player.constructor(player.idCauThu, logo, player.ten, player.DOB, club.name, player.number, player.type, player.description);
         await database.ref("players").child(temp.id).set(temp);
       } 
 

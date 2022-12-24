@@ -1,3 +1,5 @@
+const Club= require('./club')
+
 exports.getAge = (DOB) => {
     var DOByyyy = DOB.split('/')[2];
 

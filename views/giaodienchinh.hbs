@@ -12,54 +12,60 @@
                 <div></div>
             </div>
 
-            <div style="margin: auto; width: 1000px">
+            <div class="row" style="margin: auto; width: 1000px">
                 {{#each match1}}
-                <div style="max-width: 400px;
-                background-color: #222035;
-                padding: 5px 50px 15px 10px; border-radius: 15px; margin:auto;
-                margin-top:30px;">
-                    {{#ifNotEqualZero this.timeRunning}}
-                    <div style="color:red;font-size: 12px;">Đang diễn ra</div>
-                    {{/ifNotEqualZero}}
+                <div class="row my-3">
+                    <div class="col-sm-10 col-md-9 col-lg-8 mx-auto">
+                        <div class="card bg-dark text-center  my-auto" style="height: 200px">
+                            <div class="card-body  my-auto">
+                                <div class="d-flex justify-content-between">
+                                    <div style="color:rgb(14, 246, 14);font-size: 12px;">
+                                        {{#status this.status}}
 
-                    <div class="d-flex justify-content-between " style="padding-top: 10px; padding-left: 40px">
-                        <div style="align-items:center ">
-                            <div style="width: 60px; height:60px; border-radius:
-                            50%; margin:auto">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/qlbd-234ef.appspot.com/o/BD.png?alt=media&token=8c46c32f-0f89-4758-9080-78037cfb72cc"
-                                    alt="" style="border-radius: 50%; border: 3px
-                                solid
-                                white">
+                                        {{/status}}
+                                    </div>
+
+                                </div>
+
+                                <div class="row" style="height: 90%;">
+                                    <div class="col-4 my-auto">
+                                        <div class="row  my-auto">
+                                            <div class="col-12">
+                                                <img src="{{this.logo_1}}" alt="" style="width: 60px; height: 60px">
+                                            </div>
+                                            <div class="col-12 h5" style="line-height: 30px; padding-left: 20px">
+                                                {{this.club_1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 h3 my-auto">
+                                        <div class=" text-center my-auto">{{this.time}}</div>
+                                        <div class=" text-center my-auto ">{{this.goal_1}} : {{this.goal_2}}</div>
+                                        <div class=" text-center my-auto "
+                                            style="color:red; text-decoration: underline;">
+                                            {{#ifNotEqualZero this.timeRunning this.status}}
+                                            {{!-- <div style="color:red;font-size: 12px;">Đang diễn ra</div> --}}
+                                            {{this.timeRunning}}
+                                            {{/ifNotEqualZero}}
+
+                                        </div>
+                                    </div>
+                                    <div class="col-4  my-auto">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <img src="{{this.logo_2}}" alt="" style="width: 60px; height: 60px">
+                                            </div>
+                                            <div class="col-12 h5" style="line-height: 30px; padding-left: 20px">
+                                                {{this.club_2}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div style="width:100px; color: white; font-size: 12px; font-weight:
-                            bold; margin:4px; overflow-wrap: break-word; margin:auto; text-align:center">
-                                {{this.club_1}}</div>
-                        </div>
-
-                        <div style="color: white; font-size: 18px;
-                        font-weight: bold; text-align:center">
-                            <div>{{this.time}}</div>
-                            <div>{{this.goal_1}} : {{this.goal_2}}</div>
-                            {{#ifNotEqualZero this.timeRunning}}
-                            {{!-- <div style="color:red;font-size: 12px;">Đang diễn ra</div> --}}
-                            <div style="color:red; text-decoration: underline;">{{this.timeRunning}}</div>
-                            {{/ifNotEqualZero}}
-                        </div>
-
-                        <div style="text-align: center;">
-                            <div style="width: 60px; height:60px; border-radius:
-                            50%; margin:auto">
-                                <img src="https://firebasestorage.googleapis.com/v0/b/qlbd-234ef.appspot.com/o/BD.png?alt=media&token=8c46c32f-0f89-4758-9080-78037cfb72cc"
-                                    alt="" style="border-radius: 50%; border: 3px
-                                solid
-                                white">
-                            </div>
-                            <div style="width:100px; color: white; font-size: 12px; font-weight:
-                            bold; margin:4px; overflow-wrap: break-word; margin:auto; text-align:center">
-                                {{this.club_2}} </div>
                         </div>
                     </div>
                 </div>
+
 
                 {{/each}}
             </div>
@@ -75,60 +81,63 @@
                 <div></div>
             </div>
 
-            <div style="margin: auto; width: 800px">
 
-                <div class="d-flex justify-content-between row row-cols-2">
+            <div class="row" style="margin: auto; width: 1000px">
                     {{#each match2}}
-                    <div style="max-width: 400px;
-                background-color: #222035;
-                padding: 5px 50px 15px 10px; border-radius: 15px; margin:auto;
-                margin-top:30px;">
-                        {{#ifNotEqualZero this.timeRunning}}
-                        <div style="color:red;font-size: 12px;">Đang diễn ra</div>
-                        {{/ifNotEqualZero}}
+                    <div class="row my-3">
+                        <div class="col-sm-10 col-md-9 col-lg-8 mx-auto">
+                            <div class="card bg-dark text-center  my-auto" style="height: 200px">
+                                <div class="card-body  my-auto">
+                                    <div class="d-flex justify-content-between">
+                                        <div style="color:rgb(14, 246, 14);font-size: 12px;">
+                                            {{#status this.status}}
 
-                        <div class="d-flex justify-content-between " style="padding-top: 10px; padding-left: 40px">
-                            <div style="align-items:center ">
-                                <div style="width: 60px; height:60px; border-radius:
-                            50%; margin:auto">
-                                    <img src="https://firebasestorage.googleapis.com/v0/b/qlbd-234ef.appspot.com/o/BD.png?alt=media&token=8c46c32f-0f89-4758-9080-78037cfb72cc"
-                                        alt="" style="border-radius: 50%; border: 3px
-                                solid
-                                white">
+                                            {{/status}}
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row" style="height: 90%;">
+                                        <div class="col-4 my-auto">
+                                            <div class="row  my-auto">
+                                                <div class="col-12">
+                                                    <img src="{{this.logo_1}}" alt="" style="width: 60px; height: 60px">
+                                                </div>
+                                                <div class="col-12 h5" style="line-height: 30px; padding-left: 20px">
+                                                    {{this.club_1}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-4 h3 my-auto">
+                                            <div class=" text-center my-auto">{{this.time}}</div>
+                                            <div class=" text-center my-auto ">{{this.goal_1}} : {{this.goal_2}}</div>
+                                            <div class=" text-center my-auto "
+                                                style="color:red; text-decoration: underline;">
+                                                {{#ifNotEqualZero this.timeRunning this.status}}
+                                                {{!-- <div style="color:red;font-size: 12px;">Đang diễn ra</div> --}}
+                                                {{this.timeRunning}}
+                                                {{/ifNotEqualZero}}
+
+                                            </div>
+                                        </div>
+                                        <div class="col-4  my-auto">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <img src="{{this.logo_2}}" alt="" style="width: 60px; height: 60px">
+                                                </div>
+                                                <div class="col-12 h5" style="line-height: 30px; padding-left: 20px">
+                                                    {{this.club_2}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div style="width:100px; color: white; font-size: 12px; font-weight:
-                            bold; margin:4px; overflow-wrap: break-word; margin:auto; text-align:center">
-                                    {{this.club_1}}</div>
-                            </div>
-
-                            <div style="color: white; font-size: 18px;
-                        font-weight: bold; text-align:center">
-                                <div>{{this.time}}</div>
-                                <div>{{this.goal_1}} : {{this.goal_2}}</div>
-                                {{#ifNotEqualZero this.timeRunning}}
-                                {{!-- <div style="color:red;font-size: 12px;">Đang diễn ra</div> --}}
-                                <div style="color:red; text-decoration: underline;">{{this.timeRunning}}</div>
-                                {{/ifNotEqualZero}}
-                            </div>
-
-                            <div style="text-align: center;">
-                                <div style="width: 60px; height:60px; border-radius:
-                            50%; margin:auto">
-                                    <img src="https://firebasestorage.googleapis.com/v0/b/qlbd-234ef.appspot.com/o/BD.png?alt=media&token=8c46c32f-0f89-4758-9080-78037cfb72cc"
-                                        alt="" style="border-radius: 50%; border: 3px
-                                solid
-                                white">
-                                </div>
-                                <div style="width:100px; color: white; font-size: 12px; font-weight:
-                            bold; margin:4px; overflow-wrap: break-word; margin:auto; text-align:center">
-                                    {{this.club_2}} </div>
                             </div>
                         </div>
                     </div>
+
                     {{/each}}
                 </div>
-
-            </div>
         </div>
     </div>
 </div>
