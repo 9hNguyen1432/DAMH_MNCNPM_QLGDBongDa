@@ -12,7 +12,8 @@ module.exports = (app) => {
             return value;
           }
           else if (status == "isFinished"){
-            return "FT"
+            // return "FT"
+            return "FT";
           }
         },
         status: function (value, options) {

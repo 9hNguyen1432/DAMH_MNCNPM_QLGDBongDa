@@ -83,51 +83,53 @@
 
 
             <div class="row" style="margin: auto; width: 1000px">
-                    {{#each match2}}
-                    <div class="row my-3">
-                        <div class="col-sm-10 col-md-9 col-lg-8 mx-auto">
-                            <div class="card bg-dark text-center  my-auto" style="height: 200px">
-                                <div class="card-body  my-auto">
-                                    <div class="d-flex justify-content-between">
-                                        <div style="color:rgb(14, 246, 14);font-size: 12px;">
-                                            {{#status this.status}}
+                {{#each match2}}
+                <div class="row my-3">
+                    <div class="col-sm-10 col-md-9 col-lg-8 mx-auto">
+                        <div class="card bg-dark text-center  my-auto" style="height: 200px">
+                            <div class="card-body  my-auto">
+                                <div class="d-flex justify-content-between">
+                                    <div style="color:rgb(14, 246, 14);font-size: 12px;">
+                                        {{#status this.status}}
 
-                                            {{/status}}
+                                        {{/status}}
+                                    </div>
+
+                                </div>
+
+                                <div class="row" style="height: 90%;">
+                                    <div class="col-4 my-auto">
+                                        <div class="row  my-auto">
+                                            <div class="col-12">
+                                                <img src="{{this.logo_1}}" alt="" style="width: 60px; height: 60px">
+                                            </div>
+                                            <div class="col-12 h5" style="line-height: 30px; padding-left: 20px">
+                                                {{this.club_1}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-4 h3 my-auto">
+                                        <div class=" text-center my-auto">{{this.time}}</div>
+                                        <div class=" text-center my-auto ">{{this.goal_1}} : {{this.goal_2}}</div>
+
+                                        <div class=" text-center my-auto "
+                                            style="color:red; text-decoration: underline;">
+                                            {{#ifNotEqualZero this.timeRunning this.status}}
+
+                                            {{!-- <div style="color:red;font-size: 12px;">Đang diễn ra</div> --}}
+                                            <div>{{this.timeRunning}}</div>
+                                            {{/ifNotEqualZero}}
+
                                         </div>
 
                                     </div>
-
-                                    <div class="row" style="height: 90%;">
-                                        <div class="col-4 my-auto">
-                                            <div class="row  my-auto">
-                                                <div class="col-12">
-                                                    <img src="{{this.logo_1}}" alt="" style="width: 60px; height: 60px">
-                                                </div>
-                                                <div class="col-12 h5" style="line-height: 30px; padding-left: 20px">
-                                                    {{this.club_1}}
-                                                </div>
+                                    <div class="col-4  my-auto">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <img src="{{this.logo_2}}" alt="" style="width: 60px; height: 60px">
                                             </div>
-                                        </div>
-                                        <div class="col-4 h3 my-auto">
-                                            <div class=" text-center my-auto">{{this.time}}</div>
-                                            <div class=" text-center my-auto ">{{this.goal_1}} : {{this.goal_2}}</div>
-                                            <div class=" text-center my-auto "
-                                                style="color:red; text-decoration: underline;">
-                                                {{#ifNotEqualZero this.timeRunning this.status}}
-                                                {{!-- <div style="color:red;font-size: 12px;">Đang diễn ra</div> --}}
-                                                {{this.timeRunning}}
-                                                {{/ifNotEqualZero}}
-
-                                            </div>
-                                        </div>
-                                        <div class="col-4  my-auto">
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <img src="{{this.logo_2}}" alt="" style="width: 60px; height: 60px">
-                                                </div>
-                                                <div class="col-12 h5" style="line-height: 30px; padding-left: 20px">
-                                                    {{this.club_2}}
-                                                </div>
+                                            <div class="col-12 h5" style="line-height: 30px; padding-left: 20px">
+                                                {{this.club_2}}
                                             </div>
                                         </div>
                                     </div>
@@ -135,9 +137,10 @@
                             </div>
                         </div>
                     </div>
-
-                    {{/each}}
                 </div>
+
+                {{/each}}
+            </div>
         </div>
     </div>
 </div>
