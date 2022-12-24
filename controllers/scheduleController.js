@@ -12,7 +12,7 @@ class scheduleController{
         const date = await Match.getDateNotFinish();
         var AllMatchs = []
         var Matchs = []
-        console.log(allDate);
+        //console.log(allDate);
         for(let i =0; i< allDate.length; i++){
             let temp = await Match.getMatchByDate(allDate[i]);
             AllMatchs = AllMatchs.concat(temp)

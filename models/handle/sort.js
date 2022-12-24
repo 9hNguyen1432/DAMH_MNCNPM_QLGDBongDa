@@ -128,7 +128,7 @@ function sortingSchedule(listOfClub,dayStart)//listOfClub gồm các club, sched
     for(let i = 0; i < len; i++)
     {
         cnt++
-        var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], schedule[i].club_2, schedule[i].club_1, newReferee, secondStadium[i], 'notRun', 0, 0, 0, 0, timeRunning, 'N', schedule[i].logo_1, schedule[i].logo_2)
+        var newMatch = new Match.constructor(newID + cnt, dateSchedule[cnt - 1], newTime[(cnt-1)%2], schedule[i].club_2, schedule[i].club_1, newReferee, secondStadium[i], 'notRun', 0, 0, 0, 0, timeRunning, 'N', schedule[i].logo_2, schedule[i].logo_1)
         schedule.push(newMatch)
     }
     return schedule
