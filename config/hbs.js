@@ -9,15 +9,16 @@ module.exports = (app) => {
       helpers: {
         ifNotEqualZero: function (value,status , options) {
           if (value > 0) {
-            return options.fn(this);
+            return value;
           }
           else if (status == "isFinished"){
-            return "FT"
+            // return "FT"
+            return "FT";
           }
         },
         status: function (value, options) {
           if (value == "notRun") {
-            return "Chưa diễn ra";
+            return "";
           }
           else if (value == "isRunning"){
             return "Đang diễn ra";

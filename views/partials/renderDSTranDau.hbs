@@ -2,9 +2,14 @@
     <div class="card-body">
         <div class="row">
             <div class="col-2 text-center" style="margin: auto;">
-                {{#ifNotEqualZero this.timeRunning}}
-                    <div style="color:red;font-size: 12px;">Đang diễn ra</div>
-                {{/ifNotEqualZero}}
+                 <div style="color:red;font-size: 12px;">
+
+                    {{#status this.status}}
+                    {{/status}}
+                    {{!-- {{#ifNotEqualZero this.timeRunning this.status}}
+                    Đang diễn ra
+                    {{/ifNotEqualZero}} --}}
+                </div>
                 <div> {{this.date}} </div>
                 <div> {{this.time}} </div>
             </div>

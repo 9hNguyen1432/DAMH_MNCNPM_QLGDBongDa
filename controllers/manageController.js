@@ -42,6 +42,7 @@ class manageController{
     }
     async renderEditReg(req, res){
 
+         
         const rule = await rules.getRulesFromDataBase();
         var user = req.session.user
         console.log(rule);
