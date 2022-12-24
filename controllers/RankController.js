@@ -43,7 +43,6 @@ class RankController{
             const ranks = {score:_score, goalDelta:_goalDelta,totalGoal:_totalGoal,facing:_facingDelta}
    
             const  priority = [ranks[priorityRank["p1"]],ranks[priorityRank["p2"]],ranks[priorityRank["p3"]],ranks[priorityRank["p4"]]]
-            console.log(priority)
             for(var i = 0;i<priority.length; i++){
                 if(priority[i]!= 0){
                     return - priority[i]

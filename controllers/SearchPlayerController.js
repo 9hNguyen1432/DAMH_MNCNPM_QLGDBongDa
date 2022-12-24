@@ -8,7 +8,7 @@ class SearchPlayerController{
         var playername =req.body.playername
 
         var players = await Player.searchPlayer(playername)
-        console.log(players)
+        //console.log(players)
 
         var user = req.session.user
         res.render('searchFootballPlayer',{user,players,playername})

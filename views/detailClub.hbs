@@ -18,12 +18,13 @@
         <div class="col-8" style=" background-color:#DAE4FF; border-radius:
             15px;
             padding: 30px">
-            <h3 style="color: black;">Mô tả: {{club.description}}</h3>
-            <h3 style="margin-top: 20px;">Đội trưởng: {{club.captain}}</h3>
+            {{!-- <h3 style="color: black;">Mô tả: {{club.description}}</h3>
+            <h3 style="margin-top: 20px;">Đội trưởng: {{club.captain}}</h3> --}}
             <h3 style="margin-top: 20px;">Sân vận động: {{club.stadium}}</h3>
             <h3 style="margin-top: 20px;">Huấn luyện viên trưởng: {{club.coach}}</h3>
             <h3 style="margin-top: 20px;">Tổng số điểm: {{club.score}}</h3>
-
+            <h3 style="margin-top: 20px;">Số trận: {{club.numberMatch}}. Trong đó: {{club.win}} trận thắng, {{club.draw}} trận hòa, {{club.lost}} trận thua </h3>
+            <h3 style="margin-top: 20px;">Tổng số bàn thắng: {{club.totalGoal}}. Hiệu số: {{club.goalDelta}}</h3>
             <div class="text-end">
                 <a href="/detail-club/players-of-club/{{club.name}}" style="display:inline-block; background-color:
                     #8268E9; text-decoration:none; color:white; height: 50px;
