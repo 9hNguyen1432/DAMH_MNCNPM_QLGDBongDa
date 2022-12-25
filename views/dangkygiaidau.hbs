@@ -11,6 +11,9 @@
   </div>
   <div class="row">
     <div class="col-sm-12 col-md-19 col-lg-10 mx-auto">
+
+
+      {{#if dl}}
       <div class="card border-0 shadow rounded-3 my-5">
         <div class="card-body p-4 p-sm-5">
           <form class="row g-3" action="/manage/register-club" method="post" enctype="multipart/form-data">
@@ -139,6 +142,9 @@
           </form>
         </div>
       </div>
+      {{else}}
+      <p class="h3 text-danger text-center mt-4">*Đã hết thời gian đăng ký</p>
+      {{/if}}
     </div>
   </div>
 </div>

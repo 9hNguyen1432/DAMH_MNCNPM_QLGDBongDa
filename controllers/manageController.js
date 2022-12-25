@@ -30,10 +30,10 @@ class manageController{
         res.render('giaodienchinh',{user,today,match1,nextday,match2})
     }
     
-    renderRClub(req, res){
-
+    async renderRClub(req, res){
+        let dl = await rules.getDeadlineFromDataBase();
         var user = req.session.user
-        res.render('dangkygiaidau',{user})
+        res.render('dangkygiaidau',{user, dl})
     }
 
     renderCreateLeauge(req, res){
@@ -260,10 +260,11 @@ class manageController{
         let errors= []
         if (util.inFuture(date)){
             let schedule = CreateSchedule(clubs, date);
-            console.log(schedule);
             for (let i = 0; i < schedule.length; i++){
                 await Match.addMatch(schedule[i]);
             }
+            await rules.setDeadline(false);
+            await rules.setDayStart(date);
             return res.redirect('/manage/create-schedule');
         }
         else{

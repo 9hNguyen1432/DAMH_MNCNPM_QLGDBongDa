@@ -30,6 +30,13 @@ class rules {
         });
         return rules;
     }
+    async getDeadlineFromDataBase(){
+        var dl = null;
+        await database.ref('deadlineRegister').once('value', (snapshot) => {
+           dl = snapshot.val();
+        });
+        return dl;
+    }
     async addRule(rule){
        return await database.ref('rules').set(rule);
     }
@@ -43,6 +50,9 @@ class rules {
     async setDayStart(date){
        return await database.ref('dayStart').set(date);
     }
+    async setDeadline(dl){
+        return await database.ref('deadlineRegister').set(dl);
+     }
 
 
 
