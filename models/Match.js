@@ -127,6 +127,25 @@ class Match {
         });
         return match;
     }
+    async getMatchisRunning_Finished(){
+      var match = [];
+      await database.ref('matchs').once('value', (snapshot) => {
+          var temp = snapshot.forEach((childSnapshot) => {
+              if (childSnapshot.val().status.toString() == "isRunning" ||childSnapshot.val().status.toString() == "isFinished"  ) {
+                  match.push(childSnapshot.val());
+              }
+          });
+      });
+      return match.sort((a,b)=>{
+        var dateParts1 = a.date.split("/");
+        var dateParts2 = b.date.split("/");
+        return (
+           new Date(+dateParts2[2], dateParts2[1] - 1, +dateParts2[0])-
+           new Date(+dateParts1[2], dateParts1[1] - 1, +dateParts1[0])
+           
+        );
+    })
+  }
     async updateMatchIsRunning() {
       let date_ob = new Date();
       let date =("0" + date_ob.getDate()).slice(-2) +"/" + ("0" + (date_ob.getMonth() + 1)).slice(-2) +"/" + date_ob.getFullYear();

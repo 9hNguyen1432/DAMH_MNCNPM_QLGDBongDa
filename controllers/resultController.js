@@ -6,7 +6,7 @@ const rules = require('../models/rules')
 
 class resultController{
     async index(req,res){
-        const matchs = await Match.getMatchisFinished();
+        const matchs = await Match.getMatchisRunning_Finished();
         const title = "KẾT QUẢ";
         var user = req.session.user
         res.render('ketquacactrandau', {user,AllMatchs: matchs, title});
