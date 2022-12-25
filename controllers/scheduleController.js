@@ -22,43 +22,11 @@ class scheduleController{
                 }
             }
         }
-        // await Promise.all(allDate.map(async d => {
-        //     let match = await Match.getMatchByDate(d);
-        //     AllMatchs = AllMatchs.concat(match);
-        // }))
         
-        // await Promise.all(date.map(async d => {
-        //     var match = await Match.getMatchByDate(d);
-        //     Matchs.push(match);
-
-        // }))
-        // Matchs = Matchs.reverse();
-        var match1 = Matchs[0].sort((a,b)=>{
-       
-                var t1 = a.time.split(":");
-                var t2 = b.time.split(":");
-                var m1 = parseInt(t1[0]) * 60 + parseInt(t1[1]);
-                var m2 = parseInt(t2[0]) * 60 + parseInt(t2[1]);
-              return m1- m2
-        });
-        var match2 = Matchs[1].sort((a,b)=>{
-       
-            var t1 = a.time.split(":");
-            var t2 = b.time.split(":");
-            var m1 = parseInt(t1[0]) * 60 + parseInt(t1[1]);
-            var m2 = parseInt(t2[0]) * 60 + parseInt(t2[1]);
-          return m1- m2
-    });
-        var match3 = Matchs[2].sort((a,b)=>{
-       
-            var t1 = a.time.split(":");
-            var t2 = b.time.split(":");
-            var m1 = parseInt(t1[0]) * 60 + parseInt(t1[1]);
-            var m2 = parseInt(t2[0]) * 60 + parseInt(t2[1]);
-          return m1- m2
-    });
-        
-
+    var match1 = Matchs[0]
+    var match2 = Matchs[1]
+    var match3 = Matchs[2]
+    
         // AllMatchs = AllMatchs.reverse();
         var user = req.session.user
         AllMatchs = AllMatchs.sort((a,b)=>{
