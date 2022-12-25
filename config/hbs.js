@@ -16,6 +16,13 @@ module.exports = (app) => {
             return "FT";
           }
         },
+        ifInIf(v1, v2){
+          return v1 && v2;
+        },
+        elseInif(v1, v2){
+          return v1 && !v2
+        },
+
         status: function (value, options) {
           if (value == "notRun") {
             return "";

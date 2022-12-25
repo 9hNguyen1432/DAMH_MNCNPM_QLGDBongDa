@@ -6,7 +6,7 @@
         <h5 class="headerBody center-horizontal">CHI TIẾT TRẬN ĐẤU</h5>
         {{/if}}
     </div>
-
+<div>{{match.rs}}</div>
     <div class="card text-center my-1">
 
         <div class="card-body">
@@ -14,7 +14,19 @@
                 {{>chitiettrandau match=match club1=club1 club2=club2}}
             </div>
 
-            {{#if user.author}}
+            {{#if (ifInIf user.author match.rs)}}
+            <form action="/manage/start-match" method="post">
+                <input type="text" name="match" value="{{match.id}}" style="display: none">
+                <div class="row">
+                    <div class="col-8 mx-auto mt-2">
+                        <button class="btn btn-success" type="submit">
+                            BẮT ĐẦU CẬP NHẬP
+                        </button>
+                    </div>
+                    </div>
+            </form>
+            {{/if}}
+            {{#if (elseInif user.author match.rs)}}
             <div class="row">
                 <div class="col-6">
                     {{>tiso club=club1 rule=rule match=match}}
@@ -24,6 +36,7 @@
                 </div>
 
             </div>
+
             {{/if}}
         </div>
     </div>

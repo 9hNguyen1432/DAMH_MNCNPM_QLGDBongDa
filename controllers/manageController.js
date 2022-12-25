@@ -183,9 +183,26 @@ class manageController{
         const club1 = await Club.getClubByName(match.club_1);
         const club2 = await Club.getClubByName(match.club_2);
         const rule = await rules.getRulesFromDataBase();
- 
+        if (match.rs == "N"){
+            match.rs = true;
+        }
+        else{
+            match.rs= false;
+        }
         var user = req.session.user
         res.render('capnhaptiso', {user, match, club1, club2, rule});
+    }
+
+    async postBatDau(req,res, next){
+        let matchID = req.body.match;      
+        
+        await Match.updateMatchIsRunning();
+
+        
+        let match = await Match.findMatchByID(matchID);
+        match = await Match.updateScore(match);
+        await Match.addMatch(match);
+        res.redirect(`/result/${matchID}`)
     }
 
     async getCreateSchedule(req,res, next){

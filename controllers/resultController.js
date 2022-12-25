@@ -21,6 +21,12 @@ class resultController{
         const club2 = await Club.getClubByName(match.club_2);
         const rule = await rules.getRulesFromDataBase();
 
+        if (match.rs == "N"){
+            match.rs = true;
+        }
+        else{
+            match.rs= false;
+        }
         res.render('capnhaptiso', {user, match, club1, club2, rule});
     }
 }
