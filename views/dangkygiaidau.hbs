@@ -14,6 +14,9 @@
 
 
       {{#if dl}}
+            <p class="h3 text-danger text-center mt-4">*Đã hết thời gian đăng ký</p>
+      {{else}}
+
       <div class="card border-0 shadow rounded-3 my-5">
         <div class="card-body p-4 p-sm-5">
           <form class="row g-3" action="/manage/register-club" method="post" enctype="multipart/form-data">
@@ -142,8 +145,6 @@
           </form>
         </div>
       </div>
-      {{else}}
-      <p class="h3 text-danger text-center mt-4">*Đã hết thời gian đăng ký</p>
       {{/if}}
     </div>
   </div>
@@ -177,6 +178,13 @@
           </a>
 
         </div>
+        {{#each errors}}
+            <div>
+              <div style="color: red; padding: 5px 0">
+                * {{this}}
+              </div>
+            </div>
+            {{/each}}
         <div class="modal-body">
           Câu lạc bộ của bạn đã đăng ký tham gia giải đấu thành công.
         </div>

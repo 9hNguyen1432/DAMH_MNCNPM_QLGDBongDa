@@ -134,6 +134,11 @@ class manageController{
         }
 
         else if (validedData.validListPlayer ==true){
+            if(validedData.listPlayerInvalid.length !=0){
+                for (let player of validedData.listPlayerInvalid){
+                    errors.push("Thông tin cầu thủ "+ player.ten +" Không hợp lệ.");
+                }
+            }
             success = true
             var id = ""
             var logo = uploadImage(req.files.logo[0]);
@@ -144,7 +149,7 @@ class manageController{
             var captain = ""
             var club11 = new Club.constructor(id,logo,name, stadium, listPlayer,coach,captain)
             await Club.addClub(club11);
-            res.render('dangkygiaidau',{user, clb, sannha, hlv, success})
+            res.render('dangkygiaidau',{user, clb, sannha, hlv, errors, success})
         }
 
         }
@@ -263,7 +268,7 @@ class manageController{
             for (let i = 0; i < schedule.length; i++){
                 await Match.addMatch(schedule[i]);
             }
-            await rules.setDeadline(false);
+            await rules.setDeadline(true);
             await rules.setDayStart(date);
             return res.redirect('/manage/create-schedule');
         }
